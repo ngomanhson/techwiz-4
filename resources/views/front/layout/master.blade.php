@@ -117,19 +117,12 @@
                     <div id="menu" class="text-left ">
                         <ul class="offcanvas_main_menu">
                             <li class="menu-item-has-children active">
-                                <a href="#">Home</a>
-                                <ul class="sub-menu">
-                                    <li><a href="index.html">Home 1</a></li>
-                                    <li><a href="index-2.html">Home 2</a></li>
-                                    <li><a href="index-3.html">Home 3</a></li>
-                                    <li><a href="index-4.html">Home 4</a></li>
-                                    <li><a href="index-5.html">Home 5</a></li>
-                                </ul>
+                                <a href="/">Home</a>
                             </li>
 
 {{--                            Shop Page--}}
                             <li class="menu-item-has-children">
-                                <a href="#">Shop</a>
+                                <a href="{{url('/shop')}}">Shop</a>
                             </li>
 
                             <li class="menu-item-has-children">
@@ -144,14 +137,6 @@
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="#">pages </a>
-                                <ul class="sub-menu">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="services.html">services</a></li>
-                                    <li><a href="faq.html">Frequently Questions</a></li>
-                                    <li><a href="contact.html">contact</a></li>
-                                    <li><a href="login.html">login</a></li>
-                                    <li><a href="404.html">Error 404</a></li>
-                                </ul>
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="my-account.html">my account</a>
@@ -222,7 +207,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-3 col-4">
                         <div class="logo">
-                            <a href="index.html"><img src="front/assets/img/logo/logo.png" alt=""></a>
+                            <a href="/"><img src="front/assets/img/logo/logo.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-6 col-6">
@@ -257,7 +242,7 @@
                             </div>
                             <div class="header_account_area">
                                 <div class="header_account-list header_wishlist">
-                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
+                                    <a href="{{url('shop/wishlist')}}"><i class="icon-heart"></i></a>
                                 </div>
                                 <div class="header_account-list  mini_cart_wrapper">
                                     <a href="javascript:void(0)"><i class="icon-shopping-bag"></i><span

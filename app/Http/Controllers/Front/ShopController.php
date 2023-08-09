@@ -12,4 +12,8 @@ class ShopController extends Controller
         return view('front.shop.show');
     }
 
+    public function wishlist() {
+        return view('front.shop.wishlist');
+    }
+
 }

@@ -21,6 +21,7 @@ Route::get('/',[\App\Http\Controllers\Front\HomeController::class,'index']);
 Route::prefix("/shop")->group(function () {
     Route::get('/',[\App\Http\Controllers\Front\ShopController::class,'index']);
     Route::get('/shop',[\App\Http\Controllers\Front\ShopController::class,'show']);
+    Route::get('/wishlist',[\App\Http\Controllers\Front\ShopController::class,'wishlist']);
 });
 
 Route::prefix("/blog")->group(function () {
