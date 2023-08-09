@@ -24,8 +24,8 @@ return new class extends Migration
             $table->double('weight')->nullable();
             $table->string('sku')->unique();
             $table->boolean('featured');
-            $table->integer('tag_id')->unsigned();
             $table->string("slug")->unique();
+            $table->float("rate");
             $table->timestamps();
             $table->softDeletes();
         });

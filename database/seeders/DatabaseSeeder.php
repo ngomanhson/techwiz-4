@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
                 'weight' => null,
                 'sku' => Str::random(8),
                 'featured' => true,
-                'tag_id' => 1,
+                'rate' => 0,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
                 'weight' => null,
                 'sku' => Str::random(8),
                 'featured' => true,
-                'tag_id' => 1,
+                'rate' => 0,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -79,8 +79,7 @@ class DatabaseSeeder extends Seeder
             'discount' => 21,
             'weight' => null,
             'sku' => Str::random(8),
-            'featured' => true,
-            'tag_id' => 1,
+            'featured' => true, 'rate' => 0,
             'created_at' => now(),
              'updated_at' => now(),
             ],
@@ -96,7 +95,7 @@ class DatabaseSeeder extends Seeder
                 'weight' => null,
                 'sku' => Str::random(8),
                 'featured' => true,
-                'tag_id' => 1,
+                'rate' => 0,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -112,7 +111,7 @@ class DatabaseSeeder extends Seeder
                 'weight' => null,
                 'sku' => Str::random(8),
                 'featured' => true,
-                'tag_id' => 1,
+                'rate' => 0,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -128,20 +127,12 @@ class DatabaseSeeder extends Seeder
                 'weight' => null,
                 'sku' => Str::random(8),
                 'featured' => true,
-                'tag_id' => 1,
+                'rate' => 0,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
         ]);
 
-        DB::table('product_tag')->insert([
-            [
-                'name' => 'Keo',
-                'created_at' => now(),
-                'updated_at' => now(),
-                'deleted_at' => now(),
-            ]
-        ]);
 
         DB::table('product_images')->insert([
             [
