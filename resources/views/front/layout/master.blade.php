@@ -583,7 +583,8 @@
 </header>
 <!--header area end-->
 
-
+{{--body here--}}
+@yield('body')
 
 <!--newsletter area start-->
 <div class="newsletter_area_start">
