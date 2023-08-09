@@ -312,11 +312,11 @@
                                         </div>
                                         <div class="mini_cart_footer">
                                             <div class="cart_button">
-                                                <a href="{{url('/cart/')}}"><i class="fa fa-shopping-cart"></i> View
+                                                <a href="{{url('cart/')}}"><i class="fa fa-shopping-cart"></i> View
                                                     cart</a>
                                             </div>
                                             <div class="cart_button">
-                                                <a class="active" href="checkout.html"><i class="fa fa-sign-in"></i>
+                                                <a class="active" href="{{url('checkout')}}"><i class="fa fa-sign-in"></i>
                                                     Checkout</a>
                                             </div>
 
