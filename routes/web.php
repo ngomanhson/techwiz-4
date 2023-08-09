@@ -40,7 +40,9 @@ Route::prefix("/contact")->group(function () {
 Route::prefix('/cart')->group(function (){
     Route::get('/',[\App\Http\Controllers\Front\CartController::class,'index']);
 });
-
+Route::prefix('/checkout')->group(function (){
+    Route::get('/',[\App\Http\Controllers\Front\CheckoutController::class,'index']);
+});
 
 Route::prefix('account')->group(function () {
     Route::get('login',[\App\Http\Controllers\Front\AccountController::class,'login']);
