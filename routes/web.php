@@ -29,9 +29,17 @@ Route::prefix("/blog")->group(function () {
 
 });
 
+Route::prefix("/contact")->group(function () {
+    Route::get('/',[\App\Http\Controllers\Front\ContactController::class,'index']);
+});
+
  Route::prefix('admin')->group(function (){
      Route::get('dashboard',[\App\Http\Controllers\Admin\DashboardController::class,'index']);
  });
+
+Route::prefix('/cart')->group(function (){
+    Route::get('/',[\App\Http\Controllers\Front\CartController::class,'index']);
+});
 
 
 Route::prefix('account')->group(function () {
