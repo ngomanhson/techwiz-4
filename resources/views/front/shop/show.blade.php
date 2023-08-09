@@ -271,12 +271,13 @@
                     </div>
                     <!--shop toolbar end-->
                     <div class="row shop_wrapper grid_list">
+                        @foreach($product as $pr)
                         <div class="col-12 ">
                             <article class="single_product">
                                 <figure>
                                     <div class="product_thumb">
                                         <a class="primary_img" href="product-details.html"><img
-                                                src="front/assets/img/product/product1.jpg" alt=""></a>
+                                                src="{{$pr->productImages[0]->path}}" alt=""></a>
                                         <div class="label_product">
                                             <span class="label_sale">-7%</span>
                                         </div>
@@ -312,11 +313,10 @@
                                                     <li><a href="#"><i class="icon-star"></i></a></li>
                                                 </ul>
                                             </div>
-                                            <h4 class="product_name"><a href="product-details.html">commodo augue
-                                                    nisi</a></h4>
+                                            <h4 class="product_name"><a href="product-details.html">{{$pr->name}}</a></h4>
                                             <div class="price_box">
-                                                <span class="current_price">£69.00</span>
-                                                <span class="old_price">£74.00</span>
+                                                <span class="current_price">{{$pr->price}}</span>
+                                                <span class="old_price">{{$pr->discount}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -356,18 +356,18 @@
                                 </figure>
                             </article>
                         </div>
-
+                        @endforeach
                     </div>
 
                     <div class="shop_toolbar t_bottom">
                         <div class="pagination">
-                            <ul>
-                                <li class="current">1</li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li class="next"><a href="#">next</a></li>
-                                <li><a href="#">>></a></li>
-                            </ul>
+{{--                            <ul>--}}
+{{--                                <li class="current">1</li>--}}
+{{--                                <li><a href="#">2</a></li>--}}
+{{--                                <li><a href="#">3</a></li>--}}
+{{--                                <li class="next"><a href="#">next</a></li>--}}
+{{--                                <li><a href="#">>></a></li>--}}
+{{--                            </ul>--}}
                         </div>
                     </div>
                     <!--shop toolbar end-->
