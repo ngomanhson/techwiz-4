@@ -327,7 +327,7 @@
                                     <!--mini cart end-->
                                 </div>
                                 <div class="header_account-list top_links">
-                                    <a href="{{url('account/login')}}"><i class="icon-users"></i></a>
+                                    <a href="{{url('account/my-account')}}"><i class="icon-users"></i></a>
                                     {{--                                    <ul class="dropdown_links">--}}
                                     {{--                                        <li><a href="checkout.html">Checkout </a></li>--}}
                                     {{--                                        <li><a href="my-account.html">My Account </a></li>--}}

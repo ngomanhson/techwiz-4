@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
+    public function myAccount() {
+        return view('front.account.index');
+    }
+
     public function login() {
         return view('front.account.login');
     }
