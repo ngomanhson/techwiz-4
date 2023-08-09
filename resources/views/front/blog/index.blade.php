@@ -9,7 +9,7 @@
                     <div class="breadcrumb_content">
                         <ul>
                             <li><a href="index.html">home</a></li>
-                            <li>blog fullwidth</li>
+                            <li>blog</li>
                         </ul>
                     </div>
                 </div>
@@ -24,13 +24,14 @@
             <div class="row">
                 <div class="col-lg-9 col-md-12">
                     <div class="blog_wrapper">
+                        
                         <article class="single_blog">
                             <figure>
                                 <div class="blog_thumb">
                                     <a href="{{url("blog/detail")}}"><img src="front/assets/img/blog/blog-big1.jpg" alt=""></a>
                                 </div>
                                 <figcaption class="blog_content">
-                                    <h4 class="post_title"><a href="blog-details.html"><i class="fa fa-paper-plane"></i>
+                                    <h4 class="post_title"><a href="{{url("blog/detail")}}"><i class="fa fa-paper-plane"></i>
                                             Blog image post</a></h4>
                                     <div class="blog_meta">
                                         <p>By <a href="#">admin</a> / Date <a href="#">July 16, 2019</a> / Category: <a
@@ -40,134 +41,12 @@
                                         pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus praesent
                                         ornare.</p>
                                     <footer class="btn_more">
-                                        <a href="blog-details.html"> Read more</a>
+                                    <a href="{{url("blog/detail")}}"> Read more</a>
                                     </footer>
                                 </figcaption>
                             </figure>
                         </article>
-                        <article class="single_blog">
-                            <figure>
-                                <div class="blog_thumb">
-                                    <a href="blog-details.html"><img src="front/assets/img/blog/blog-big2.jpg" alt=""></a>
-                                </div>
-                                <figcaption class="blog_content">
-                                    <h4 class="post_title"><a href="blog-details.html"><i
-                                                class="fa fa-paper-plane"></i>Libero lorem</a></h4>
-                                    <div class="blog_meta">
-                                        <p>By <a href="#">admin</a> / Date <a href="#">July 16, 2019</a> / Category: <a
-                                                href="#">eCommerce</a></p>
-                                    </div>
-                                    <p class="post_desc">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras
-                                        pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus praesent
-                                        ornare.</p>
-                                    <footer class="btn_more">
-                                        <a href="blog-details.html"> Read more</a>
-                                    </footer>
-                                </figcaption>
-                            </figure>
-                        </article>
-                        <article class="single_blog">
-                            <figure>
-                                <div class="blog_thumb blog_thumb_active owl-carousel">
-                                    <div class="single_blog_thumb">
-                                        <a href="#"><img src="front/assets/img/blog/blog-big3.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single_blog_thumb">
-                                        <a href="#"><img src="front/assets/img/blog/blog-big1.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single_blog_thumb">
-                                        <a href="#"><img src="front/assets/img/blog/blog-big2.jpg" alt=""></a>
-                                    </div>
-                                    <div class="single_blog_thumb">
-                                        <a href="#"><img src="front/assets/img/blog/blog-big4.jpg" alt=""></a>
-                                    </div>
-                                </div>
-                                <figcaption class="blog_content">
-                                    <h4 class="post_title"><a href="blog-details.html"><i class="fa fa-paper-plane"></i>
-                                            Post with Gallery</a></h4>
-                                    <div class="blog_meta">
-                                        <p>By <a href="#">admin</a> / Date <a href="#">July 16, 2019</a> / Category: <a
-                                                href="#">eCommerce</a></p>
-                                    </div>
-                                    <p class="post_desc">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras
-                                        pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus praesent
-                                        ornare.</p>
-                                    <footer class="btn_more">
-                                        <a href="blog-details.html"> Read more</a>
-                                    </footer>
-                                </figcaption>
-                            </figure>
-                        </article>
-                        <article class="single_blog">
-                            <figure>
-                                <div class="blog_thumb">
-                                    <a href="blog-details.html"><img src="front/assets/img/blog/blog-big4.jpg" alt=""></a>
-                                </div>
-                                <figcaption class="blog_content">
-                                    <h4 class="post_title"><a href="blog-details.html"><i class="fa fa-paper-plane"></i>
-                                            Post with Audio</a></h4>
-                                    <div class="blog_meta">
-                                        <p>By <a href="#">admin</a> / Date <a href="#">July 16, 2019</a> / Category: <a
-                                                href="#">eCommerce</a></p>
-                                    </div>
-                                    <div class="blog_aduio_icone">
-                                        <audio controls>
-                                            <source src="../../../www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_manc4ca.mp3?1"
-                                                type="audio/mp3">
-                                        </audio>
-                                    </div>
-                                    <p class="post_desc">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras
-                                        pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus praesent
-                                        ornare.</p>
-                                    <footer class="btn_more">
-                                        <a href="blog-details.html"> Read more</a>
-                                    </footer>
-                                </figcaption>
-                            </figure>
-                        </article>
-                        <article class="single_blog">
-                            <figure>
-                                <div class="blog_thumb">
-                                    <iframe src="https://www.youtube.com/embed/2Zt8va_6HRk"
-                                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                                </div>
-                                <figcaption class="blog_content">
-                                    <h4 class="post_title"><a href="blog-details.html"><i
-                                                class="fa fa-paper-plane"></i>Post with Video</a></h4>
-                                    <div class="blog_meta">
-                                        <p>By <a href="#">admin</a> / Date <a href="#">July 16, 2019</a> / Category: <a
-                                                href="#">eCommerce</a></p>
-                                    </div>
-                                    <p class="post_desc">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras
-                                        pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus praesent
-                                        ornare.</p>
-                                    <footer class="btn_more">
-                                        <a href="blog-details.html"> Read more</a>
-                                    </footer>
-                                </figcaption>
-                            </figure>
-                        </article>
-                        <article class="single_blog">
-                            <figure>
-                                <div class="blog_thumb">
-                                    <a href="blog-details.html"><img src="front/assets/img/blog/blog-big5.jpg" alt=""></a>
-                                </div>
-                                <figcaption class="blog_content">
-                                    <h4 class="post_title"><a href="blog-details.html"><i class="fa fa-paper-plane"></i>
-                                            Maecenas ultricies</a></h4>
-                                    <div class="blog_meta">
-                                        <p>By <a href="#">admin</a> / Date <a href="#">July 16, 2019</a> / Category: <a
-                                                href="#">eCommerce</a></p>
-                                    </div>
-                                    <p class="post_desc">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras
-                                        pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus praesent
-                                        ornare.</p>
-                                    <footer class="btn_more">
-                                        <a href="blog-details.html"> Read more</a>
-                                    </footer>
-                                </figcaption>
-                            </figure>
-                        </article>
+                        
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-12">
