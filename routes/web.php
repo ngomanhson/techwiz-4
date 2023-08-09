@@ -26,3 +26,10 @@ Route::prefix("/shop")->group(function () {
  Route::prefix('admin')->group(function (){
      Route::get('dashboard',[\App\Http\Controllers\Admin\DashboardController::class,'index']);
  });
+
+
+Route::prefix('account')->group(function () {
+    Route::get('login',[\App\Http\Controllers\Front\AccountController::class,'login']);
+    Route::get('register',[\App\Http\Controllers\Front\AccountController::class,'register']);
+});
+

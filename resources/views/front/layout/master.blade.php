@@ -255,15 +255,6 @@
                                 </form>
                             </div>
                             <div class="header_account_area">
-                                <div class="header_account-list top_links">
-                                    <a href="#"><i class="icon-users"></i></a>
-                                    <ul class="dropdown_links">
-                                        <li><a href="checkout.html">Checkout </a></li>
-                                        <li><a href="my-account.html">My Account </a></li>
-                                        <li><a href="cart.html">Shopping Cart</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                    </ul>
-                                </div>
                                 <div class="header_account-list header_wishlist">
                                     <a href="wishlist.html"><i class="icon-heart"></i></a>
                                 </div>
@@ -333,6 +324,15 @@
                                         </div>
                                     </div>
                                     <!--mini cart end-->
+                                </div>
+                                <div class="header_account-list top_links">
+                                    <a href="{{url('account/login')}}"><i class="icon-users"></i></a>
+                                    {{--                                    <ul class="dropdown_links">--}}
+                                    {{--                                        <li><a href="checkout.html">Checkout </a></li>--}}
+                                    {{--                                        <li><a href="my-account.html">My Account </a></li>--}}
+                                    {{--                                        <li><a href="cart.html">Shopping Cart</a></li>--}}
+                                    {{--                                        <li><a href="wishlist.html">Wishlist</a></li>--}}
+                                    {{--                                    </ul>--}}
                                 </div>
                             </div>
                         </div>
