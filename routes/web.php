@@ -23,6 +23,12 @@ Route::prefix("/shop")->group(function () {
     Route::get('/shop',[\App\Http\Controllers\Front\ShopController::class,'show']);
 });
 
+Route::prefix("/blog")->group(function () {
+    Route::get('/',[\App\Http\Controllers\Front\BlogController::class,'index']);
+    Route::get('/detail',[\App\Http\Controllers\Front\BlogController::class,'show']);
+
+});
+
  Route::prefix('admin')->group(function (){
      Route::get('dashboard',[\App\Http\Controllers\Admin\DashboardController::class,'index']);
  });
