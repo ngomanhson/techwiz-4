@@ -21,6 +21,7 @@ Route::get('/',[\App\Http\Controllers\Front\HomeController::class,'index']);
 Route::prefix("/shop")->group(function () {
     Route::get('/',[\App\Http\Controllers\Front\ShopController::class,'index']);
     Route::get('/shop',[\App\Http\Controllers\Front\ShopController::class,'show']);
+    Route::get('/wishlist',[\App\Http\Controllers\Front\ShopController::class,'wishlist']);
 });
 
 Route::prefix("/blog")->group(function () {
@@ -45,6 +46,7 @@ Route::prefix('/checkout')->group(function (){
 });
 
 Route::prefix('account')->group(function () {
+    Route::get('my-account',[\App\Http\Controllers\Front\AccountController::class,'myAccount']);
     Route::get('login',[\App\Http\Controllers\Front\AccountController::class,'login']);
     Route::post('login',[\App\Http\Controllers\Front\AccountController::class,'checkLogin']);
     Route::get('register',[\App\Http\Controllers\Front\AccountController::class,'register']);

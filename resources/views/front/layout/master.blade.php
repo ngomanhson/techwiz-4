@@ -255,7 +255,7 @@
                             </div>
                             <div class="header_account_area">
                                 <div class="header_account-list header_wishlist">
-                                    <a href="wishlist.html"><i class="icon-heart"></i></a>
+                                    <a href="{{url('shop/wishlist')}}"><i class="icon-heart"></i></a>
                                 </div>
                                 <div class="header_account-list  mini_cart_wrapper">
                                     <a href="javascript:void(0)"><i class="icon-shopping-bag"></i><span
@@ -325,13 +325,17 @@
                                     <!--mini cart end-->
                                 </div>
                                 <div class="header_account-list top_links">
-                                    <a href="{{url('account/login')}}"><i class="icon-users"></i></a>
-                                    {{--                                    <ul class="dropdown_links">--}}
-                                    {{--                                        <li><a href="checkout.html">Checkout </a></li>--}}
-                                    {{--                                        <li><a href="my-account.html">My Account </a></li>--}}
-                                    {{--                                        <li><a href="cart.html">Shopping Cart</a></li>--}}
-                                    {{--                                        <li><a href="wishlist.html">Wishlist</a></li>--}}
-                                    {{--                                    </ul>--}}
+                                    <a><i class="icon-users"></i></a>
+                                    <ul class="dropdown_links">
+                                        <li>
+                                            @if(Auth::check())
+                                                <a href="{{url("/account/my-account")}}">{{Auth::user()->name}}</a>
+                                            @else
+                                                <a href="{{url("/account/login")}}">Login</a>
+                                            @endif
+                                        </li>
+                                        <li><a href="{{url('account/logout')}}">Logout</a></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>

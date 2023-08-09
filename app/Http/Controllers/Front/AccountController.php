@@ -38,4 +38,10 @@ class AccountController extends Controller
     public function register() {
         return view('front.account.register');
     }
+
+    public function logout() {
+        Auth::logout();
+
+        return back();
+    }
 }
