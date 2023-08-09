@@ -18,7 +18,10 @@ use Illuminate\Support\Facades\Route;
 //});
 Route::get('/',[\App\Http\Controllers\Front\HomeController::class,'index']);
 
-
+Route::prefix("/shop")->group(function () {
+    Route::get('/',[\App\Http\Controllers\Front\ShopController::class,'index']);
+    Route::get('/shop',[\App\Http\Controllers\Front\ShopController::class,'show']);
+});
 
  Route::prefix('admin')->group(function (){
      Route::get('dashboard',[\App\Http\Controllers\Admin\DashboardController::class,'index']);

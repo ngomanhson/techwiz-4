@@ -44,6 +44,8 @@
 
 <!--header area start-->
 
+
+{{-- Star Header Mobile--}}
 <!--offcanvas menu area start-->
 <div class="off_canvars_overlay">
 
@@ -123,41 +125,12 @@
                                     <li><a href="index-5.html">Home 5</a></li>
                                 </ul>
                             </li>
+
+{{--                            Shop Page--}}
                             <li class="menu-item-has-children">
                                 <a href="#">Shop</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item-has-children">
-                                        <a href="#">Shop Layouts</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="shop.html">shop</a></li>
-                                            <li><a href="shop-fullwidth.html">Full Width</a></li>
-                                            <li><a href="shop-fullwidth-list.html">Full Width list</a></li>
-                                            <li><a href="shop-right-sidebar.html">Right Sidebar </a></li>
-                                            <li><a href="shop-right-sidebar-list.html"> Right Sidebar list</a></li>
-                                            <li><a href="shop-list.html">List View</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#">other Pages</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="cart.html">cart</a></li>
-                                            <li><a href="wishlist.html">Wishlist</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                            <li><a href="my-account.html">my account</a></li>
-                                            <li><a href="404.html">Error 404</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#">Product Types</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="product-details.html">product details</a></li>
-                                            <li><a href="product-sidebar.html">product sidebar</a></li>
-                                            <li><a href="product-grouped.html">product grouped</a></li>
-                                            <li><a href="variable-product.html">product variable</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
                             </li>
+
                             <li class="menu-item-has-children">
                                 <a href="#">blog</a>
                                 <ul class="sub-menu">
@@ -206,7 +179,9 @@
         </div>
     </div>
 </div>
+{{--End Header Mobile--}}
 
+{{-- Star Header Computer--}}
 <!--offcanvas menu area end-->
 <header>
     <div class="main_header">
@@ -510,44 +485,14 @@
                                             <li><a href="index-5.html">Home shop 5</a></li>
                                         </ul>
                                     </li>
-                                    <li class="mega_items"><a href="shop.html">shop<i
-                                                class="fa fa-angle-down"></i></a>
-                                        <div class="mega_menu">
-                                            <ul class="mega_menu_inner">
-                                                <li><a href="#">Shop Layouts</a>
-                                                    <ul>
-                                                        <li><a href="shop-fullwidth.html">Full Width</a></li>
-                                                        <li><a href="shop-fullwidth-list.html">Full Width list</a>
-                                                        </li>
-                                                        <li><a href="shop-right-sidebar.html">Right Sidebar </a>
-                                                        </li>
-                                                        <li><a href="shop-right-sidebar-list.html"> Right Sidebar
-                                                                list</a></li>
-                                                        <li><a href="shop-list.html">List View</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">other Pages</a>
-                                                    <ul>
-                                                        <li><a href="cart.html">cart</a></li>
-                                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                                        <li><a href="checkout.html">Checkout</a></li>
-                                                        <li><a href="my-account.html">my account</a></li>
-                                                        <li><a href="404.html">Error 404</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="#">Product Types</a>
-                                                    <ul>
-                                                        <li><a href="product-details.html">product details</a></li>
-                                                        <li><a href="product-sidebar.html">product sidebar</a></li>
-                                                        <li><a href="product-grouped.html">product grouped</a></li>
-                                                        <li><a href="variable-product.html">product variable</a>
-                                                        </li>
 
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
+{{--                               Star Shop Page--}}
+                                    <li class="mega_items">
+                                        <a href="{{url("/shop")}}">shop</a>
                                     </li>
+{{--                                    End Shop Page--}}
+
+
                                     <li><a href="blog.html">blog<i class="fa fa-angle-down"></i></a>
                                         <ul class="sub_menu pages">
                                             <li><a href="blog-details.html">blog details</a></li>
@@ -582,6 +527,7 @@
     </div>
 </header>
 <!--header area end-->
+{{-- End Header Computer--}}
 
 {{--body here--}}
 @yield('body')
