@@ -1,13 +1,11 @@
 <!doctype html>
 <html class="no-js" lang="en">
 
-
-<!-- Mirrored from htmldemo.net/lukani/lukani/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 09 Aug 2023 01:44:43 GMT -->
 <head>
     <base href="/">
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Lukani – Plant and Flower Shop eCommerce HTML Template </title>
+    <title>PlantNest</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
