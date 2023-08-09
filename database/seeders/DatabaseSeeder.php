@@ -180,6 +180,25 @@ class DatabaseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+        ]);
+
+        DB::table('users')->insert([
+            [
+                'id' => 1,
+                'name' => 'Ngô Mạnh Sơn',
+                'email' => 'ngomanhson2004txpt@gmail.com',
+                'password' => Hash::make('23102004'),
+                'level' => 2,
+                'description' => null,
+                'company_name'=> 'FPT APTECH',
+                'country'=> 'Viêt Nam',
+                'street_address'=> '8A Tôn Thất Thuyết',
+                'town_city'=> 'Hà Nội',
+                'postcode_zip'=> '100000',
+                'phone'=> '0929999999',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
 
         ]);
     }
