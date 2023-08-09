@@ -10,6 +10,6 @@ class ProductTagRepository extends BaseRepositories implements ProductTagReposit
     public function getModel()
     {
         return ProductTag::class;
-        // TODO: Implement getModel() method.
+
     }
 }
