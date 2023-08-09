@@ -15,7 +15,7 @@
                             <div class="slider_content">
                                 <h1>BIG SALE</h1>
                                 <p>Discount <span>20% Off </span> For Lukani Members </p>
-                                <a class="button" href="shop.html">Discover Now </a>
+                                <a class="button" href="{{url("/shop")}}">Discover Now </a>
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                             <div class="slider_content">
                                 <h1>TOP SALE</h1>
                                 <p>Discount <span>20% Off </span> For Lukani Members </p>
-                                <a class="button" href="shop.html">Discover Now </a>
+                                <a class="button" href="{{url("/shop")}}">Discover Now </a>
                             </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                             <div class="slider_content">
                                 <h1>Lovely Plants </h1>
                                 <p>Discount <span>20% Off </span> For Lukani Members </p>
-                                <a class="button" href="shop.html">Discover Now </a>
+                                <a class="button" href="{{url("/shop")}}">Discover Now </a>
                             </div>
                         </div>
                     </div>
