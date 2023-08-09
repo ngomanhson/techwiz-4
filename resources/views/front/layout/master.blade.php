@@ -133,14 +133,7 @@
                             </li>
 
                             <li class="menu-item-has-children">
-                                <a href="#">blog</a>
-                                <ul class="sub-menu">
-                                    <li><a href="blog.html">blog</a></li>
-                                    <li><a href="blog-details.html">blog details</a></li>
-                                    <li><a href="blog-fullwidth.html">blog fullwidth</a></li>
-                                    <li><a href="blog-sidebar.html">blog sidebar</a></li>
-                                </ul>
-
+                            <a href="{{url("/blog")}}">blog</a>
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="#">pages </a>
@@ -160,7 +153,7 @@
                                 <a href="about.html">about Us</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="contact.html"> Contact Us</a>
+                            <a href="{{url("/contact")}}"> Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -510,7 +503,7 @@
                                             <li><a href="404.html">Error 404</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html"> Contact Us</a></li>
+                                    <li><a href="{{url("/contact")}}"> Contact Us</a></li>
                                 </ul>
                             </nav>
                         </div>
