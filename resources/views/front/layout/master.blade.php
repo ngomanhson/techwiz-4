@@ -126,7 +126,14 @@
                             </li>
 
                             <li class="menu-item-has-children">
-                            <a href="{{url("/blog")}}">blog</a>
+                                <a href="#">blog</a>
+                                <ul class="sub-menu">
+                                    <li><a href="blog.html">blog</a></li>
+                                    <li><a href="blog-details.html">blog details</a></li>
+                                    <li><a href="blog-fullwidth.html">blog fullwidth</a></li>
+                                    <li><a href="blog-sidebar.html">blog sidebar</a></li>
+                                </ul>
+
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="#">pages </a>
@@ -138,7 +145,7 @@
                                 <a href="about.html">about Us</a>
                             </li>
                             <li class="menu-item-has-children">
-                            <a href="{{url("/contact")}}"> Contact Us</a>
+                                <a href="contact.html"> Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -455,15 +462,10 @@
                         <div class="main_menu menu_position">
                             <nav>
                                 <ul>
-                                    <li><a class="active" href="index.html">home<i class="fa fa-angle-down"></i></a>
-                                        <ul class="sub_menu">
-                                            <li><a href="index.html">Home shop 1</a></li>
-                                            <li><a href="index-2.html">Home shop 2</a></li>
-                                            <li><a href="index-3.html">Home shop 3</a></li>
-                                            <li><a href="index-4.html">Home shop 4</a></li>
-                                            <li><a href="index-5.html">Home shop 5</a></li>
-                                        </ul>
+{{--                                    Start Home Page--}}
+                                    <li><a href="{{url("/")}}">home</a>
                                     </li>
+{{--                                    End Home Page--}}
 
 {{--                               Star Shop Page--}}
                                     <li class="mega_items">
@@ -471,8 +473,7 @@
                                     </li>
 {{--                                    End Shop Page--}}
 
-<!-- {{--                               Star Blog Page--}} -->
-
+<!-- {{--                       Star Blog Page--}} -->
                                     <li>
                                         <a href="{{url("/blog")}}">blog</a>
                                     </li>
@@ -488,7 +489,7 @@
                                             <li><a href="404.html">Error 404</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="{{url("/contact")}}"> Contact Us</a></li>
+                                    <li><a href="contact.html"> Contact Us</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -509,37 +510,6 @@
 
 {{--body here--}}
 @yield('body')
-
-<!--newsletter area start-->
-<div class="newsletter_area_start">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section_title">
-                    <h2>Get <span>20% Off</span> Your Next Order</h2>
-                </div>
-                <div class="newsletter_container">
-                    <div class="subscribe_form">
-                        <form id="mc-form" class="mc-form footer-newsletter">
-                            <input id="mc-email" type="email" autocomplete="off" placeholder="Enter you email" />
-                            <button id="mc-submit">Subscribe</button>
-                            <div class="email_icon">
-                                <i class="icon-mail"></i>
-                            </div>
-                        </form>
-                        <!-- mailchimp-alerts Start -->
-                        <div class="mailchimp-alerts text-centre">
-                            <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-                            <div class="mailchimp-success"></div><!-- mailchimp-success end -->
-                            <div class="mailchimp-error"></div><!-- mailchimp-error end -->
-                        </div><!-- mailchimp-alerts end -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--newsletter area end-->
 
 <!--footer area start-->
 <footer class="footer_widgets">
