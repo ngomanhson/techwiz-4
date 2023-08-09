@@ -19,15 +19,8 @@
     </div>
     <!--breadcrumbs area end-->
 
-    <!--contact map start-->
-    <div class="contact_map mt-100">
-        <div class="map-area">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.096949073262!2d105.7797142752526!3d21.028806487776915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b32b842a37%3A0xe91a56573e7f9a11!2zOGEgVMO0biBUaOG6pXQgVGh1eeG6v3QsIE3hu7kgxJDDrG5oLCBD4bqndSBHaeG6pXksIEjDoCBO4buZaSAxMDAwMDAsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1691563689634!5m2!1svi!2s" width="1420" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        </div>
-    </div>
-    <!--contact map end-->
-
     <!--contact area start-->
-    <div class="contact_area">
+    <div class="contact_area" style="padding-top: 100px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
@@ -74,6 +67,13 @@
     </div>
 
     <!--contact area end-->
+
+    <!--contact map start-->
+    <div class="contact_map mt-100">
+        <div class="map-area">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.096949073262!2d105.7797142752526!3d21.028806487776915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b32b842a37%3A0xe91a56573e7f9a11!2zOGEgVMO0biBUaOG6pXQgVGh1eeG6v3QsIE3hu7kgxJDDrG5oLCBD4bqndSBHaeG6pXksIEjDoCBO4buZaSAxMDAwMDAsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1691563689634!5m2!1svi!2s" width="1420" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        </div>
+    </div>
+    <!--contact map end-->
 
     <!--brand area start-->
     <div class="brand_area brand__three">
