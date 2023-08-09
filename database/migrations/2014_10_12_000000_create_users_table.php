@@ -18,7 +18,19 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+
+            $table->tinyInteger('level')->nullable();
+            $table->text('description')->nullable();
+
+            $table->string('company_name')->nullable();
+            $table->string('country')->nullable();
+            $table->string('street_address')->nullable();
+            $table->string('postcode_zip')->nullable();
+            $table->string('town_city')->nullable();
+            $table->string('phone')->nullable();
+
             $table->timestamps();
+            $table->softDeletesTz();
         });
     }
 
