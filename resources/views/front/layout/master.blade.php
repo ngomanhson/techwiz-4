@@ -222,7 +222,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3 col-md-3 col-4">
                         <div class="logo">
-                            <a href="index.html"><img src="front/assets/img/logo/logo.png" alt=""></a>
+                            <a href="{{url("/")}}"><img src="front/assets/img/logo/logo.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-6 col-6">
@@ -477,15 +477,11 @@
                         <div class="main_menu menu_position">
                             <nav>
                                 <ul>
-                                    <li><a class="active" href="index.html">home<i class="fa fa-angle-down"></i></a>
-                                        <ul class="sub_menu">
-                                            <li><a href="index.html">Home shop 1</a></li>
-                                            <li><a href="index-2.html">Home shop 2</a></li>
-                                            <li><a href="index-3.html">Home shop 3</a></li>
-                                            <li><a href="index-4.html">Home shop 4</a></li>
-                                            <li><a href="index-5.html">Home shop 5</a></li>
-                                        </ul>
+{{--                                    Start Home Page--}}
+                                    <li>
+                                        <a href="{{url("/")}}">home</a>
                                     </li>
+{{--                                    End Home Page--}}
 
 {{--                               Star Shop Page--}}
                                     <li class="mega_items">
@@ -771,45 +767,45 @@
 </div>
 <!-- modal area end-->
 
-<!--news letter popup start-->
-<div class="newletter-popup">
-    <div id="boxes" class="newletter-container">
-        <div id="dialog" class="window">
-            <div id="popup2">
-                <span class="b-close"><span>close</span></span>
-            </div>
-            <div class="box">
-                <div class="newletter-title">
-                    <h2>Newsletter</h2>
-                </div>
-                <div class="box-content newleter-content">
-                    <label class="newletter-label">Enter your email address to subscribe our notification of our new
-                        post &amp; features by email.</label>
-                    <div id="frm_subscribe">
-                        <form name="subscribe" id="subscribe_popup">
-                            <!-- <span class="required">*</span><span>Enter you email address here...</span>-->
-                            <input type="text" value="" name="subscribe_pemail" id="subscribe_pemail"
-                                   placeholder="Enter you email address here...">
-                            <input type="hidden" value="" name="subscribe_pname" id="subscribe_pname">
-                            <div id="notification"></div>
-                            <a class="theme-btn-outlined"
-                               onclick="email_subscribepopup()"><span>Subscribe</span></a>
-                        </form>
-                        <div class="subscribe-bottom">
-                            <input type="checkbox" id="newsletter_popup_dont_show_again">
-                            <label for="newsletter_popup_dont_show_again">Don't show this popup again</label>
-                        </div>
-                    </div>
-                    <!-- /#frm_subscribe -->
-                </div>
-                <!-- /.box-content -->
-            </div>
-        </div>
+{{--<!--news letter popup start-->--}}
+{{--<div class="newletter-popup">--}}
+{{--    <div id="boxes" class="newletter-container">--}}
+{{--        <div id="dialog" class="window">--}}
+{{--            <div id="popup2">--}}
+{{--                <span class="b-close"><span>close</span></span>--}}
+{{--            </div>--}}
+{{--            <div class="box">--}}
+{{--                <div class="newletter-title">--}}
+{{--                    <h2>Newsletter</h2>--}}
+{{--                </div>--}}
+{{--                <div class="box-content newleter-content">--}}
+{{--                    <label class="newletter-label">Enter your email address to subscribe our notification of our new--}}
+{{--                        post &amp; features by email.</label>--}}
+{{--                    <div id="frm_subscribe">--}}
+{{--                        <form name="subscribe" id="subscribe_popup">--}}
+{{--                            <!-- <span class="required">*</span><span>Enter you email address here...</span>-->--}}
+{{--                            <input type="text" value="" name="subscribe_pemail" id="subscribe_pemail"--}}
+{{--                                   placeholder="Enter you email address here...">--}}
+{{--                            <input type="hidden" value="" name="subscribe_pname" id="subscribe_pname">--}}
+{{--                            <div id="notification"></div>--}}
+{{--                            <a class="theme-btn-outlined"--}}
+{{--                               onclick="email_subscribepopup()"><span>Subscribe</span></a>--}}
+{{--                        </form>--}}
+{{--                        <div class="subscribe-bottom">--}}
+{{--                            <input type="checkbox" id="newsletter_popup_dont_show_again">--}}
+{{--                            <label for="newsletter_popup_dont_show_again">Don't show this popup again</label>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <!-- /#frm_subscribe -->--}}
+{{--                </div>--}}
+{{--                <!-- /.box-content -->--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
-    </div>
-    <!-- /.box -->
-</div>
-<!--news letter popup start-->
+{{--    </div>--}}
+{{--    <!-- /.box -->--}}
+{{--</div>--}}
+{{--<!--news letter popup start-->--}}
 
 
 
