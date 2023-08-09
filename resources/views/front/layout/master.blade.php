@@ -148,7 +148,7 @@
                                     <li><a href="about.html">About Us</a></li>
                                     <li><a href="services.html">services</a></li>
                                     <li><a href="faq.html">Frequently Questions</a></li>
-                                    <li><a href="contact.html">contact</a></li>
+                                    <li><a href="{{url('/contact')}}">contact</a></li>
                                     <li><a href="login.html">login</a></li>
                                     <li><a href="404.html">Error 404</a></li>
                                 </ul>
@@ -160,7 +160,7 @@
                                 <a href="about.html">about Us</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="contact.html"> Contact Us</a>
+                                <a href="{{url('/contact')}}"> Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -501,12 +501,12 @@
                                             <li><a href="about.html">About Us</a></li>
                                             <li><a href="services.html">services</a></li>
                                             <li><a href="faq.html">Frequently Questions</a></li>
-                                            <li><a href="contact.html">contact</a></li>
+                                            <li><a href="{{url('/contact')}}">contact</a></li>
                                             <li><a href="login.html">login</a></li>
                                             <li><a href="404.html">Error 404</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html"> Contact Us</a></li>
+                                    <li><a href="{{url('/contact')}}"> Contact Us</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -550,7 +550,6 @@
                             <ul>
                                 <li><a href="about.html">About Us</a></li>
                                 <li><a href="checkout.html">Checkout</a></li>
-                                <li><a href="contact.html">Contact</a></li>
                                 <li><a href="faq.html">Frequently Questions</a></li>
                                 <li><a href="wishlist.html">Wishlist</a></li>
                             </ul>
@@ -566,7 +565,7 @@
                             <ul>
                                 <li><a href="#">Payment</a></li>
                                 <li><a href="#">Affiliates</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="{{url('/contact')}}">Contact</a></li>
                                 <li><a href="#">Internet</a></li>
                             </ul>
                         </div>
@@ -592,7 +591,7 @@
                         <div class="footer_menu">
                             <ul>
                                 <li><a href="my-account.html">My Account</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="{{url('/contact')}}">Contact</a></li>
                                 <li><a href="cart.html">Shopping cart</a></li>
                                 <li><a href="checkout.html">Checkout</a></li>
                                 <li><a href="shop.html">Shop</a></li>
