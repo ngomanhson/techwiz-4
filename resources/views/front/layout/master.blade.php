@@ -325,16 +325,16 @@
                                     <!--mini cart end-->
                                 </div>
                                 <div class="header_account-list top_links">
-                                    <a><i class="icon-users"></i></a>
+                                    <a href="{{url("/account/{user_id}")}}"><i class="icon-users"></i></a>
                                     <ul class="dropdown_links">
                                         <li>
                                             @if(Auth::check())
-                                                <a href="{{url("/account/my-account")}}">{{Auth::user()->name}}</a>
+                                                <a href="{{url("/account/{user_id}")}}">{{Auth::user()->first_name . ' ' . Auth::user()->last_name}}</a>
+                                                <a href="{{url('account/logout')}}">Logout</a>
                                             @else
                                                 <a href="{{url("/account/login")}}">Login</a>
                                             @endif
                                         </li>
-                                        <li><a href="{{url('account/logout')}}">Logout</a></li>
                                     </ul>
                                 </div>
                             </div>

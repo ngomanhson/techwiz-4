@@ -6,12 +6,12 @@
             <div class="card login-card">
                 <div class="row no-gutters">
                     <div class="col-md-5">
-                        <img src="front/img/ login.png" alt="login" class="login-card-img" />
+                        <img src="front/assets/img/login.png" alt="login" class="login-card-img" />
                     </div>
                     <div class="col-md-7">
                         <div class="card-body">
                             <div class="brand-wrapper">
-                                <a href="{{url("/")}}"><img src="front/assets/img/logo.png" alt="logo"  title="Go to home" class="logo" /></a>
+                                <a href="{{url("/")}}"><img src="front/assets/img/logo/logo.png" alt="logo"  title="Go to home" class="logo" /></a>
                             </div>
                             <p class="login-card-description">Register account</p>
                             <form action="{{url("/account/register")}}" method="post">
@@ -24,9 +24,16 @@
                                 @endif
 
                                 <div class="form-group">
-                                    <label for="fullname" class="sr-only">Email</label>
-                                    <input type="text" name="name" id="fullname" class="form-control" placeholder="Enter full name" />
-                                    @error("name")
+                                    <label for="first_name" class="sr-only">First name</label>
+                                    <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Enter first name" />
+                                    @error("first_name")
+                                    <p class="text-danger text-small"><i>{{$message}}</i></p>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="last_name" class="sr-only">Last name</label>
+                                    <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Enter last name" />
+                                    @error("last_name")
                                     <p class="text-danger text-small"><i>{{$message}}</i></p>
                                     @enderror
                                 </div>
