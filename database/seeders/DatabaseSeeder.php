@@ -731,7 +731,7 @@ class DatabaseSeeder extends Seeder
                 'id' => 1,
                 'name' => 'Ngô Mạnh Sơn',
                 'email' => 'ngomanhson2004txpt@gmail.com',
-                'password' => Hash::make('23102004'),
+                'password' => Hash::make('12345678'),
                 'level' => 2,
                 'description' => null,
                 'company_name'=> 'FPT APTECH',
