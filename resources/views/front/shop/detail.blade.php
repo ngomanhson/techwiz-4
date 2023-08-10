@@ -60,9 +60,13 @@
                             <div class="product_ratting">
                                 <ul>
                                     @for ($i = 1; $i <= 5; $i++)
-                                        <li><a href="#"><i class="icon-star{{ $i <= $product->averageRating ? ' active' : '' }}"></i></a></li>
+                                        <li><a href="#"><i class="icon-star{{ $i <= $product->averageRating ? ' active' : '' }}"></i></a> </li>
                                     @endfor
-                                    <li class="review"><a href="#"> ({{ $product->reviewCount }} customer review ) </a></li>
+                                        @php
+                                            $averageRatingFormatted = number_format($product->averageRating, 1);
+                                        @endphp
+                                        <span>{{ $averageRatingFormatted }}/5</span>
+                                    <li class="review" style="padding-left: 20px"><a href="#"> ({{ $product->reviewCount }} customer review) </a></li>
                                 </ul>
                             </div>
 
@@ -84,12 +88,13 @@
                                 @if($product->productDetails->isEmpty())
                                     <input disabled value="Out of stock">
                                 @else
-                                    <select class="select_option" id="size" name="product_size">
+                                    <select onchange="updateInput(); updateMaxQuantity();" class="select_option" id="select_option" name="product_size">
                                         @foreach ($product->productDetails->pluck('size')->unique() as $size)
                                             <option value="{{ $size }}" @if($loop->first) selected @endif>{{ $size }}</option>
                                         @endforeach
                                     </select>
                                 @endif
+                                <label style="padding-left: 20px">Having: <input id="sizeCount" style="border: none; outline: none"/></label>
                             </div>
 
                             <div class="product_variant quantity">
@@ -106,11 +111,43 @@
                                 <button class="button" type="submit">Add to Cart</button>
                             </div>
 
+                            <script>
+                                var rentalMethodData = {
+                                    @foreach ($products_detail as $rentalMethod)
+                                    "{{ $rentalMethod->size }}": "{{ $rentalMethod->qty }}",
+                                    @endforeach
+                                };
+
+                                function updateInput() {
+                                    var select = document.getElementById("select_option");
+                                    var label = document.getElementById("sizeCount");
+                                    var selectedId = select.value;
+
+                                    label.value = rentalMethodData[selectedId];
+                                }
+
+                                function updateMaxQuantity() {
+                                    var select = document.getElementById("select_option");
+                                    var quantityInput = document.getElementById("quantityInput");
+                                    var selectedId = select.value;
+
+                                    var maxQuantity = rentalMethodData[selectedId];
+                                    quantityInput.max = maxQuantity;
+                                    quantityInput.value = 1; // Reset the quantity to 1 when changing size
+                                }
+
+                                // Call the updateInput and updateMaxQuantity functions on page load
+                                window.addEventListener("load", function () {
+                                    updateInput();
+                                    updateMaxQuantity();
+                                });
+                            </script>
+
                         </form>
 
                         <div class=" product_d_action">
                             <ul>
-                                <li><a href="#" title="Add to wishlist">+ Add to Wishlist</a></li>
+                                <li><a href="" title="Add to wishlist">+ Add to Wishlist</a></li>
                             </ul>
                         </div>
 
@@ -119,17 +156,15 @@
                             <span>Category: <a href="#">{{$product->productCategory->name}}</a></span>
                         </div>
                         <div class="priduct_social">
+                            <?php
+                            $productUrl = 'https://your-product-url.com'; // Đường dẫn đến sản phẩm thực tế của bạn
+                            ?>
                             <ul>
-                                <li><a class="facebook" href="" title="facebook"><i class="fa fa-facebook"></i>
-                                        Like</a></li>
-                                <li><a class="twitter" href="" title="twitter"><i class="fa fa-twitter"></i> tweet</a>
-                                </li>
-                                <li><a class="pinterest" href="" title="pinterest"><i class="fa fa-pinterest"></i>
-                                        save</a></li>
-                                <li><a class="google-plus" href="" title="google +"><i class="fa fa-google-plus"></i>
-                                        share</a></li>
-                                <li><a class="linkedin" href="" title="linkedin"><i class="fa fa-linkedin"></i>
-                                        linked</a></li>
+                                <li><a class="facebook" href="https://www.facebook.com/sharer.php?u={{ urlencode($productUrl) }}" title="facebook"><i class="fa fa-facebook"></i> Like</a></li>
+                                <li><a class="twitter" href="https://twitter.com/intent/tweet?url={{ urlencode($productUrl) }}" title="twitter"><i class="fa fa-twitter"></i> Tweet</a></li>
+                                <li><a class="pinterest" href="https://www.pinterest.com/pin/create/button/?url={{ urlencode($productUrl) }}" title="pinterest"><i class="fa fa-pinterest"></i> Save</a></li>
+                                <li><a class="google-plus" href="https://plus.google.com/share?url={{ urlencode($productUrl) }}" title="google +"><i class="fa fa-google-plus"></i> Share</a></li>
+                                <li><a class="linkedin" href="https://www.linkedin.com/shareArticle?url={{ urlencode($productUrl) }}" title="linkedin"><i class="fa fa-linkedin"></i> Linked</a></li>
                             </ul>
                         </div>
                     </div>
@@ -156,27 +191,13 @@
                                     <a data-bs-toggle="tab" href="#sheet" role="tab" aria-controls="sheet"
                                        aria-selected="false">Specification</a>
                                 </li>
-                                <li>
-                                    <a data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
-                                       aria-selected="false">Reviews (1)</a>
-                                </li>
+                                <li><a data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews ({{ $product->reviewCount }})</a></li>
                             </ul>
                         </div>
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="info" role="tabpanel">
                                 <div class="product_info_content">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec
-                                        est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare
-                                        lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus
-                                        eu, suscipit id nulla.</p>
-                                    <p>Pellentesque aliquet, sem eget laoreet ultrices, ipsum metus feugiat sem, quis
-                                        fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa
-                                        massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit
-                                        est, sed commodo augue nisi non neque. Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Sed tempor, lorem et placerat vestibulum, metus nisi posuere
-                                        nisl, in accumsan elit odio quis mi. Cras neque metus, consequat et blandit et,
-                                        luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget.
-                                    </p>
+                                    <p>{{$product->description}}</p>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="sheet" role="tabpanel">
@@ -213,62 +234,28 @@
 
                             <div class="tab-pane fade" id="reviews" role="tabpanel">
                                 <div class="reviews_wrapper">
-                                    <h2>1 review for Donec eu furniture</h2>
-                                    <div class="reviews_comment_box">
-                                        <div class="comment_thmb">
-                                            <img src="front/assets/img/blog/comment2.jpg" alt="">
-                                        </div>
-                                        <div class="comment_text">
-                                            <div class="reviews_meta">
-                                                <div class="star_rating">
-                                                    <ul>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                    </ul>
+                                    <h2>{{ $product->reviewCount }} reviews of people who bought.</h2>
+                                    @foreach($product->productReviews as $productReviews)
+                                        <div class="reviews_comment_box">
+                                            <div class="comment_thmb">
+                                                <img src="front/assets/img/blog/comment2.jpg" alt="">
+                                            </div>
+                                            <div class="comment_text">
+                                                <div class="reviews_meta">
+                                                    <div class="star_rating">
+                                                        <ul>
+                                                            @for ($i = 1; $i <= 5; $i++)
+                                                                <li><a href="#"><i class="icon-star{{ $i <= $productReviews->score ? ' active' : '' }}"></i></a></li>
+                                                            @endfor
+                                                        </ul>
+                                                    </div>
+                                                    <p><strong>{{ $productReviews->user_id }} </strong>- {{ $productReviews->created_at->format('F j, Y') }}</p>
+                                                    <span>{{ $productReviews->message }}</span>
                                                 </div>
-                                                <p><strong>admin </strong>- September 12, 2018</p>
-                                                <span>roadthemes</span>
                                             </div>
                                         </div>
+                                    @endforeach
 
-                                    </div>
-                                    <div class="comment_title">
-                                        <h2>Add a review </h2>
-                                        <p>Your email address will not be published. Required fields are marked </p>
-                                    </div>
-                                    <div class="product_ratting mb-10">
-                                        <h3>Your rating</h3>
-                                        <ul>
-                                            <li><a href="#"><i class="icon-star"></i></a></li>
-                                            <li><a href="#"><i class="icon-star"></i></a></li>
-                                            <li><a href="#"><i class="icon-star"></i></a></li>
-                                            <li><a href="#"><i class="icon-star"></i></a></li>
-                                            <li><a href="#"><i class="icon-star"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="product_review_form">
-                                        <form action="#">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <label for="review_comment">Your review </label>
-                                                    <textarea name="comment" id="review_comment"></textarea>
-                                                </div>
-                                                <div class="col-lg-6 col-md-6">
-                                                    <label for="author">Name</label>
-                                                    <input id="author" type="text">
-
-                                                </div>
-                                                <div class="col-lg-6 col-md-6">
-                                                    <label for="email">Email </label>
-                                                    <input id="email" type="text">
-                                                </div>
-                                            </div>
-                                            <button type="submit">Submit</button>
-                                        </form>
-                                    </div>
                                 </div>
                             </div>
                         </div>

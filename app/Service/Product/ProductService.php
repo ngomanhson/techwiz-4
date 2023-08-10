@@ -23,11 +23,13 @@ class ProductService extends BaseService implements ProductServiceInterface
             $product = $this->repository->findBySlug($id);
         }
 
+        $productReviews = $product->reviews()->get(); // Get the reviews collection
         $averageRating = $product->reviews()->avg('score'); // Trung bình điểm đánh giá
         $reviewCount = $product->reviews()->count(); // Số lượng đánh giá
 
         $product->setAttribute('averageRating', $averageRating);
         $product->setAttribute('reviewCount', $reviewCount);
+        $product->setAttribute('productReviews', $productReviews);
 
         return $product;
     }
