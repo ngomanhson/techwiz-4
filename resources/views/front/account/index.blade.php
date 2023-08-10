@@ -34,7 +34,7 @@
                                 <li><a href="#address" data-bs-toggle="tab" class="nav-link">Addresses</a></li>
                                 <li><a href="#account-details" data-bs-toggle="tab" class="nav-link">Account details</a>
                                 </li>
-                                <li><a href="login.html" class="nav-link">logout</a></li>
+                                <li><a href="{{url('account/logout')}}" class="nav-link">logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -42,10 +42,16 @@
                         <!-- Tab panes -->
                         <div class="tab-content dashboard_content">
                             <div class="tab-pane fade show active" id="dashboard">
-                                <h3>Dashboard </h3>
-                                <p>From your account dashboard. you can easily check &amp; view your <a href="#">recent
-                                        orders</a>, manage your <a href="#">shipping and billing addresses</a> and <a
-                                        href="#">Edit your password and account details.</a></p>
+                                @if(session('success'))
+                                    <div class="alert alert-success text-small">
+                                        {{session('success')}}
+                                    </div>
+                                @else
+                                    <h3>Dashboard </h3>
+                                    <p>From your account dashboard. you can easily check &amp; view your <a href="#">recent
+                                            orders</a>, manage your <a href="#">shipping and billing addresses</a> and <a
+                                            href="#">Edit your password and account details.</a></p>
+                                @endif
                             </div>
                             <div class="tab-pane fade" id="orders">
                                 <h3>Orders</h3>
@@ -111,16 +117,23 @@
                             <div class="tab-pane" id="address">
                                 <p>The following addresses will be used on the checkout page by default.</p>
                                 <h4 class="billing-address">Billing address</h4>
-                                <a href="#" class="view">Edit</a>
-                                <p><strong>Bobby Jackson</strong></p>
+{{--                                <a href="#" class="view">Edit</a>--}}
                                 <address>
-                                    <span><strong>City:</strong> Seattle</span>,
+                                    <span><strong>Full name: </strong>{{$customer->first_name}} {{$customer->last_name}}</span>
                                     <br>
-                                    <span><strong>State:</strong> Washington(WA)</span>,
+                                    <span><strong>Email: </strong>{{$customer->email}}</span>,
                                     <br>
-                                    <span><strong>ZIP:</strong> 98101</span>,
+                                    <span><strong>Phone: </strong>{{$customer->phone}}</span>,
                                     <br>
-                                    <span><strong>Country:</strong> USA</span>
+                                    <span><strong>Company name: </strong>{{$customer->company_name}}</span>,
+                                    <br>
+                                    <span><strong>Street address: </strong>{{$customer->street_address}}</span>
+                                    <br>
+                                    <span><strong>Town city: </strong>{{$customer->town_city}}</span>
+                                    <br>
+                                    <span><strong>Postcode / Zip: </strong>{{$customer->postcode_zip}}</span>
+                                    <br>
+                                    <span><strong>Country: </strong>{{$customer->country}}</span>
                                 </address>
                             </div>
                             <div class="tab-pane fade" id="account-details">
@@ -128,27 +141,35 @@
                                 <div class="login">
                                     <div class="login_form_container">
                                         <div class="account_login_form">
-                                            <form action="#">
-                                                <p>Already have an account? <a href="#">Log in instead!</a></p>
-                                                <div class="input-radio">
-                                                    <span class="custom-radio"><input type="radio" value="1"
-                                                                                      name="id_gender"> Mr.</span>
-                                                    <span class="custom-radio"><input type="radio" value="1"
-                                                                                      name="id_gender"> Mrs.</span>
-                                                </div> <br>
+                                            <form action="{{url('account/update-info')}}" method="post">
+                                                @csrf
                                                 <label>First Name</label>
-                                                <input type="text" name="first-name">
+                                                <input type="text" name="first_name" value="{{$customer->first_name}}">
+
                                                 <label>Last Name</label>
-                                                <input type="text" name="last-name">
+                                                <input type="text" name="last_name" value="{{$customer->last_name}}">
+
                                                 <label>Email</label>
-                                                <input type="text" name="email-name">
-                                                <label>Password</label>
-                                                <input type="password" name="user-password">
-                                                <label>Birthdate</label>
-                                                <input type="text" placeholder="MM/DD/YYYY" value="" name="birthday">
-                                                <span class="example">
-                                                    (E.g.: 05/31/1970)
-                                                </span>
+                                                <input type="email" name="email" value="{{$customer->email}}">
+
+                                                <label>Phone</label>
+                                                <input type="text" name="phone" value="{{$customer->phone}}">
+
+                                                <label>Company name</label>
+                                                <input type="text" name="company_name" value="{{$customer->company_name}}">
+
+                                                <label>Street address</label>
+                                                <input type="text" name="street_address" value="{{$customer->street_address}}">
+
+                                                <label>Town city</label>
+                                                <input type="text" name="town_city" value="{{$customer->town_city}}">
+
+                                                <label>Postcode / Zip</label>
+                                                <input type="text" name="postcode_zip" value="{{$customer->postcode_zip}}">
+
+                                                <label>Country</label>
+                                                <input type="text" name="country" value="{{$customer->country}}">
+
                                                 <br>
                                                 <span class="custom_checkbox">
                                                     <input type="checkbox" value="1" name="optin">
