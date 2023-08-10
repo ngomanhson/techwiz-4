@@ -17,7 +17,7 @@ class ProductRepository extends BaseRepositories implements ProductRepositoryInt
     public function getProductOnIndex($request){
         $search =$request->search ?? '';
         $product =$this->model->where('name','like','%'. $search .'%');
-        $product = $this->filter($product, $request);;
+        $product = $this->filter($product, $request);
         $product =$this->sortAndPagination($product,$request);
 
         return $product;
@@ -86,6 +86,14 @@ class ProductRepository extends BaseRepositories implements ProductRepositoryInt
             ? $product->where('tag', $tag)
             : $product;
         return $product;
+    }
+
+
+    public function getRelatedProducts($product, $limit =4)
+    {
+        return $this->model->where('product_category_id',$product->product_category_id)
+            ->limit($limit)
+            ->get();
     }
 
 }

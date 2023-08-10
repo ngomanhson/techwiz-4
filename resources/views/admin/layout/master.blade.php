@@ -57,19 +57,14 @@
 
             <li class="nav-item dropdown">
               <span class="avatar avatar-sm mt-2">
-{{--               <span style="display: block" >{{Auth::user()->name ?? ''}}</span>--}}
-{{--               <span>{{Auth::user()->email ?? ''}}</span>--}}
+               <span style="display: block" >{{Auth::user()->name ?? ''}}</span>
+               <span>{{Auth::user()->email ?? ''}}</span>
               </span>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-
-                    <a class="dropdown-item" href="#">Profile</a>
-
-                    <a class="dropdown-item" href="#">Settings</a>
-
-                    <a class="dropdown-item" href="#">Activities</a>
-
-                </div>
-
+                {{--                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">--}}
+                {{--                    <a class="dropdown-item" href="#">Profile</a>--}}
+                {{--                    <a class="dropdown-item" href="#">Settings</a>--}}
+                {{--                    <a class="dropdown-item" href="#">Activities</a>--}}
+                {{--                </div>--}}
             </li>
             <li class="nav-item">
                 <a class="nav-link text-muted my-2" href="./admin/logout" >
@@ -85,8 +80,8 @@
         <nav class="vertnav navbar navbar-light">
             <!-- nav bar -->
             <div class="w-100 mb-4 d-flex">
-                <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="{{url("/admin/admin")}}">
-                    <img src="./admin/assets/images/logo.png" alt="Shop Runner">
+                <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="{{url("/admin/dashboard")}}">
+                    <img src="./front/assets/img/logo/logo.png" alt="Plant Nest">
                 </a>
             </div>
 
@@ -103,13 +98,13 @@
             </ul>
 
             <p class="text-muted nav-heading mt-1 mb-1">
-                <span>admin</span>
+                <span>Dashboard</span>
             </p>
             <ul class="navbar-nav flex-fill w-100 mb-2">
                 <li class="nav-item">
-                    <a href="{{url("/admin/admin")}}" class="nav-link">
+                    <a href="{{url("/admin/dashboard")}}" class="nav-link">
                         <i class="fe fe-pie-chart fe-16"></i>
-                        <span class="ml-3 item-text">admin</span>
+                        <span class="ml-3 item-text">Dashboard</span>
                     </a>
                 </li>
             </ul>
@@ -140,7 +135,7 @@
                     </li>
                 </ul>
             @endcanany
-            @canany(['product.view','product.edit','product.edit','product.delete'])
+{{--            @canany(['product.view','product.edit','product.edit','product.delete'])--}}
                 <p class="text-muted nav-heading mt-1 mb-1">
                     <span>Products</span>
                 </p>
@@ -152,8 +147,8 @@
                         </a>
                     </li>
                 </ul>
-            @endcanany
-            @canany(['category.view','category.edit','category.edit','category.delete'])
+{{--            @endcanany--}}
+{{--            @canany(['category.view','category.edit','category.edit','category.delete'])--}}
                 <p class="text-muted nav-heading mt-1 mb-1">
                     <span>Category</span>
                 </p>
@@ -165,7 +160,7 @@
                         </a>
                     </li>
                 </ul>
-            @endcanany
+{{--            @endcanany--}}
             @canany(['brand.view','brand.edit','brand.edit','brand.delete'])
                 <p class="text-muted nav-heading mt-1 mb-1">
                     <span>Brand</span>
@@ -227,8 +222,6 @@
             </ul>
         </nav>
     </aside>
-
-    Main
 
     @yield('body')
 

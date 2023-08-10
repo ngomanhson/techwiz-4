@@ -153,13 +153,13 @@
                                     <article class="single_product">
                                         <figure>
                                             <div class="product_thumb">
-                                                <a class="primary_img" href="product-details.html"><img
+                                                <a class="primary_img" href="{{url('shop/detail/{id}')}}"><img
                                                         src="front/assets/img/product/product10.jpg" alt=""></a>
-                                                <a class="secondary_img" href="product-details.html"><img
+                                                <a class="secondary_img" href="{{url('shop/detail/{id}')}}"><img
                                                         src="front/assets/img/product/product2.jpg" alt=""></a>
                                             </div>
                                             <figcaption class="product_content">
-                                                <h4 class="product_name"><a href="product-details.html">Donec Non
+                                                <h4 class="product_name"><a href="{{url('shop/detail/{id}')}}">Donec Non
                                                         Est</a></h4>
                                                 <div class="product_rating">
                                                     <ul>
@@ -180,9 +180,9 @@
                                     <article class="single_product">
                                         <figure>
                                             <div class="product_thumb">
-                                                <a class="primary_img" href="product-details.html"><img
+                                                <a class="primary_img" href="{{url('shop/detail/{id}')}}"><img
                                                         src="front/assets/img/product/product9.jpg" alt=""></a>
-                                                <a class="secondary_img" href="product-details.html"><img
+                                                <a class="secondary_img" href="{{url('shop/detail/{id}')}}"><img
                                                         src="front/assets/img/product/product3.jpg" alt=""></a>
                                             </div>
                                             <figcaption class="product_content">
@@ -207,9 +207,9 @@
                                     <article class="single_product">
                                         <figure>
                                             <div class="product_thumb">
-                                                <a class="primary_img" href="product-details.html"><img
+                                                <a class="primary_img" href="{{url('shop/detail/{id}')}}"><img
                                                         src="front/assets/img/product/product8.jpg" alt=""></a>
-                                                <a class="secondary_img" href="product-details.html"><img
+                                                <a class="secondary_img" href="{{url('shop/detail/{id}')}}"><img
                                                         src="front/assets/img/product/product4.jpg" alt=""></a>
                                             </div>
                                             <figcaption class="product_content">
@@ -273,14 +273,14 @@
                             <article class="single_product">
                                 <figure>
                                     <div class="product_thumb">
-                                        <a class="primary_img" href="product-details.html"><img
-                                                src="{{$pr->productImages[0]->path}}" alt=""></a>
+                                        <a class="primary_img" href="{{url('shop/detail/{id}')}}"><img
+                                                src="/{{$pr->productImages[0]->path}}" alt=""></a>
                                         <div class="label_product">
                                             <span class="label_sale">-7%</span>
                                         </div>
                                         <div class="action_links">
                                             <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i
+                                                <li class="add_to_cart"><a href="cart/add/{{$pr->id}}" title="Add to cart"><i
                                                             class="icon-shopping-bag"></i></a></li>
                                                 <li class="compare"><a href="#" title="Add to Compare"><i
                                                             class="icon-sliders"></i></a></li>
@@ -310,10 +310,10 @@
                                                     <li><a href="#"><i class="icon-star"></i></a></li>
                                                 </ul>
                                             </div>
-                                            <h4 class="product_name"><a href="product-details.html">{{$pr->name}}</a></h4>
+                                            <h4 class="product_name"><a href="{{url("/shop/detail/{$pr->id}")}}">{{$pr->name}}</a></h4>
                                             <div class="price_box">
-                                                <span class="current_price">{{$pr->price}}</span>
-                                                <span class="old_price">{{$pr->discount}}</span>
+                                                <span class="current_price">${{$pr->price}}</span>
+                                                <span class="old_price">${{$pr->discount}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -332,13 +332,19 @@
                                         <div class="price_box">
                                             <span class="current_price">{{$pr->price}}</span>
                                             <span class="old_price">{{$pr->discount}}</span>
+
+                                        <h4 class="product_name"><a href="{{url("/shop/detail/{$pr->id}")}}">{{$pr->name}}</a>
+                                        </h4>
+                                        <div class="price_box">
+                                            <span class="current_price">${{$pr->price}}</span>
+                                            <span class="old_price">${{$pr->discount}}</span>
                                         </div>
                                         <div class="product_desc">
                                             <p>{{$pr->description}}</p>
                                         </div>
                                         <div class="action_links list_action_right">
                                             <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart">Add to
+                                                <li class="add_to_cart"><a href="cart/add/{{$pr->id}}" title="Add to cart">Add to
                                                         cart</a></li>
                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><i
                                                             class="icon-heart"></i></a></li>
@@ -347,6 +353,7 @@
 
                                             </ul>
                                         </div>
+                                    </div>
                                     </div>
                                 </figure>
                             </article>
