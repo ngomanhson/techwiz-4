@@ -32,7 +32,7 @@ class Product extends Model
 
     public function orderDetails()
     {
-        return $this->hasMany(OrderDetail::class,'brand_id','id');
+        return $this->hasMany(OrderDetail::class,'product_id','id');
     }
 
     // Trong mô hình Product

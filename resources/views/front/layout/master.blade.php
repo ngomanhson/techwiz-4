@@ -330,12 +330,11 @@
                                         <li>
                                             @if(Auth::check())
                                                 <a href="{{url("/account/my-account")}}">{{Auth::user()->name}}</a>
-                                                <li><a href="{{url('account/logout')}}">Logout</a></li>
                                             @else
                                                 <a href="{{url("/account/login")}}">Login</a>
                                             @endif
                                         </li>
-
+                                        <li><a href="{{url('account/logout')}}">Logout</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -562,7 +561,7 @@
                 <div class="col-lg-4 col-md-5">
                     <div class="widgets_container widget_app">
                         <div class="footer_logo">
-                            <a href="/"><img src="front/assets/img/logo/logo.png" alt="Lukani"></a>
+                            <a href="index.html"><img src="front/assets/img/logo/logo.png" alt=""></a>
                         </div>
                         <div class="footer_widgetnav_menu">
                             <ul>

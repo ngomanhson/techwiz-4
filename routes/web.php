@@ -42,7 +42,8 @@ Route::prefix("/contact")->group(function () {
 
 Route::prefix('/cart')->group(function (){
     Route::get('/',[\App\Http\Controllers\Front\CartController::class,'index']);
-    Route::get('add/{id}', [\App\Http\Controllers\Front\CartController::class, 'add']);
+    Route::get('add{id}', [\App\Http\Controllers\Front\CartController::class, 'add']);
+;
 });
 
 
@@ -57,5 +58,8 @@ Route::prefix('account')->group(function () {
     Route::get('register',[\App\Http\Controllers\Front\AccountController::class,'register']);
     Route::get('logout',[\App\Http\Controllers\Front\AccountController::class,'logout']);
 });
-
+Route::prefix('/review')->group(function (){
+    Route::get('/{orderDetail:order_code}',[\App\Http\Controllers\Front\ReviewController::class,'index']);
+    Route::post('/store',[\App\Http\Controllers\Front\ReviewController::class,'store']);
+});
 
