@@ -283,7 +283,7 @@
                                         </div>
                                         <div class="action_links">
                                             <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart"><i
+                                                <li class="add_to_cart"><a href="cart/add/{{$pr->id}}" title="Add to cart"><i
                                                             class="icon-shopping-bag"></i></a></li>
                                                 <li class="compare"><a href="#" title="Add to Compare"><i
                                                             class="icon-sliders"></i></a></li>
@@ -315,8 +315,8 @@
                                             </div>
                                             <h4 class="product_name"><a href="product-details.html">{{$pr->name}}</a></h4>
                                             <div class="price_box">
-                                                <span class="current_price">{{$pr->price}}</span>
-                                                <span class="old_price">{{$pr->discount}}</span>
+                                                <span class="current_price">${{$pr->price}}</span>
+                                                <span class="old_price">${{$pr->discount}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -330,20 +330,18 @@
                                                 <li><a href="#"><i class="icon-star"></i></a></li>
                                             </ul>
                                         </div>
-                                        <h4 class="product_name"><a href="product-details.html">commodo augue nisi</a>
+                                        <h4 class="product_name"><a href="product-details.html">{{$pr->name}}</a>
                                         </h4>
                                         <div class="price_box">
-                                            <span class="current_price">£69.00</span>
-                                            <span class="old_price">£74.00</span>
+                                            <span class="current_price">${{$pr->price}}</span>
+                                            <span class="old_price">${{$pr->discount}}</span>
                                         </div>
                                         <div class="product_desc">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                                veniam, quis nostrud exercitation ullamco…</p>
+                                            <p>{{$pr->description}}</p>
                                         </div>
                                         <div class="action_links list_action_right">
                                             <ul>
-                                                <li class="add_to_cart"><a href="cart.html" title="Add to cart">Add to
+                                                <li class="add_to_cart"><a href="cart/add/{{$pr->id}}" title="Add to cart">Add to
                                                         cart</a></li>
                                                 <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><i
                                                             class="icon-heart"></i></a></li>
