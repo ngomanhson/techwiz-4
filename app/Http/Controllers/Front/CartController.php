@@ -16,13 +16,25 @@ class CartController extends Controller
         $this->productService = $productService;
     }
 
+    public function index(){
+        $carts = Cart::content();
+        $subtotal = Cart::subtotal();
+        $total = Cart::total();
+
+//        dd($carts);
+
+//        dd($cart, $subtotal, $total);
+
+        return view('front.shop.cart', compact('carts', 'subtotal', 'total'));
+    }
+
     public function add($id) {
         $product = $this->productService->find($id);
 
         Cart::add([
             'id' => $product->id,
             'name' => $product->name,
-            'qty' => $product->qty,
+            'qty' => 1,
             'price' => $product->discount  ?? $product->price,
             'weight' => $product->weight ?? 0,
             'options' => [
@@ -30,10 +42,7 @@ class CartController extends Controller
             ],
         ]);
 
+//        dd(Cart::content());
         return back();
-    }
-
-    public function index(){
-        return view('front.shop.cart');
     }
 }

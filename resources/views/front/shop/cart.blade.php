@@ -8,7 +8,7 @@
                     <div class="breadcrumb_content">
                         <h3>Cart</h3>
                         <ul>
-                            <li><a href="index.html">home</a></li>
+                            <li><a href="/">home</a></li>
                             <li>Shopping Cart</li>
                         </ul>
                     </div>
@@ -28,58 +28,27 @@
                             <div class="cart_page table-responsive">
                                 <table>
                                     <thead>
-                                    <tr>
-                                        <th class="product_remove">Delete</th>
-                                        <th class="product_thumb">Image</th>
-                                        <th class="product_name">Product</th>
-                                        <th class="product-price">Price</th>
-                                        <th class="product_quantity">Quantity</th>
-                                        <th class="product_total">Total</th>
-                                    </tr>
+                                        <tr>
+                                            <th class="product_remove">Delete</th>
+                                            <th class="product_thumb">Image</th>
+                                            <th class="product_name">Product</th>
+                                            <th class="product-price">Price</th>
+                                            <th class="product_quantity">Quantity</th>
+                                            <th class="product_total">Total</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a>
-                                        </td>
-                                        <td class="product_thumb"><a href="#"><img
-                                                    src="assets/img/s-product/product.jpg" alt=""></a></td>
-                                        <td class="product_name"><a href="#">Handbag fringilla</a></td>
-                                        <td class="product-price">£65.00</td>
-                                        <td class="product_quantity"><label>Quantity</label> <input min="1"
-                                                                                                    max="100" value="1" type="number"></td>
-                                        <td class="product_total">£130.00</td>
-
-
-                                    </tr>
-
-                                    <tr>
-                                        <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a>
-                                        </td>
-                                        <td class="product_thumb"><a href="#"><img
-                                                    src="assets/img/s-product/product2.jpg" alt=""></a></td>
-                                        <td class="product_name"><a href="#">Handbags justo</a></td>
-                                        <td class="product-price">£90.00</td>
-                                        <td class="product_quantity"><label>Quantity</label> <input min="1"
-                                                                                                    max="100" value="1" type="number"></td>
-                                        <td class="product_total">£180.00</td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a>
-                                        </td>
-                                        <td class="product_thumb"><a href="#"><img
-                                                    src="assets/img/s-product/product3.jpg" alt=""></a></td>
-                                        <td class="product_name"><a href="#">Handbag elit</a></td>
-                                        <td class="product-price">£80.00</td>
-                                        <td class="product_quantity"><label>Quantity</label> <input min="1"
-                                                                                                    max="100" value="1" type="number"></td>
-                                        <td class="product_total">£160.00</td>
-
-
-                                    </tr>
-
+                                        @foreach($carts as $cart)
+                                            <tr>
+                                                <td class="product_remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                                                <td class="product_thumb"><a href="#"><img src="{{$cart->options->images[0]->path}}" alt=""></a></td>
+                                                <td class="product_name"><a href="#">{{$cart->name}}</a></td>
+                                                <td class="product-price">{{$cart->price}}</td>
+                                                <td class="product_quantity"><label>Quantity</label> <input min="1" max="100" value="1" type="number"></td>
+                                                <td class="product_total">$11.23</td>
+                                            </tr>
                                     </tbody>
+                                        @endforeach
                                 </table>
                             </div>
                             <div class="cart_submit">

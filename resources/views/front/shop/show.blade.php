@@ -153,13 +153,13 @@
                                     <article class="single_product">
                                         <figure>
                                             <div class="product_thumb">
-                                                <a class="primary_img" href="product-details.html"><img
+                                                <a class="primary_img" href="{{url('shop/detail/{id}')}}"><img
                                                         src="front/assets/img/product/product10.jpg" alt=""></a>
-                                                <a class="secondary_img" href="product-details.html"><img
+                                                <a class="secondary_img" href="{{url('shop/detail/{id}')}}"><img
                                                         src="front/assets/img/product/product2.jpg" alt=""></a>
                                             </div>
                                             <figcaption class="product_content">
-                                                <h4 class="product_name"><a href="product-details.html">Donec Non
+                                                <h4 class="product_name"><a href="{{url('shop/detail/{id}')}}">Donec Non
                                                         Est</a></h4>
                                                 <div class="product_rating">
                                                     <ul>
@@ -180,9 +180,9 @@
                                     <article class="single_product">
                                         <figure>
                                             <div class="product_thumb">
-                                                <a class="primary_img" href="product-details.html"><img
+                                                <a class="primary_img" href="{{url('shop/detail/{id}')}}"><img
                                                         src="front/assets/img/product/product9.jpg" alt=""></a>
-                                                <a class="secondary_img" href="product-details.html"><img
+                                                <a class="secondary_img" href="{{url('shop/detail/{id}')}}"><img
                                                         src="front/assets/img/product/product3.jpg" alt=""></a>
                                             </div>
                                             <figcaption class="product_content">
@@ -207,9 +207,9 @@
                                     <article class="single_product">
                                         <figure>
                                             <div class="product_thumb">
-                                                <a class="primary_img" href="product-details.html"><img
+                                                <a class="primary_img" href="{{url('shop/detail/{id}')}}"><img
                                                         src="front/assets/img/product/product8.jpg" alt=""></a>
-                                                <a class="secondary_img" href="product-details.html"><img
+                                                <a class="secondary_img" href="{{url('shop/detail/{id}')}}"><img
                                                         src="front/assets/img/product/product4.jpg" alt=""></a>
                                             </div>
                                             <figcaption class="product_content">
@@ -276,7 +276,7 @@
                             <article class="single_product">
                                 <figure>
                                     <div class="product_thumb">
-                                        <a class="primary_img" href="product-details.html"><img
+                                        <a class="primary_img" href="{{url('shop/detail/{id}')}}"><img
                                                 src="{{$pr->productImages[0]->path}}" alt=""></a>
                                         <div class="label_product">
                                             <span class="label_sale">-7%</span>
@@ -313,7 +313,7 @@
                                                     <li><a href="#"><i class="icon-star"></i></a></li>
                                                 </ul>
                                             </div>
-                                            <h4 class="product_name"><a href="product-details.html">{{$pr->name}}</a></h4>
+                                            <h4 class="product_name"><a href="{{url("/shop/detail/{$pr->id}")}}">{{$pr->name}}</a></h4>
                                             <div class="price_box">
                                                 <span class="current_price">${{$pr->price}}</span>
                                                 <span class="old_price">${{$pr->discount}}</span>
@@ -330,7 +330,7 @@
                                                 <li><a href="#"><i class="icon-star"></i></a></li>
                                             </ul>
                                         </div>
-                                        <h4 class="product_name"><a href="product-details.html">{{$pr->name}}</a>
+                                        <h4 class="product_name"><a href="{{url("/shop/detail/{$pr->id}")}}">{{$pr->name}}</a>
                                         </h4>
                                         <div class="price_box">
                                             <span class="current_price">${{$pr->price}}</span>
