@@ -841,14 +841,3 @@
     </div>
     <!--brand area end-->
 @endsection
-<style>
-    /* Icon mặc định (không active) */
-    .icon-star {
-        color: #ccc;
-    }
-
-    /* Icon active (có điểm đánh giá) */
-    .icon-star.active {
-        color: #ffca08;
-    }
-</style>
