@@ -327,33 +327,26 @@
                                                 <li><a href="#"><i class="icon-star"></i></a></li>
                                             </ul>
                                         </div>
-                                        <h4 class="product_name"><a href="product-details.html">{{$pr->name}}</a>
-                                        </h4>
-                                        <div class="price_box">
-                                            <span class="current_price">{{$pr->price}}</span>
-                                            <span class="old_price">{{$pr->discount}}</span>
-
                                         <h4 class="product_name"><a href="{{url("/shop/detail/{$pr->id}")}}">{{$pr->name}}</a>
                                         </h4>
                                         <div class="price_box">
                                             <span class="current_price">${{$pr->price}}</span>
                                             <span class="old_price">${{$pr->discount}}</span>
-                                        </div>
-                                        <div class="product_desc">
-                                            <p>{{$pr->description}}</p>
-                                        </div>
-                                        <div class="action_links list_action_right">
-                                            <ul>
-                                                <li class="add_to_cart"><a href="cart/add/{{$pr->id}}" title="Add to cart">Add to
-                                                        cart</a></li>
-                                                <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><i
-                                                            class="icon-heart"></i></a></li>
-                                                <li class="compare"><a href="#" title="Add to Compare"><i
-                                                            class="icon-sliders"></i></a></li>
+                                            <div class="product_desc">
+                                                <p>{{$pr->description}}</p>
+                                            </div>
+                                            <div class="action_links list_action_right">
+                                                <ul>
+                                                    <li class="add_to_cart"><a href="cart/add/{{$pr->id}}" title="Add to cart">Add to
+                                                            cart</a></li>
+                                                    <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><i
+                                                                class="icon-heart"></i></a></li>
+                                                    <li class="compare"><a href="#" title="Add to Compare"><i
+                                                                class="icon-sliders"></i></a></li>
 
-                                            </ul>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
                                     </div>
                                 </figure>
                             </article>
