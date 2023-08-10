@@ -22,6 +22,7 @@ class Order extends Model
         'town_city',
         'postcode_zip',
         'phone',
+        'message',
         'email',
         'total',
         'order_code',
