@@ -38,7 +38,37 @@ Route::prefix("/contact")->group(function () {
      Route::get('dashboard',[\App\Http\Controllers\Admin\DashboardController::class,'index']);
      Route::get('/statistical',[\App\Http\Controllers\Admin\DashboardController::class,'statistical']);
      Route::get('/order7Days',[\App\Http\Controllers\Admin\DashboardController::class,'order7Days']);
+     Route::prefix('category')->group(function (){
+         Route::get('',[\App\Http\Controllers\Admin\ProductCategoryController::class,'index']);
+         Route::get('create',[\App\Http\Controllers\Admin\ProductCategoryController::class,'create']);
+         Route::post('store',[\App\Http\Controllers\Admin\ProductCategoryController::class,'store']);
+         Route::post('action',[\App\Http\Controllers\Admin\ProductCategoryController::class,'action']);
+         Route::get('edit/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'edit']);
+         Route::post('edit/update/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'update']);
+         Route::get('delete/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'delete']);
+     });
+
+
+
+     Route::prefix('login')->group(function (){
+         Route::get('',[\App\Http\Controllers\Admin\HomeController::class,'getLogin'])->withoutMiddleware('CheckAdminLogin');
+         Route::post('',[\App\Http\Controllers\Admin\HomeController::class,'postLogin'])->withoutMiddleware('CheckAdminLogin');
+     });
+     Route::get('logout',[\App\Http\Controllers\Admin\HomeController::class,'logout']);
+
  });
+
+Route::prefix('category')->group(function (){
+    Route::get('',[\App\Http\Controllers\Admin\ProductCategoryController::class,'index']);
+
+    Route::post('store',[\App\Http\Controllers\Admin\ProductCategoryController::class,'store']) ;
+    Route::post('action',[\App\Http\Controllers\Admin\ProductCategoryController::class,'action'])->can('category.view');
+    Route::get('edit/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'edit'])->name('category.edit')->can('category.edit');
+    Route::post('edit/update/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'update'])->name('category.update')->can('category.edit');
+    Route::get('delete/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'delete'])->name('delete_category')->can('category.delete');
+
+});
+
 
 Route::prefix('/cart')->group(function (){
     Route::get('/',[\App\Http\Controllers\Front\CartController::class,'index']);
