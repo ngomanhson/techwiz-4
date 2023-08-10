@@ -35,13 +35,13 @@ Route::prefix("/contact")->group(function () {
     Route::get('/',[\App\Http\Controllers\Front\ContactController::class,'index']);
 });
 
- Route::prefix('admin')->middleware('CheckAdminLogin')->group(function (){
+ Route::prefix('admin')->group(function (){
      Route::get('dashboard',[\App\Http\Controllers\Admin\DashboardController::class,'index']);
      Route::get('/statistical',[\App\Http\Controllers\Admin\DashboardController::class,'statistical']);
      Route::get('/order7Days',[\App\Http\Controllers\Admin\DashboardController::class,'order7Days']);
 
      Route::prefix('category')->group(function (){
-         Route::get('',[\App\Http\Controllers\Admin\ProductCategoryController::class,'index'])->can('category.view');
+         Route::get('',[\App\Http\Controllers\Admin\ProductCategoryController::class,'index']);
          Route::get('create',[\App\Http\Controllers\Admin\ProductCategoryController::class,'create'])->can('category.add');
          Route::post('store',[\App\Http\Controllers\Admin\ProductCategoryController::class,'store'])->can('category.add');
          Route::post('action',[\App\Http\Controllers\Admin\ProductCategoryController::class,'action'])->can('category.view');
@@ -54,8 +54,8 @@ Route::prefix("/contact")->group(function () {
 
 
      Route::prefix('login')->group(function (){
-         Route::get('',[\App\Http\Controllers\Admin\HomeController::class,'getLogin'])->withoutMiddleware('CheckAdminLogin');
-         Route::post('',[\App\Http\Controllers\Admin\HomeController::class,'postLogin'])->withoutMiddleware('CheckAdminLogin');
+         Route::get('',[\App\Http\Controllers\Admin\HomeController::class,'getLogin']);
+         Route::post('',[\App\Http\Controllers\Admin\HomeController::class,'postLogin']);
      });
      Route::get('logout',[\App\Http\Controllers\Admin\HomeController::class,'logout']);
 
@@ -77,6 +77,7 @@ Route::prefix('/checkout')->group(function (){
 Route::prefix('account')->group(function () {
     Route::get('/',[\App\Http\Controllers\Front\AccountController::class,'myAccount']);
     Route::get('login',[\App\Http\Controllers\Front\AccountController::class,'login']);
+    Route::post('login',[\App\Http\Controllers\Front\AccountController::class,'checkLogin']);
     Route::get('register',[\App\Http\Controllers\Front\AccountController::class,'register']);
     Route::get('logout',[\App\Http\Controllers\Front\AccountController::class,'logout']);
 });
