@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('company_name')->nullable();
             $table->string('country');
-                $table->text('message')->nullable();
+            $table->text('message')->nullable();
             $table->string('street_address');
             $table->string('postcode_zip');
             $table->string('town_city');
