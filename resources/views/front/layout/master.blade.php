@@ -152,7 +152,7 @@
                                 </ul>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="my-account.html">my account</a>
+                            <a href="{{url("/account")}}">my account</a>
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="about.html">about Us</a>
@@ -592,7 +592,7 @@
                         <h3>My Account</h3>
                         <div class="footer_menu">
                             <ul>
-                                <li><a href="my-account.html">My Account</a></li>
+                                <li><a href="{{url("/account")}}">My Account</a></li>
                                 <li><a href="{{url('/contact')}}">Contact</a></li>
                                 <li><a href="cart.html">Shopping cart</a></li>
                                 <li><a href="checkout.html">Checkout</a></li>
@@ -611,7 +611,7 @@
                                 <li><a href="#">Terms of use</a></li>
                                 <li><a href="#">Privacy Policy</a></li>
                                 <li><a href="contact.html">Site Map</a></li>
-                                <li><a href="my-account.html">My Account</a></li>
+                                <li><a href="{{url("/account")}}">My Account</a></li>
                                 <li><a href="#">Returns</a></li>
                             </ul>
                         </div>
