@@ -23,6 +23,7 @@ return new class extends Migration
             $table->decimal('discount',14,2)->nullable();
             $table->double('weight')->nullable();
             $table->string('sku')->unique();
+            $table->string('species')->nullable();
             $table->boolean('featured');
             $table->string("slug")->unique();
             $table->float("rate");
