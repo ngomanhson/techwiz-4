@@ -82,7 +82,7 @@
                         </ul>
                     </div>
                     <div class="search_container">
-                        <form action="#">
+                        <form action="shop">
                             <div class="hover_category">
                                 <select class="select_option" name="select" id="categori2">
                                     <option selected value="1">All Categories</option>
@@ -104,7 +104,7 @@
                                 </select>
                             </div>
                             <div class="search_box">
-                                <input placeholder="Search product..." type="text">
+                                <input placeholder="Search product..." type="text" name="search" value="{{request("search")}}">
                                 <button type="submit"><i class="icon-search"></i></button>
                             </div>
                         </form>

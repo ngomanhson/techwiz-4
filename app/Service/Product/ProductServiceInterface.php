@@ -6,5 +6,5 @@ use App\Service\ServiceInterface;
 
 interface ProductServiceInterface extends ServiceInterface
 {
-
+    public function getProductOnIndex($request);
 }

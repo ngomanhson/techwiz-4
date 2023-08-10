@@ -253,21 +253,18 @@
                                     title="List"></button>
                         </div>
                         <div class=" niceselect_option">
-                            <form class="select_option" action="#">
-                                <select name="orderby" id="short">
-
-                                    <option selected value="1">Sort by average rating</option>
-                                    <option value="2">Sort by popularity</option>
-                                    <option value="3">Sort by newness</option>
-                                    <option value="4">Sort by price: low to high</option>
-                                    <option value="5">Sort by price: high to low</option>
-                                    <option value="6">Product Name: Z</option>
+                            <form  action="">
+                                <select name="sort_by" onchange="this.form.submit();" class="sorting">
+                                    <option {{request('sort_by') == 'latest' ? 'selected' : ''}} value="latest">Latest</option>
+                                    <option {{request('sort_by') == 'oldest' ? 'selected' : ''}} value="oldest">Oldest</option>
+                                    <option {{request('sort_by') == 'name-ascending' ? 'selected' : ''}} value="name-ascending">Name A-Z</option>
+                                    <option {{request('sort_by') == 'name-descending' ? 'selected' : ''}} value="name-descending">Name Z-A</option>
+                                    <option {{request('sort_by') == 'price-ascending' ? 'selected' : ''}} value="price-ascending">Price Ascending</option>
+                                    <option {{request('sort_by') == 'price-descending' ? 'selected' : ''}} value="price-descending">Price Decrease</option>
                                 </select>
                             </form>
                         </div>
-                        <div class="page_amount">
-                            <p>Showing 1–9 of 21 results</p>
-                        </div>
+
                     </div>
                     <!--shop toolbar end-->
                     <div class="row shop_wrapper grid_list">
@@ -330,16 +327,14 @@
                                                 <li><a href="#"><i class="icon-star"></i></a></li>
                                             </ul>
                                         </div>
-                                        <h4 class="product_name"><a href="product-details.html">commodo augue nisi</a>
+                                        <h4 class="product_name"><a href="product-details.html">{{$pr->name}}</a>
                                         </h4>
                                         <div class="price_box">
-                                            <span class="current_price">£69.00</span>
-                                            <span class="old_price">£74.00</span>
+                                            <span class="current_price">{{$pr->price}}</span>
+                                            <span class="old_price">{{$pr->discount}}</span>
                                         </div>
                                         <div class="product_desc">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                                veniam, quis nostrud exercitation ullamco…</p>
+                                            <p>{{$pr->description}}</p>
                                         </div>
                                         <div class="action_links list_action_right">
                                             <ul>
@@ -361,13 +356,8 @@
 
                     <div class="shop_toolbar t_bottom">
                         <div class="pagination">
-{{--                            <ul>--}}
-{{--                                <li class="current">1</li>--}}
-{{--                                <li><a href="#">2</a></li>--}}
-{{--                                <li><a href="#">3</a></li>--}}
-{{--                                <li class="next"><a href="#">next</a></li>--}}
-{{--                                <li><a href="#">>></a></li>--}}
-{{--                            </ul>--}}
+                            {!! $product->appends(app("request")->input())->links("pagination::bootstrap-4") !!}
+
                         </div>
                     </div>
                     <!--shop toolbar end-->

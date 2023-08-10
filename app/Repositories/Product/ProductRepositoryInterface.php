@@ -6,5 +6,5 @@ use App\Repositories\RepositoriesInterface;
 
 interface ProductRepositoryInterface extends RepositoriesInterface
 {
-
+    public function getProductOnIndex($request);
 }

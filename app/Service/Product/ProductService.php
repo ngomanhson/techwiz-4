@@ -12,5 +12,7 @@ class ProductService extends BaseService implements ProductServiceInterface
     {
         $this->repository = $productRepository;
     }
-
+    public function getProductOnIndex($request){
+        return $this->repository->getProductOnIndex($request);
+    }
 }
