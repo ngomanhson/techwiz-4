@@ -58,4 +58,8 @@ Route::prefix('account')->group(function () {
     Route::get('register',[\App\Http\Controllers\Front\AccountController::class,'register']);
     Route::get('logout',[\App\Http\Controllers\Front\AccountController::class,'logout']);
 });
+Route::prefix('/review')->group(function (){
+    Route::get('/{orderDetail:order_code}',[\App\Http\Controllers\Front\ReviewController::class,'index']);
+    Route::post('/store',[\App\Http\Controllers\Front\ReviewController::class,'store']);
+});
 
