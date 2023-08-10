@@ -72,6 +72,10 @@ Route::prefix('/cart')->group(function (){
 
 Route::prefix('/checkout')->group(function (){
     Route::get('/',[\App\Http\Controllers\Front\CheckoutController::class,'index']);
+    Route::post("/",[\App\Http\Controllers\Front\CheckoutController::class,"placeOrder"]);
+    Route::post("/update-total",[\App\Http\Controllers\Front\CheckoutController::class,"updateTotal"]);
+    Route::get("/thank-you/",[\App\Http\Controllers\Front\CheckoutController::class,"thankYou"]);
+
 });
 
 Route::prefix('account')->group(function () {
