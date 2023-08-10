@@ -35,4 +35,11 @@ class Product extends Model
         return $this->hasMany(OrderDetail::class,'brand_id','id');
     }
 
+    // Trong mô hình Product
+    public function reviews()
+    {
+        return $this->hasMany(ProductReview::class);
+    }
+
+
 }
