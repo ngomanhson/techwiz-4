@@ -18,10 +18,9 @@
                         </div>
                     </div>
                     <div class="my-4">
-                        <form method="POST" action="{{route('category.update',$productCategory->id)}}">
+                        <form method="POST" action="{{url('admin/category/edit/update',$productCategory->id)}}">
                             @csrf
-
-                            @include('admin.components.notification')
+{{--                            @include('admin.components.notification')--}}
                             <hr class="my-4">
                             <div class="form-group ">
                                 <label for="name">Name</label>
