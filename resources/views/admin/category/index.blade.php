@@ -11,6 +11,7 @@
                             <h2 class="h3 mb-0 page-title">Category</h2>
                         </div>
                         <div class="col-auto">
+
                             <a href="./admin/category/create" class="btn btn-primary"><span class="fe fe-filter fe-12 mr-2"></span>Create</a>
                         </div>
                     </div>
@@ -86,14 +87,14 @@
                                                 </td>
                                                 <td>
                                                     <span class="text-muted sr-only">Action</span>
-                                                    <a href="{{route('category.edit',$productCategorys->id)}}" data-toggle="tooltip" title="Edit"
+                                                    <a href="{{url('/admin/category/edit',$productCategorys->id)}}" data-toggle="tooltip" title="Edit"
                                                        data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                                         <span class="btn-icon-wrapper opacity-8">
                                                             <i class="fa fa-edit fa-w-20"></i>
                                                         </span>
                                                     </a>
                                                     @if($status !== 'trash')
-                                                        <a href="{{route('delete_category',$productCategorys->id)}}" class="btn btn-danger btn-sm rounded-0 text-white"  onclick="return confirm('Are you sure you want to delete ?')" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                                                        <a href="{{url('/admin/category/delete',$productCategorys->id)}}" class="btn btn-danger btn-sm rounded-0 text-white"  onclick="return confirm('Are you sure you want to delete ?')" type="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
                                                     @endif
                                                 </td>
                                             </tr>
@@ -243,4 +244,3 @@
         </div>
     </main> <!-- main -->
 @endsection
-

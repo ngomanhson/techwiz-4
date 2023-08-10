@@ -35,18 +35,20 @@ Route::prefix("/contact")->group(function () {
     Route::get('/',[\App\Http\Controllers\Front\ContactController::class,'index']);
 });
 
- Route::prefix('admin')->group(function (){
+ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function (){
      Route::get('dashboard',[\App\Http\Controllers\Admin\DashboardController::class,'index']);
      Route::get('/statistical',[\App\Http\Controllers\Admin\DashboardController::class,'statistical']);
      Route::get('/order7Days',[\App\Http\Controllers\Admin\DashboardController::class,'order7Days']);
+
      Route::prefix('category')->group(function (){
-         Route::get('',[\App\Http\Controllers\Admin\ProductCategoryController::class,'index']);
-         Route::get('create',[\App\Http\Controllers\Admin\ProductCategoryController::class,'create']);
-         Route::post('store',[\App\Http\Controllers\Admin\ProductCategoryController::class,'store']);
-         Route::post('action',[\App\Http\Controllers\Admin\ProductCategoryController::class,'action']);
-         Route::get('edit/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'edit']);
-         Route::post('edit/update/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'update']);
-         Route::get('delete/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'delete']);
+         Route::get('',[\App\Http\Controllers\Admin\ProductCategoryController::class,'index'])->can('category.view');
+         Route::get('create',[\App\Http\Controllers\Admin\ProductCategoryController::class,'create'])->can('category.add');
+         Route::post('store',[\App\Http\Controllers\Admin\ProductCategoryController::class,'store'])->can('category.add');
+         Route::post('action',[\App\Http\Controllers\Admin\ProductCategoryController::class,'action'])->can('category.view');
+         Route::get('edit/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'edit'])->name('category.edit')->can('category.edit');
+         Route::post('edit/update/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'update'])->name('category.update')->can('category.edit');
+         Route::get('delete/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'delete'])->name('delete_category')->can('category.delete');
+
      });
 
 
@@ -59,16 +61,6 @@ Route::prefix("/contact")->group(function () {
 
  });
 
-Route::prefix('category')->group(function (){
-    Route::get('',[\App\Http\Controllers\Admin\ProductCategoryController::class,'index']);
-
-    Route::post('store',[\App\Http\Controllers\Admin\ProductCategoryController::class,'store']) ;
-    Route::post('action',[\App\Http\Controllers\Admin\ProductCategoryController::class,'action'])->can('category.view');
-    Route::get('edit/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'edit'])->name('category.edit')->can('category.edit');
-    Route::post('edit/update/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'update'])->name('category.update')->can('category.edit');
-    Route::get('delete/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'delete'])->name('delete_category')->can('category.delete');
-
-});
 
 
 Route::prefix('/cart')->group(function (){
