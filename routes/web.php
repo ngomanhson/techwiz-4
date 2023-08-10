@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
+
 Route::get('/',[\App\Http\Controllers\Front\HomeController::class,'index']);
 
 Route::prefix("/shop")->group(function () {
@@ -78,6 +79,7 @@ Route::prefix('account')->group(function () {
     Route::get('login',[\App\Http\Controllers\Front\AccountController::class,'login']);
     Route::post('login',[\App\Http\Controllers\Front\AccountController::class,'checkLogin']);
     Route::get('register',[\App\Http\Controllers\Front\AccountController::class,'register']);
+    Route::post('register',[\App\Http\Controllers\Front\AccountController::class,'postRegister']);
     Route::get('logout',[\App\Http\Controllers\Front\AccountController::class,'logout']);
 });
 Route::prefix('/review')->group(function (){
