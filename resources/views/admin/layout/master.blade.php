@@ -135,7 +135,7 @@
                     </li>
                 </ul>
             @endcanany
-            @canany(['product.view','product.edit','product.edit','product.delete'])
+{{--            @canany(['product.view','product.edit','product.edit','product.delete'])--}}
                 <p class="text-muted nav-heading mt-1 mb-1">
                     <span>Products</span>
                 </p>
@@ -147,8 +147,8 @@
                         </a>
                     </li>
                 </ul>
-            @endcanany
-            @canany(['category.view','category.edit','category.edit','category.delete'])
+{{--            @endcanany--}}
+{{--            @canany(['category.view','category.edit','category.edit','category.delete'])--}}
                 <p class="text-muted nav-heading mt-1 mb-1">
                     <span>Category</span>
                 </p>
@@ -160,7 +160,7 @@
                         </a>
                     </li>
                 </ul>
-            @endcanany
+{{--            @endcanany--}}
             @canany(['brand.view','brand.edit','brand.edit','brand.delete'])
                 <p class="text-muted nav-heading mt-1 mb-1">
                     <span>Brand</span>
