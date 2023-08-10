@@ -75,7 +75,7 @@ Route::prefix('/checkout')->group(function (){
 });
 
 Route::prefix('account')->group(function () {
-    Route::get('/{user_id}',[\App\Http\Controllers\Front\AccountController::class,'myAccount']);
+    Route::get('/',[\App\Http\Controllers\Front\AccountController::class,'myAccount']);
     Route::get('login',[\App\Http\Controllers\Front\AccountController::class,'login']);
     Route::post('login',[\App\Http\Controllers\Front\AccountController::class,'checkLogin']);
     Route::get('register',[\App\Http\Controllers\Front\AccountController::class,'register']);
