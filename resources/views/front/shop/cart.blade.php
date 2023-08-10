@@ -44,8 +44,8 @@
                                                 <td class="product_thumb"><a href="#"><img src="{{$cart->options->images[0]->path}}" alt=""></a></td>
                                                 <td class="product_name"><a href="#">{{$cart->name}}</a></td>
                                                 <td class="product-price">{{$cart->price}}</td>
-                                                <td class="product_quantity"><label>Quantity</label> <input min="1" max="100" value="1" type="number"></td>
-                                                <td class="product_total">$11.23</td>
+                                                <td class="product_quantity"><label>Quantity</label> <input min="1" max="100" value="{{$cart->qty}}" type="number"></td>
+                                                <td class="product_total">{{$cart->total}}</td>
                                             </tr>
                                     </tbody>
                                         @endforeach
@@ -76,7 +76,7 @@
                                 <div class="coupon_inner">
                                     <div class="cart_subtotal">
                                         <p>Subtotal</p>
-                                        <p class="cart_amount">£215.00</p>
+                                        <p class="cart_amount">{{number_format($subtotal, 2, '.', '')}}</p>
                                     </div>
                                     <div class="cart_subtotal ">
                                         <p>Shipping</p>
@@ -86,10 +86,10 @@
 
                                     <div class="cart_subtotal">
                                         <p>Total</p>
-                                        <p class="cart_amount">£215.00</p>
+                                        <p class="cart_amount">{{number_format($subtotal, 2, '.', '')}}</p>
                                     </div>
                                     <div class="checkout_btn">
-                                        <a href="#">Proceed to Checkout</a>
+                                        <a href="{{url('/checkout/')}}">Proceed to Checkout</a>
                                     </div>
                                 </div>
                             </div>
