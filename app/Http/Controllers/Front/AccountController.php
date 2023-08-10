@@ -44,4 +44,7 @@ class AccountController extends Controller
 
         return back();
     }
+    public function orderDetail() {
+        return view('front.account.detail');
+    }
 }

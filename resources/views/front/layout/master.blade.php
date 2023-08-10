@@ -329,7 +329,7 @@
                                     <ul class="dropdown_links">
                                         <li>
                                             @if(Auth::check())
-                                                <a href="{{url("/account/my-account")}}">{{Auth::user()->name}}</a>
+                                                <a href="{{url("/account")}}">{{Auth::user()->name}}</a>
                                             @else
                                                 <a href="{{url("/account/login")}}">Login</a>
                                             @endif
