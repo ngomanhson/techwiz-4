@@ -36,6 +36,8 @@ Route::prefix("/contact")->group(function () {
 
  Route::prefix('admin')->group(function (){
      Route::get('dashboard',[\App\Http\Controllers\Admin\DashboardController::class,'index']);
+     Route::get('/statistical',[\App\Http\Controllers\Admin\DashboardController::class,'statistical']);
+     Route::get('/order7Days',[\App\Http\Controllers\Admin\DashboardController::class,'order7Days']);
  });
 
 Route::prefix('/cart')->group(function (){
