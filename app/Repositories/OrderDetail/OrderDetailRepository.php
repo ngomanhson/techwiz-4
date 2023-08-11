@@ -13,4 +13,11 @@ class OrderDetailRepository extends BaseRepositories implements OrderDetailRepos
      return OrderDetail::class;
         // TODO: Implement getModel() method.
     }
+
+    public function getProduct()
+    {
+
+        return OrderDetail::class;
+        // TODO: Implement getModel() method.
+    }
 }

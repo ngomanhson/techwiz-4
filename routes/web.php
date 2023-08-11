@@ -131,7 +131,7 @@ Route::prefix('account')->group(function () {
 
 });
 Route::prefix('/review')->group(function (){
-    Route::get('/{orderDetail:order_code}',[\App\Http\Controllers\Front\ReviewController::class,'index']);
+    Route::get('/{orderDetail}',[\App\Http\Controllers\Front\ReviewController::class,'index']);
     Route::post('/store',[\App\Http\Controllers\Front\ReviewController::class,'store']);
 });
 
