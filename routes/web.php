@@ -37,8 +37,16 @@ Route::prefix("/contact")->group(function () {
 
  Route::prefix('admin')->group(function (){
      Route::get('dashboard',[\App\Http\Controllers\Admin\DashboardController::class,'index']);
+     Route::resource('product/{product_id}/image',\App\Http\Controllers\Admin\ProductImageController::class);
+     Route::resource('product/{product_id}/detail',\App\Http\Controllers\Admin\ProductDetailController::class);
+
      Route::get('/statistical',[\App\Http\Controllers\Admin\DashboardController::class,'statistical']);
      Route::get('/order7Days',[\App\Http\Controllers\Admin\DashboardController::class,'order7Days']);
+//xử lý order
+     Route::get('orders',[\App\Http\Controllers\Admin\OrdersController::class,'index']);
+     Route::post('/confirm-payment', [\App\Http\Controllers\Admin\OrdersController::class, 'confirmPayment'])->name('confirm.payment');
+     Route::post('/orders/{orderId}/cancel', [\App\Http\Controllers\Admin\OrdersController::class,'cancelOrder']);
+     Route::get('orders/show/{id}',[\App\Http\Controllers\Admin\OrdersController::class,'show'])->name('order.show');
 
      Route::prefix('category')->middleware('CheckAdminLogin')->group(function (){
          Route::get('',[\App\Http\Controllers\Admin\ProductCategoryController::class,'index']);
@@ -51,6 +59,19 @@ Route::prefix("/contact")->group(function () {
 
      });
 
+     //xử lý product
+     Route::prefix('product')->group(function (){
+         Route::get('',[\App\Http\Controllers\Admin\ProductController::class,'index']);
+         Route::get('create',[\App\Http\Controllers\Admin\ProductController::class,'create']);
+         Route::post('store',[\App\Http\Controllers\Admin\ProductController::class,'store']);
+         Route::get('edit/{id}',[\App\Http\Controllers\Admin\ProductController::class,'edit'])->name('product.edit');
+         Route::post('edit/update/{id}',[\App\Http\Controllers\Admin\ProductController::class,'update'])->name('product.update');
+         Route::get('show/{id}',[\App\Http\Controllers\Admin\ProductController::class,'show'])->name('product.show');
+         Route::post('action',[\App\Http\Controllers\Admin\ProductController::class,'action']);
+         Route::get('delete/{id}',[\App\Http\Controllers\Admin\ProductController::class,'delete'])->name('delete_product');
+         //xử lý ảnh product
+
+     });
 
 
      Route::prefix('login')->group(function (){
