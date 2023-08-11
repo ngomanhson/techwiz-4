@@ -250,7 +250,7 @@
                                 </div>
                                 <div class="header_account-list  mini_cart_wrapper">
                                     <a href="javascript:void(0)"><i class="icon-shopping-bag"></i><span
-                                            class="item_count">2</span></a>
+                                            class="item_count">{{Cart::count()}}</span></a>
                                     <!--mini cart-->
                                     <div class="mini_cart">
                                         <div class="cart_gallery">
@@ -262,41 +262,31 @@
                                                     <a href="javascript:void(0)"><i class="icon-x"></i></a>
                                                 </div>
                                             </div>
-                                            <div class="cart_item">
-                                                <div class="cart_img">
-                                                    <a href="#"><img src="front/assets/img/s-product/product.jpg" alt=""></a>
+                                            @foreach(Cart::content() as  $cart)
+                                                <div class="cart_item" data-rowId="{{$cart->rowid}}">
+                                                    <div class="cart_img">
+                                                        <a href="#"><img src="{{$cart->options->images[0]->path}}" alt=""></a>
+                                                    </div>
+                                                    <div class="cart_info">
+                                                        <a href="#">{{$cart->name}}</a>
+                                                        <p>{{$cart->qty}} x <span> {{$cart->price}} </span></p>
+                                                    </div>
+                                                    <div class="cart_remove">
+                                                        <a href="#"><i class="icon-x"></i></a>
+                                                    </div>
                                                 </div>
-                                                <div class="cart_info">
-                                                    <a href="#">Primis In Faucibus</a>
-                                                    <p>1 x <span> $65.00 </span></p>
-                                                </div>
-                                                <div class="cart_remove">
-                                                    <a href="#"><i class="icon-x"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="cart_item">
-                                                <div class="cart_img">
-                                                    <a href="#"><img src="front/assets/img/s-product/product2.jpg"
-                                                                     alt=""></a>
-                                                </div>
-                                                <div class="cart_info">
-                                                    <a href="#">Letraset Sheets</a>
-                                                    <p>1 x <span> $60.00 </span></p>
-                                                </div>
-                                                <div class="cart_remove">
-                                                    <a href="#"><i class="icon-x"></i></a>
-                                                </div>
-                                            </div>
+                                            @endforeach
+
                                         </div>
                                         <div class="mini_cart_table">
                                             <div class="cart_table_border">
                                                 <div class="cart_total">
                                                     <span>Sub total:</span>
-                                                    <span class="price">$125.00</span>
+                                                    <span class="price">{{Cart::subtotal()}}</span>
                                                 </div>
                                                 <div class="cart_total mt-10">
                                                     <span>total:</span>
-                                                    <span class="price">$125.00</span>
+                                                    <span class="price">{{Cart::total()}}</span>
                                                 </div>
                                             </div>
                                         </div>

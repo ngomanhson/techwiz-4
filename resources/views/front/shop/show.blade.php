@@ -136,7 +136,7 @@
                                         </div>
                                         <div class="action_links">
                                             <ul>
-                                                <li class="add_to_cart"><a href="cart/add/{{$pr->id}}" title="Add to cart"><i
+                                                <li class="add_to_cart"><a href="javascript:addCart({{$pr->id}})" title="Add to cart"><i
                                                             class="icon-shopping-bag"></i></a></li>
 
                                                 <li class="wishlist"><a href="#!" title="Add to Wishlist"><i

@@ -656,3 +656,65 @@
     });
 })(jQuery);
 
+
+function addCart(productId) {
+
+    $.ajax({
+        type: "GET",
+        url:"cart/add",
+        data:{productId: productId,},
+        success: function (response){
+            $('.item_count').text(response['count']);
+            $('.cart_total mt-10.price').text(response['$' +'total']);
+            $('.cart_total .price').text(response['$' +'total']);
+
+            var miniCart_cartGallery = $('.mini_cart.cart_gallery');
+            var miniCart_existItem = miniCart_cartGallery.find("div  " + " [data-rowId='"+ response['cart'].rowid +"' ]");
+
+            if (miniCart_existItem.length){
+                miniCart_existItem.find(".cart_info p").text('$'+response['cart'].price.toFixed(2)+'x'+response['cart'].qty);
+            }else {
+                var newItem =
+                    '                                                  <div class="cart_item" data-rowId="'+response['cart'].rowid + '">\n' +
+                    '                                                <div class="cart_img">\n' +
+                    '                                                    <a href="#"><img src="'+ response['cart'].options.images[0].path +'" alt=""></a>\n' +
+                    '                                                </div>\n' +
+                    '                                                <div class="cart_info">\n' +
+                    '                                                    <a href="#">'+ response['cart'].name +'</a>\n' +
+                    '                                                    <p>{{$cart->qty}} x <span>$'+ response['cart'].price.toFixed(2)+' </span></p>\n' +
+                    '                                                </div>\n' +
+                    '                                                <div class="cart_remove">\n' +
+                    '                                                    <a href="#"><i class="icon-x"></i></a>\n' +
+                    '                                                </div>\n' +
+                    '                                            </div>\n' +
+                    '\n' +
+                    '                                        </div>\n' +
+                    '                                        <div class="mini_cart_table">\n' +
+                    '                                            <div class="cart_table_border">\n' +
+                    '                                                <div class="cart_total">\n' +
+                    '                                                    <span>Sub total:</span>\n' +
+                    '                                                    <span class="price">$'+ response['cart'].price.toFixed(2)+'x'+ response['cart'].qty+'</span>\n' +
+                    '                                                </div>\n' +
+                    '                                                <div class="cart_total mt-10">\n' +
+                    '                                                    <span>total:</span>\n' +
+                    '                                                    <span class="price">$'+ response['cart'].price.toFixed(2)+'x'+ response['cart'].qty+'</span>\n' +
+                    '                                                </div>\n' +
+                    '                                            </div>\n' +
+                    '                                        </div>';
+
+                miniCart_cartGallery.append(newItem);
+            }
+            alert('add successful!\nProduct:'+response['cart'].name)
+            console.log(response);
+
+
+        },
+        error: function(response) {
+            alert('add faile');
+            console.log(response)
+            // showAlert('Add failed');
+
+            // console.log(response);
+        },
+    });
+}
