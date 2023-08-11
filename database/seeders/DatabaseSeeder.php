@@ -349,6 +349,56 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+        DB::table('product_detail')->insert([
+            [
+                'product_id' => 1,
+                'size' => 'M',
+                'qty' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_id' => 1,
+                'size' => 'L',
+                'qty' => 25,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_id' => 1,
+                'size' => 'XS',
+                'qty' => 15,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
+
+        DB::table('product_review')->insert([
+            [
+                'product_id' => 1,
+                'user_id' => 1,
+                'message' => 'Nice !',
+                'score' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_id' => 1,
+                'user_id' => 1,
+                'message' => 'Good !',
+                'score' => 5,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_id' => 3,
+                'user_id' => 1,
+                'message' => 'Nhu l !',
+                'score' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
 
         DB::table('product_images')->insert([
             [

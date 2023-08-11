@@ -98,7 +98,7 @@ class ProductRepository extends BaseRepositories implements ProductRepositoryInt
     }
 
 
-    public function getRelatedProducts($product, $limit =4)
+    public function getRelatedProducts($product, $limit =6)
     {
         return $this->model->where('product_category_id',$product->product_category_id)
             ->limit($limit)

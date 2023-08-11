@@ -38,7 +38,6 @@ class ShopController extends Controller
         $products_detail = ProductDetail::where('product_id', $product->id)->get();
         $pro = $this ->productService->getRelatedProducts($product);
         $title = $product->name;
-
         if (empty($product->productDetails)) {
             $defaultSize = null;
         } else {
