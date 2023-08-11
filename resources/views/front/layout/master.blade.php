@@ -8,6 +8,7 @@
     <title>PlantNest</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="front/assets/css/style-price.css">
     <link rel="stylesheet" href="front/assets/css/nice-select.css">
     <!-- Favicon -->
@@ -811,11 +812,11 @@
 <script src="front/assets/js/jquery.slicknav.js"></script>
 <script src="front/assets/js/jquery-ui.min.js"></script>
 
-
 <!-- Main JS -->
 <script src="front/assets/js/main.js"></script>
 
-
+<!--Shipping -->
+<script src="front/assets/js/shipping.js"></script>
 
 </body>
 

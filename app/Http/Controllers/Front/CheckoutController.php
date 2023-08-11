@@ -4,14 +4,11 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
-use App\Models\OrderDetail;
 use App\Models\Product;
 use App\Service\Order\OrderServiceInterface;
 use App\Service\OrderDetail\OrderDetailServiceInterface;
-use App\Utilities\Constant;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
@@ -31,11 +28,14 @@ class CheckoutController extends Controller
 
     public function updateTotal(Request $request)
     {
+        $shippingFee = $request->input('shipping_fee');
         $subtotal = str_replace(',', '', Cart::subtotal());
         $vatRate = 0.1;
         $vatAmount = $subtotal * $vatRate;
-        $total = $subtotal + $vatAmount;
-        $request->session()->put('total', $total);
+        $total = $subtotal + $vatAmount + $shippingFee;
+
+        // Store the updated total in the session
+        Session::put('total', $total);
 
         return response()->json(['total' => $total]);
     }
@@ -46,16 +46,38 @@ class CheckoutController extends Controller
         $subtotal = str_replace(',', '', Cart::subtotal());
         $vatRate = 0.1;
         $vatAmount = $subtotal * $vatRate;
-        $total = $subtotal + $vatAmount; // Tính toán lại Order Total
+        $shippingFee = $request->session()->get('shipping_fee', 0);
+
+        // Retrieve 'total' from the session or calculate it if not present
+        $total = $request->session()->get('total', $subtotal + $vatAmount + $shippingFee);
 
         $request->session()->put('subtotal', $subtotal);
         $request->session()->put('vatAmount', $vatAmount);
         $request->session()->put('total', $total);
 
-        return view('front.checkout.index', compact('carts', 'total', 'subtotal', 'vatAmount'));
+        return view('front.checkout.index', compact('carts', 'total', 'subtotal', 'vatAmount', 'shippingFee'));
     }
 
 
+    //Helper MoMo
+    function execPostRequest($url, $data)
+    {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($data))
+        );
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+        //execute post
+        $result = curl_exec($ch);
+        //close connection
+        curl_close($ch);
+        return $result;
+    }
     public function placeOrder(Request $request)
     {
         $request->validate([
@@ -77,8 +99,11 @@ class CheckoutController extends Controller
         $subtotal = str_replace(',', '', Cart::subtotal());
         $vatRate = 0.1;
         $vatAmount = $subtotal * $vatRate;
+        $shippingFee = $request->session()->get('shipping_fee', 0);
 //        dd($shippingFee);
-        $total = $request->session()->get('total', $subtotal + $vatAmount);
+        $total = $request->session()->get('total', $subtotal + $vatAmount + $shippingFee);
+
+//        dd($total);
 
         $orderCode = Str::random(8);
 
@@ -155,12 +180,10 @@ class CheckoutController extends Controller
                     $product->save();
                 }
             }
-
         }
 
-
         // Clear the cart
-        Cart::destroy();
+//        Cart::destroy();
 
         if ($order->payment_method == "PayPal") {
             //Payment Method PayPal
@@ -192,8 +215,6 @@ class CheckoutController extends Controller
                     }
                 }
             }
-        } else if ($order->payment_method == "MoMo") {
-            //Payment Method MoMo
         }
 
         // Send Email
@@ -217,10 +238,10 @@ class CheckoutController extends Controller
     public function thankYou(Request $request) {
         $status = $request->input('resultCode');
         $requestId = $request->input('orderId');
+//        $requestId = $request->input('requestId');
         $order = Order::where('order_code', $requestId)->first();
 
         $notification = session("notification");
-
 
         if ($status == '0' ) {
             // Update order status
@@ -229,8 +250,10 @@ class CheckoutController extends Controller
             // Send Email
             $this->sendEmail($request, $order);
         }
+//        dd($request->all());
         return view("front.checkout.thank-you", compact("notification"));
     }
+
 
     //Send Email
     public function sendEmail(Request $request, $order) {

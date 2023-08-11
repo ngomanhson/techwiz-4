@@ -141,21 +141,21 @@
                                     <label> Shipping Method <span>*</span></label>
 
                                     <div class="panel-default">
-                                        <input id="Express" value="Express" name="shipping_method" type="radio" data-bs-target="createp_account" checked/>
-                                        <label for="Express" data-bs-toggle="collapse" data-bs-target="#method1" aria-controls="method1">Express shipping method</label>
-                                        <div id="method1" class="collapse one" data-parent="#accordion">
+                                        <input id="fast" value="Standard Shipping" name="shipping_method" type="radio" data-bs-target="createp_account" checked/>
+                                        <label for="fast" data-bs-toggle="collapse" data-bs-target="#collapsedefult1" aria-controls="collapsedefult1">Standard Shipping ($10)</label>
+                                        <div id="collapsedefult1" class="collapse one" data-parent="#accordion">
                                             <div class="card-body1">
-                                                <p>This method will be sent by GrabExpress or AhaMove and received within 24 hours of placing the order.</p>
+                                                <p>This method will be sent by SPX or J&T Express and received within 2 to 5 days of placing the order.</p>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="panel-default">
-                                        <input id="fast" value="Fast" name="shipping_method" type="radio" data-bs-target="createp_account" />
-                                        <label for="fast" data-bs-toggle="collapse" data-bs-target="#collapsedefult1" aria-controls="collapsedefult1">Fast</label>
-                                        <div id="collapsedefult1" class="collapse one" data-parent="#accordion">
+                                        <input id="Express" value="Express Shipping" name="shipping_method" type="radio" data-bs-target="createp_account" />
+                                        <label for="Express" data-bs-toggle="collapse" data-bs-target="#method1" aria-controls="method1">Express Shipping ($30)</label>
+                                        <div id="method1" class="collapse one" data-parent="#accordion">
                                             <div class="card-body1">
-                                                <p>This method will be sent by SPX or J&T Express and received within 2 to 5 days of placing the order.</p>
+                                                <p>This method will be sent by GrabExpress or AhaMove and received within 24 hours of placing the order.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -182,13 +182,19 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>Cart Subtotal</th>
+                                                <th>Subtotal</th>
                                                 <td id="subtotal">${{$subtotal}}</td>
                                             </tr>
                                             <tr>
                                                 <th>VAT (10%)</th>
                                                 <td id="vatAmount"><strong>${{number_format($vatAmount, 2, '.', '') }}</strong></td>
                                             </tr>
+
+                                            <tr>
+                                                <th>Shipping</th>
+                                                <td id="shipping_fee"><strong>${{number_format($shippingFee, 2, '.', '') }}</strong></td>
+                                            </tr>
+
                                             <tr class="order_total">
                                                 <th>Order Total</th>
                                                 <td id="total"><strong>${{number_format($total, 2, '.', '') }}</strong></td>
