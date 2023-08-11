@@ -130,7 +130,7 @@
                             </li>
 
                             <li class="menu-item-has-children">
-                                <a href="{{url("/blog")}}">Clog</a>
+                                <a href="{{url("/blog")}}">Blog</a>
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="{{url("/about-us")}}">About Us </a>
@@ -568,10 +568,8 @@
                         <div class="footer_menu">
                             <ul>
                                 <li><a href="{{url("/account")}}">My Account</a></li>
-                                <li><a href="{{url('/contact')}}">Contact</a></li>
                                 <li><a href="{{url("/cart")}}">Shopping cart</a></li>
                                 <li><a href="{{url("/checkout")}}">Checkout</a></li>
-                                <li><a href="{{url("/account")}}">Order History</a></li>
                             </ul>
                         </div>
                     </div>

@@ -1,15 +1,18 @@
 @extends('front.layout.master')
 @section('title', )
 @section('body')
- <!--breadcrumbs area start-->
- <div class="breadcrumbs_area">
+ 
+
+    <!--breadcrumbs area start-->
+    <div class="breadcrumbs_area">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb_content">
+                        <h3>Blog</h3>
                         <ul>
                             <li><a href="index.html">home</a></li>
-                            <li>blog</li>
+                            <li>Blog</li>
                         </ul>
                     </div>
                 </div>
@@ -17,7 +20,6 @@
         </div>
     </div>
     <!--breadcrumbs area end-->
-
     <!--blog area start-->
     <div class="blog_page_section blog_fullwidth mt-100">
         <div class="container">

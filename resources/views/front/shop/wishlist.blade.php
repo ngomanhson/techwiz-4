@@ -2,6 +2,23 @@
 @section('title','Wishlist')
 @section('body')
 
+    <!--breadcrumbs area start-->
+    <div class="breadcrumbs_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb_content">
+                        <h3>Wishlist</h3>
+                        <ul>
+                            <li><a href="index.html">home</a></li>
+                            <li>Wishlist</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--breadcrumbs area end-->
     <!--wishlist area start -->
     <div class="wishlist_area mt-100">
         <div class="container">
