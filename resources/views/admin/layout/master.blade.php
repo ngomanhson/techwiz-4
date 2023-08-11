@@ -108,7 +108,7 @@
                     </a>
                 </li>
             </ul>
-            @canany(['user.view','user.edit','user.edit','user.delete'])
+{{--            @canany(['user.view','user.edit','user.edit','user.delete'])--}}
                 <p class="text-muted nav-heading mt-1 mb-1">
                     <span>Components</span>
                 </p>
@@ -120,7 +120,7 @@
                         </a>
                     </li>
                 </ul>
-            @endcanany
+{{--            @endcanany--}}
 {{--            @canany(['orders.view','orders.edit','orders.edit','orders.delete'])--}}
                 <p class="text-muted nav-heading mt-1 mb-1">
                     <span>Orders</span>
