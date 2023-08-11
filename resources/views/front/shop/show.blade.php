@@ -88,6 +88,7 @@
 
 
                         </div>
+
                         </form>
                     </aside>
                     <!--sidebar widget end-->
@@ -217,5 +218,6 @@
             </div>
         </div>
     </div>
+
     <!--shop  area end-->
 @endsection
