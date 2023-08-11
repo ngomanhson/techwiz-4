@@ -38,27 +38,60 @@
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="contact_message form">
-                        <h3>Tell us your project</h3>
-                        <form id="contact-form" method="POST" action="https://htmldemo.net/lukani/lukani/assets/mail.php">
-                            <p>
-                                <label> Your Name (required)</label>
-                                <input name="name" placeholder="Name *" type="text">
-                            </p>
-                            <p>
-                                <label> Your Email (required)</label>
-                                <input name="email" placeholder="Email *" type="email">
-                            </p>
-                            <p>
-                                <label> Subject</label>
-                                <input name="subject" placeholder="Subject *" type="text">
-                            </p>
-                            <div class="contact_textarea">
-                                <label> Your Message</label>
-                                <textarea placeholder="Message *" name="message" class="form-control2"></textarea>
-                            </div>
-                            <button type="submit"> Send</button>
-                            <p class="form-messege"></p>
-                        </form>
+                        @if(auth()->check())
+                            <h3>Tell us your Feedback</h3>
+                            <form method="POST" action="{{url('/contact/save')}}">
+                                @csrf
+                                <p>
+                                    <label> Your Name (required)</label>
+                                    <input name="name" placeholder="Name *" value="{{auth()->user()->first_name." ".auth()->user()->last_name}}" type="text" required>
+                                </p>
+                                <p>
+                                    <label> Your Email (required)</label>
+                                    <input name="email" placeholder="Email *" type="email" value="{{auth()->user()->email}}" required>
+                                </p>
+                                <p>
+                                    <label> Phone</label>
+                                    <input name="phone" placeholder="Phone *" type="text" value="{{auth()->user()->phone}}" required>
+                                </p>
+                                <div class="contact_textarea">
+                                    <label> Your Message</label>
+                                    <textarea placeholder="Message *" name="message" class="form-control2" required></textarea>
+                                    @error("message")
+                                    <p class="text-danger"><i>{{$message}}</i></p>
+                                    @enderror
+                                </div>
+                                <button type="submit"> Send</button>
+                            </form>
+                        @else
+                            <h3>Tell us your Feedback. <span style="color: red;font-size: 16px">(Please login to submit the form)</span>  </h3>
+                            <form method="POST" action="{{url('/contact/save')}}">
+                                @csrf
+                                <p>
+                                    <label> Your Name (required)</label>
+                                    <input name="name" placeholder="Name *" type="text" required>
+                                </p>
+                                <p>
+                                    <label> Your Email (required)</label>
+                                    <input name="email" placeholder="Email *" type="email" required>
+                                </p>
+                                <p>
+                                    <label> Phone</label>
+                                    <input name="phone" placeholder="Phone *" type="text" required>
+                                </p>
+                                <div class="contact_textarea">
+                                    <label> Your Message</label>
+                                    <textarea placeholder="Message *" name="message" class="form-control2" required></textarea>
+                                </div>
+                                @error("message")
+                                <p class="text-danger"><i>{{$message}}</i></p>
+                                @enderror
+                                <p></p>
+                                <button type="submit"> Send</button>
+
+                            </form>
+                        @endif
+
 
                     </div>
                 </div>
