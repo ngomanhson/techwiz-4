@@ -41,7 +41,6 @@ Route::prefix("/contact")->group(function () {
      Route::get('dashboard',[\App\Http\Controllers\Admin\DashboardController::class,'index']);
      Route::resource('product/{product_id}/image',\App\Http\Controllers\Admin\ProductImageController::class);
      Route::resource('product/{product_id}/detail',\App\Http\Controllers\Admin\ProductDetailController::class);
-
      Route::get('/statistical',[\App\Http\Controllers\Admin\DashboardController::class,'statistical']);
      Route::get('/order7Days',[\App\Http\Controllers\Admin\DashboardController::class,'order7Days']);
 //xử lý order
