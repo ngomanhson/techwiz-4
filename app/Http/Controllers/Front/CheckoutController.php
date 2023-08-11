@@ -58,26 +58,6 @@ class CheckoutController extends Controller
         return view('front.checkout.index', compact('carts', 'total', 'subtotal', 'vatAmount', 'shippingFee'));
     }
 
-
-    //Helper MoMo
-    function execPostRequest($url, $data)
-    {
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                'Content-Type: application/json',
-                'Content-Length: ' . strlen($data))
-        );
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        //execute post
-        $result = curl_exec($ch);
-        //close connection
-        curl_close($ch);
-        return $result;
-    }
     public function placeOrder(Request $request)
     {
         $request->validate([
@@ -183,7 +163,7 @@ class CheckoutController extends Controller
         }
 
         // Clear the cart
-//        Cart::destroy();
+        Cart::destroy();
 
         if ($order->payment_method == "PayPal") {
             //Payment Method PayPal
