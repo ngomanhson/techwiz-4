@@ -44,12 +44,57 @@
 
     <!--modernizr min js here-->
     <script src="front/assets/js/vendor/modernizr-3.7.1.min.js"></script>
+
+    <style>
+        /* Loading */
+        .loader-web {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            transition: opacity 0.5s, visibility 0.75s;
+            z-index: 99;
+        }
+
+        .loader-web::after {
+            content: "";
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: inline-block;
+            border-top: 3px solid #FFF;
+            border-right: 3px solid transparent;
+            box-sizing: border-box;
+            animation: loading 0.5s linear infinite;
+        }
+
+        .loader-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        @keyframes loading {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
 </head>
 
 <body>
 
-<!--header area start-->
-
+<div class="pre-load">
+    <div class="loader-web"></div>
+</div>
 
 {{-- Star Header Mobile--}}
 <!--offcanvas menu area start-->
