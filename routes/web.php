@@ -27,8 +27,10 @@ Route::prefix("/shop")->group(function () {
 
 Route::prefix("/blog")->group(function () {
     Route::get('/',[\App\Http\Controllers\Front\BlogController::class,'index']);
-    Route::get('/detail',[\App\Http\Controllers\Front\BlogController::class,'show']);
-
+    Route::get('/search-blog',[\App\Http\Controllers\Front\BlogController::class,'searchBlog']);
+    Route::get('/{blog}',[\App\Http\Controllers\Front\BlogController::class,'show']);
+    Route::post('/{blog}/add-comment', [\App\Http\Controllers\Front\BlogController::class, 'addComment'])->name('blog.add_comment');
+    Route::get('/blog/delete-comment/{comment}', [\App\Http\Controllers\Front\BlogController::class, 'deleteComment'])->name('blog.delete_comment');
 });
 
 Route::prefix("/contact")->group(function () {

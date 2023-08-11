@@ -795,5 +795,48 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => now(),
             ],
         ]);
+
+        DB::table('blogs')->insert([
+            [
+                'id' => 1,
+                'user_id' => 1,
+                'title' => 'Maintenance process – The most detailed decorative tree care',
+                'slug' => Str::slug('Maintenance process – The most detailed decorative tree care'),
+                'subtitle' => 'The process, the ways to take care of decorative plants, border plants, ornamental plants, flowering plants, etc., are the most detailed. Hope to help readers have more information in tree care.',
+                'image'=> 'front/assets/img/product/product-1.png',
+                'category'=> 'Take care of plant',
+                'content'=> 'Perform unnecessary pruning of branches and branches, remove damaged branches, and give trees a more beautiful and balanced shape.Depending on the growth of the tree, schedule the pruning accordingly, avoiding the breaking of the shade tree, ensuring the aesthetic of the tree. Remove weeds and small grasses around trees and other green areas to avoid competition for nutrients and water for plants and keep green areas clean.For lawns on the premises, weeding always takes a lot of time. The weeding process also needs to pay attention to how to get the entire grass root, to avoid overgrowth.Perform periodic fertilization to provide necessary nutrients for plants, help them grow stronger and have more beautiful leaves, flowers, and fruits. Check and apply fertilizers suitable for each type. plants with the right dose and type of fertilizer for the growing stage.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id' => 2,
+                'user_id' => 1,
+                'title' => 'Interior greenery means happiness - peace',
+                'slug' => Str::slug('Interior greenery means happiness - peace'),
+                'subtitle' => 'Owning a happy potted plant will help homeowners more joy, happiness and warmth. At the same time, happiness is also believed to contribute to resolving conflicts and misunderstandings, bringing warmth and solidarity to the collective.',
+                'image'=> 'front/assets/img/product/product-2.png',
+                'category'=> 'Choose to buy trees',
+                'content'=> 'If classified according to the purpose of use, Happiness will have 2 types of trees: Happiness on the table and happiness on the floor.
+Happy table or mini happiness has a height of both trees and pots about 30-40cm, suitable for placing desks, document cabinets.
+Happy to put the floor, the tree has a height of about 1.6 - 2.0m, depending on the interior space, we can choose potted plants for decoration.
+Happy interior decoration should pay attention to choose a location with full light, avoid dark places, secret spaces.',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
+
+        DB::table('blog_comments')->insert([
+            [
+                'id' => 1,
+                'blog_id' => 1,
+                'user_id' => 1,
+                'email' => 'ngomanhson2004txpt@gmail.com',
+                'name' => 'Ngo Manh Son',
+                'messages' => 'Rat huu ich',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
     }
 }
