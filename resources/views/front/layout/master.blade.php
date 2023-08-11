@@ -121,47 +121,19 @@
                     <div id="menu" class="text-left ">
                         <ul class="offcanvas_main_menu">
                             <li class="menu-item-has-children active">
-                                <a href="#">Home</a>
-                                <ul class="sub-menu">
-                                    <li><a href="index.html">Home 1</a></li>
-                                    <li><a href="index-2.html">Home 2</a></li>
-                                    <li><a href="index-3.html">Home 3</a></li>
-                                    <li><a href="index-4.html">Home 4</a></li>
-                                    <li><a href="index-5.html">Home 5</a></li>
-                                </ul>
+                                <a href="{{url("/")}}">Home</a>
                             </li>
 
 {{--                            Shop Page--}}
                             <li class="menu-item-has-children">
-                                <a href="#">Shop</a>
+                                <a href="{{url("/shop")}}">Shop</a>
                             </li>
 
                             <li class="menu-item-has-children">
-                                <a href="#">blog</a>
-                                <ul class="sub-menu">
-                                    <li><a href="blog.html">blog</a></li>
-                                    <li><a href="blog-details.html">blog details</a></li>
-                                    <li><a href="blog-fullwidth.html">blog fullwidth</a></li>
-                                    <li><a href="blog-sidebar.html">blog sidebar</a></li>
-                                </ul>
-
+                                <a href="{{url("/blog")}}">Clog</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="#">pages </a>
-                                <ul class="sub-menu">
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="services.html">services</a></li>
-                                    <li><a href="faq.html">Frequently Questions</a></li>
-                                    <li><a href="{{url('/contact')}}">contact</a></li>
-                                    <li><a href="login.html">login</a></li>
-                                    <li><a href="404.html">Error 404</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children">
-                                <a href="my-account.html">my account</a>
-                            </li>
-                            <li class="menu-item-has-children">
-                                <a href="about.html">about Us</a>
+                                <a href="{{url("/aboutus")}}">About Us </a>
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="{{url('/contact')}}"> Contact Us</a>
@@ -261,7 +233,7 @@
                             </div>
                             <div class="header_account_area">
                                 <div class="header_account-list header_wishlist">
-                                    <a href="{{url('shop/wishlist')}}"><i class="icon-heart"></i></a>
+                                    <a href="{{url('/wishlist')}}"><i class="icon-heart"></i></a>
                                 </div>
                                 <div class="header_account-list  mini_cart_wrapper">
                                     <a href="javascript:void(0)"><i class="icon-shopping-bag"></i><span
@@ -336,7 +308,7 @@
                                     <ul class="dropdown_links">
                                         <li>
                                             @if(Auth::check())
-                                                <a href="{{url("/account/{user_id}")}}">{{Auth::user()->first_name . ' ' . Auth::user()->last_name}}</a>
+                                                <a href="{{url("/account")}}">{{Auth::user()->first_name . ' ' . Auth::user()->last_name}}</a>
                                                 <a href="{{url('account')}}">My Account</a>
                                                 <a href="{{url('account/logout')}}">Logout</a>
                                             @else

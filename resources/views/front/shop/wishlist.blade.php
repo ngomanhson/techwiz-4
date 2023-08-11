@@ -1,10 +1,11 @@
 @extends('front.layout.master')
 @section('title','Wishlist')
 @section('body')
-    @if(count($products)>0)
+
     <!--wishlist area start -->
     <div class="wishlist_area mt-100">
         <div class="container">
+            @if(count($products)>0)
             <form action="#">
                 <div class="row">
                     <div class="col-12">
@@ -41,22 +42,24 @@
                         </div>
                     </div>
                 </div>
-
             </form>
-            <div class="row">
-                <div class="col-12">
-                    <div class="wishlist_share">
-                        <h4>Share on:</h4>
-                        <ul>
-                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                            <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
-                            <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="wishlist_share">
+                            <h4>Share on:</h4>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                                <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+                                <li><a href="#"><i class="fa fa-tumblr"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @else
+                <p class="text-center mb-5">No products in wishlist</p>
+            @endif
 
         </div>
     </div>
