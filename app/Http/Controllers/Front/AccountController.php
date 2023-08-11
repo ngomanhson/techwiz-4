@@ -76,9 +76,18 @@ class AccountController extends Controller
 
 //        dd($data);
 
-        $this->userService->create($data);
+        $existingUser = User::where('email', $request->email)->first();
 
-        return redirect('account/login')->with('success', 'Register Success! Please login.');
+        if ($existingUser) {
+            return redirect("/account/register")->with('notification', 'Email already exists.')->withInput();
+        }
+
+        try {
+            $this->userService->create($data);
+            return redirect("/account/login")->with('success', 'Register Success! Please login.');
+        } catch (\Exception $e) {
+            return redirect("/account/register")->with('notification', 'An error occurred. Please try again.')->withInput();
+        }
     }
 
     public function myAccount() {
