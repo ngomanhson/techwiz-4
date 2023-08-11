@@ -100,3 +100,6 @@ Route::prefix('/review')->group(function (){
     Route::post('/store',[\App\Http\Controllers\Front\ReviewController::class,'store']);
 });
 
+Route::prefix('/about-us')->group(function (){
+    Route::get('/',[\App\Http\Controllers\Front\AboutUsController::class,'index']);
+});

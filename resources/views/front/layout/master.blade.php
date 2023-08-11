@@ -133,7 +133,7 @@
                                 <a href="{{url("/blog")}}">Clog</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="{{url("/aboutus")}}">About Us </a>
+                                <a href="{{url("/about-us")}}">About Us </a>
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="{{url('/contact')}}"> Contact Us</a>
@@ -480,7 +480,7 @@
 <!--                            End Shop Page-->
 
                                     <li>
-                                        <a href="{{url('/aboutus')}}}">About Us</a>
+                                        <a href="{{url('/about-us')}}">About Us</a>
                                     </li>
                                     <li><a href="{{url('/contact')}}"> Contact Us</a></li>
                                 </ul>
@@ -554,8 +554,8 @@
                         <div class="footer_menu">
                             <ul>
                                 <li><a href="{{url("/")}}">Home</a></li>
-                                <li><a href="{{url("/shoop")}}">Shop</a></li>
-                                <li><a href="{{url("/aboutus")}}">About Us</a></li>
+                                <li><a href="{{url("/shop")}}">Shop</a></li>
+                                <li><a href="{{url("/about-us")}}">About Us</a></li>
                                 <li><a href="{{url("/contact")}}">Contact Us</a></li>
                                 <li><a href="{{url("/wishlist")}}">Wishlist</a></li>
                             </ul>
