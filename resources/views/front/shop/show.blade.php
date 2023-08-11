@@ -29,7 +29,6 @@
                         <form action="{{ request()->segment(2) == 'product' ? 'shop' : '' }}">
                         <div class="widget_inner">
 
-                            <div class="card">
                                 <div class="card-heading">
                                     <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
                                 </div>
@@ -53,7 +52,7 @@
                                     </div>
                                     <button type="submit" class="btn btn-dark" style="width: 100%; font-weight: 600">Filter</button>
                                 </div>
-                            </div>
+
                             <div class="widget_list widget_color">
                                 <h3>Select By Category</h3>
                                 <ul>

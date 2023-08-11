@@ -8,6 +8,8 @@
     <title>PlantNest</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="front/assets/css/style-price.css">
+    <link rel="stylesheet" href="front/assets/css/nice-select.css">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="front/assets/img/favicon.ico">
 
@@ -34,8 +36,7 @@
 
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="front/assets/css/style.css">
-    <link rel="stylesheet" href="front/assets/css/style-price.css">
-    <link rel="stylesheet" href="front/assets/css/nice-select.css">
+
 
 
 
