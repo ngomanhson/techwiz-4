@@ -197,7 +197,7 @@ class CheckoutController extends Controller
         }
 
         // Send Email
-//        $this->sendEmail($request ,$order);
+        $this->sendEmail($request ,$order);
         return redirect("/checkout/thank-you/")->with("notification","Success! You have successfully paid for your order. Please check your email.");
     }
 
@@ -205,7 +205,7 @@ class CheckoutController extends Controller
     public function successTransaction(Order $order, Request $request){
         $order->update(["is_paid" => true, "status" => 1]);
 
-//        $this->sendEmail($request , $order);
+        $this->sendEmail($request , $order);
 
         return redirect("/checkout/thank-you/")->with("notification","Success! You have successfully paid for your order. Please check your email.");
     }
@@ -230,5 +230,29 @@ class CheckoutController extends Controller
             $this->sendEmail($request, $order);
         }
         return view("front.checkout.thank-you", compact("notification"));
+    }
+
+    //Send Email
+    public function sendEmail(Request $request, $order) {
+        $email_to = $order->email;
+        $carts = Cart::content();
+//        dd($carts);
+
+        $subtotal = $request->session()->get('subtotal', 0);
+//        $vatAmount = $request->session()->get('vatAmount', 0);
+//        $shippingFee = $request->session()->get('shipping_fee', 0);
+        $total = $request->session()->get('total', 0);
+
+        $request->session()->put('subtotal');
+//        $request->session()->put('vatAmount');
+        $request->session()->put('total');
+
+        Mail::send("front.checkout.email", compact("order", "carts", "subtotal", "total"),
+            function ($message) use ($email_to, $order) {
+                $message->from('sonnmth2205010@fpt.edu.vn', 'Plant Nest');
+                $message->to($email_to, $email_to);
+                $message->subject('Order Notification - #' . $order->order_code);
+            }
+        );
     }
 }

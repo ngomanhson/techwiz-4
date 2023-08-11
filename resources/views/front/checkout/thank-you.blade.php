@@ -2,34 +2,35 @@
 @section('title','Thank You')
 @section('body')
 
-    <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-option">
+    <!--breadcrumbs area start-->
+    <div class="breadcrumbs_area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb__text">
-                        <h4>Thank You</h4>
-                        <div class="breadcrumb__links">
-                            <a href="{{url("/")}}">Home</a>
-                            <a href="{{url("/shop")}}">Shop</a>
-                            <span>Thank You</span>
-                        </div>
+                <div class="col-12">
+                    <div class="breadcrumb_content">
+                        <h3>Thank you</h3>
+                        <ul>
+                            <li><a href="/">home</a></li>
+                            <li>Thank you</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Breadcrumb Section End -->
+    </div>
+    <!--breadcrumbs area end-->
 
     <!-- Checkout Section Begin -->
-    <section class="checkout spad">
+    <div class="Checkout_section  mt-100" id="accordion">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <h4>{{$notification}}</h4>
-                    <a href="{{url("/shop")}}" class="primary-btn mt-5">CONTINUE SHOPPING</a>
+                <div class="col-12">
+                    <h4 style="font-weight: 400;">{{$notification}}</h4>
+                    <a href="{{url("/shop")}}" class="btn btn-dark mt-3">Continue shopping</a>
+                    <a href="{{url("/account")}}" class="btn mt-3">Order history</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 @endsection

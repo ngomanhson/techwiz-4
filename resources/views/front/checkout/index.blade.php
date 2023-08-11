@@ -1,5 +1,5 @@
 @extends('front.layout.master')
-@section('title', )
+@section('title', 'Checkout')
 @section('body')
 <!--breadcrumbs area start-->
 <div class="breadcrumbs_area">
