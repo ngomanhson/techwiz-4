@@ -273,8 +273,8 @@
                             <article class="single_product">
                                 <figure>
                                     <div class="product_thumb">
-                                        <a class="primary_img" href="{{url('shop/detail/{id}')}}"><img
-                                                src="/{{$pr->productImages[0]->path}}" alt=""></a>
+                                        <a class="primary_img" href="shop/{{$pr->id}}"><img
+                                                src="/{{$pr->productImages[0]->path}}" alt="{{$pr->name}}"></a>
                                         <div class="label_product">
                                             <span class="label_sale">-7%</span>
                                         </div>
@@ -284,7 +284,7 @@
                                                             class="icon-shopping-bag"></i></a></li>
                                                 <li class="compare"><a href="#" title="Add to Compare"><i
                                                             class="icon-sliders"></i></a></li>
-                                                <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><i
+                                                <li class="wishlist"><a href="#!" title="Add to Wishlist"><i
                                                             class="icon-heart"></i></a></li>
                                                 <li class="quick_button"><a href="#" data-bs-toggle="modal"
                                                                             data-bs-target="#modal_box" title="quick view"> <i
@@ -310,7 +310,7 @@
                                                     <li><a href="#"><i class="icon-star"></i></a></li>
                                                 </ul>
                                             </div>
-                                            <h4 class="product_name"><a href="{{url("/shop/detail/{$pr->id}")}}">{{$pr->name}}</a></h4>
+                                            <h4 class="product_name"><a href="{{url("/shop/{$pr->id}")}}">{{$pr->name}}</a></h4>
                                             <div class="price_box">
                                                 <span class="current_price">${{$pr->price}}</span>
                                                 <span class="old_price">${{$pr->discount}}</span>
@@ -327,7 +327,7 @@
                                                 <li><a href="#"><i class="icon-star"></i></a></li>
                                             </ul>
                                         </div>
-                                        <h4 class="product_name"><a href="{{url("/shop/detail/{$pr->id}")}}">{{$pr->name}}</a>
+                                        <h4 class="product_name"><a href="{{url("/shop/{$pr->id}")}}">{{$pr->name}}</a>
                                         </h4>
                                         <div class="price_box">
                                             <span class="current_price">${{$pr->price}}</span>
@@ -339,7 +339,7 @@
                                                 <ul>
                                                     <li class="add_to_cart"><a href="cart/add/{{$pr->id}}" title="Add to cart">Add to
                                                             cart</a></li>
-                                                    <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><i
+                                                    <li class="wishlist"><a href="#" title="Add to Wishlist"><i
                                                                 class="icon-heart"></i></a></li>
                                                     <li class="compare"><a href="#" title="Add to Compare"><i
                                                                 class="icon-sliders"></i></a></li>
