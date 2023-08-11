@@ -152,7 +152,7 @@
 
                         <div class=" product_d_action">
                             <ul>
-                                <li><a href="" title="Add to wishlist">+ Add to Wishlist</a></li>
+                                <li><a href="{{url("wishlist/addWish", ["product" => $product])}}" title="Add to wishlist">+ Add to Wishlist</a></li>
                             </ul>
                         </div>
 
@@ -297,7 +297,7 @@
                                         <ul>
                                             <li class="add_to_cart"><a href="cart/add/{{$product->id}}" title="Add to cart"><i
                                                         class="icon-shopping-bag"></i></a></li>
-                                            <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><i
+                                            <li class="wishlist"><a href="{{url("wishlist/addWish", ["product" => $product])}}" title="Add to Wishlist"><i
                                                         class="icon-heart"></i></a></li>
                                         </ul>
                                     </div>
