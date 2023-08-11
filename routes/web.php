@@ -88,6 +88,7 @@ Route::prefix('account')->group(function () {
     Route::post('register',[\App\Http\Controllers\Front\AccountController::class,'postRegister']);
     Route::get('logout',[\App\Http\Controllers\Front\AccountController::class,'logout']);
     Route::post('update-info',[\App\Http\Controllers\Front\AccountController::class,'updateInfo']);
+    Route::get('/order/{order_code}',[\App\Http\Controllers\Front\AccountController::class,'orderDetail']);
 
 });
 Route::prefix('/review')->group(function (){

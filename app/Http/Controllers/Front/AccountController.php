@@ -3,18 +3,24 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\User;
+use App\Service\Order\OrderServiceInterface;
 use App\Service\User\UserServiceInterface;
 use App\Utilities\Constant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use function Sodium\compare;
+
 class AccountController extends Controller
 {
     private $userService;
+    private $orderService;
 
-    public function __construct(UserServiceInterface $userService)
+    public function __construct(UserServiceInterface $userService, OrderServiceInterface $orderService)
     {
         $this->userService = $userService;
+        $this->orderService = $orderService;
     }
 
     public function login() {
@@ -97,13 +103,21 @@ class AccountController extends Controller
             $customer = User::find($userId);
 //            dd($customer);
 
-            return view("front.account.index", compact('customer'));
+//        Oder history
+            $orders = $this->orderService->getOrderByUserId($userId);
+
+            return view("front.account.index", compact('customer', 'orders'));
         } else {
             return view("front.account.login");
         }
     }
 
+//  Update info
     public function updateInfo(Request $request) {
+        $userId = auth()->user()->id;
+//            dd($userId);
+        $customer = User::find($userId);
+
         $request->validate([
             "first_name" => "required",
             "last_name" => "required",
@@ -120,10 +134,6 @@ class AccountController extends Controller
             "email" => "Please enter a valid email address.",
         ]);
 
-        $userId = auth()->user()->id;
-//            dd($userId);
-        $customer = User::find($userId);
-
         $data = [
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -139,7 +149,10 @@ class AccountController extends Controller
 //        dd($data);
 
         $customer->update($data);
-
         return redirect('account')->with('success', 'Successfully updated');
+    }
+
+    public function orderDetail() {
+        return view('front.account.detail');
     }
 }

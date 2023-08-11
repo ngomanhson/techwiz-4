@@ -30,7 +30,6 @@
                             <ul role="tablist" class="nav flex-column dashboard-list">
                                 <li><a href="#dashboard" data-bs-toggle="tab" class="nav-link active">Dashboard</a></li>
                                 <li> <a href="#orders" data-bs-toggle="tab" class="nav-link">Orders</a></li>
-                                <li><a href="#downloads" data-bs-toggle="tab" class="nav-link">Downloads</a></li>
                                 <li><a href="#address" data-bs-toggle="tab" class="nav-link">Addresses</a></li>
                                 <li><a href="#account-details" data-bs-toggle="tab" class="nav-link">Account details</a>
                                 </li>
@@ -59,7 +58,7 @@
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th>Order</th>
+                                            <th>Order code</th>
                                             <th>Date</th>
                                             <th>Status</th>
                                             <th>Total</th>
@@ -67,49 +66,39 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>May 10, 2018</td>
-                                            <td><span class="success">Completed</span></td>
-                                            <td>$25.00 for 1 item </td>
-                                            <td><a href="{{url("/account/order-detail")}}">view</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>May 10, 2018</td>
-                                            <td>Processing</td>
-                                            <td>$17.00 for 1 item </td>
-                                            <td><a href="{{url("/account/order-detail")}}">view</a></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="downloads">
-                                <h3>Downloads</h3>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th>Product</th>
-                                            <th>Downloads</th>
-                                            <th>Expires</th>
-                                            <th>Download</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>Shopnovilla - Free Real Estate PSD Template</td>
-                                            <td>May 10, 2018</td>
-                                            <td><span class="danger">Expired</span></td>
-                                            <td><a href="#" class="view">Click Here To Download Your File</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Organic - ecommerce html template</td>
-                                            <td>Sep 11, 2018</td>
-                                            <td>Never</td>
-                                            <td><a href="#" class="view">Click Here To Download Your File</a></td>
-                                        </tr>
+                                            @foreach($orders as $order)
+                                                <tr>
+                                                    <td>{{$order->order_code}}</td>
+                                                    <td>{{$order->created_at->format('d/m/Y')}}</td>
+                                                    <td>
+                                                        <span class="success">
+                                                            @switch($order->status)
+                                                                @case(0)<span class="text text-secondary">Pending</span>@break
+                                                                @case(1)<span class="text text-primary">Confirmed</span>@break
+                                                                @case(2)<span class="text text-primary">Shipping</span>@break
+                                                                @case(3)<span class="text text-warning">Shipped</span>@break
+                                                                @case(4)<span class="text text-success">Completed</span>@break
+                                                                @case(5)<span class="text text-danger">Cancel</span>@break
+                                                            @endswitch
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        @if(isset($order->orderDetails) && count($order->orderDetails) > 0)
+                                                            {{$order->orderDetails[0]->product->name}}
+
+                                                            @php
+                                                                $totalQuantity = $order->orderDetails->sum('qty');
+                                                                $otherProductsCount = $totalQuantity - 1;
+                                                            @endphp
+
+                                                            @if($otherProductsCount > 0)
+                                                                (and {{$otherProductsCount}} other product{{($otherProductsCount > 1) ? 's' : ''}})
+                                                            @endif
+                                                        @endif
+                                                    </td>
+                                                    <td><a href="account/order/{{$order->order_code}}">view</a></td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -170,18 +159,6 @@
                                                 <label>Country</label>
                                                 <input type="text" name="country" value="{{$customer->country}}">
 
-                                                <br>
-                                                <span class="custom_checkbox">
-                                                    <input type="checkbox" value="1" name="optin">
-                                                    <label>Receive offers from our partners</label>
-                                                </span>
-                                                <br>
-                                                <span class="custom_checkbox">
-                                                    <input type="checkbox" value="1" name="newsletter">
-                                                    <label>Sign up for our newsletter<br><em>You may unsubscribe at any
-                                                            moment. For that purpose, please find our contact info in
-                                                            the legal notice.</em></label>
-                                                </span>
                                                 <div class="save_button primary_btn default_button">
                                                     <button type="submit">Save</button>
                                                 </div>
