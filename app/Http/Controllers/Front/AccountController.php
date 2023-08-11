@@ -152,7 +152,29 @@ class AccountController extends Controller
         return redirect('account')->with('success', 'Successfully updated');
     }
 
-    public function orderDetail() {
-        return view('front.account.detail');
+    public function orderDetail($orderCode, Request $request)
+    {
+        $order = Order::where('order_code', $orderCode)->firstOrFail();
+
+        $subtotal = 0;
+        $vatRate = 0.1;
+        $shippingFee = 0;
+
+        foreach ($order->orderDetails as $orderDetail) {
+            $subtotal += $orderDetail->total;
+        }
+
+        $vatAmount = $subtotal * $vatRate;
+
+        if ($order->shipping_method == 'Standard Shipping') {
+            $shippingFee = 10;
+        } elseif ($order->shipping_method == 'Express Shipping') {
+            $shippingFee = 30;
+        }
+
+        $total = $subtotal + $vatAmount + $shippingFee;
+
+        return view("front.account.detail", compact('order', 'subtotal', 'vatAmount', 'total', 'shippingFee'));
     }
+
 }
