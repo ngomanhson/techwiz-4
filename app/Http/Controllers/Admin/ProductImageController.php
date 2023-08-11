@@ -103,7 +103,7 @@ class ProductImageController extends Controller
         //xử lý file
         $file_name=ProductImage::find($product_image_id)->path;
         if ($file_name != ''){
-            unlink('front/img/product/' .$file_name);
+            unlink($file_name);
         }
 
         //xoa db

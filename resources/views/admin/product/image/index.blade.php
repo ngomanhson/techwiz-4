@@ -49,7 +49,7 @@
                                                     </button>
                                                 </form>
                                                 <div style="width: 100%; height: 220%; ">
-                                                    <img  src="front/img/product/{{$productImage->path}}" style="width: 100%;height: 220%"
+                                                    <img  src="{{$productImage->path}}" style="width: 100%;height: 220%"
                                                           alt="Image">
                                                 </div>
                                             </li>
@@ -61,7 +61,7 @@
                                                     <img style="width: 100%; height: 220%; cursor: pointer;"
                                                          class="thumbnail"
                                                          data-toggle="tooltip" title="Click to add image" data-placement="bottom"
-                                                         src="front/img/add-image-icon.jpg" alt="Add Image">
+                                                         src="admin/assets/avatars/add-image-icon.jpg" alt="Add Image">
 
                                                     <input name="image" type="file" onchange="changeImg(this); this.form.submit()"
                                                            accept="image/x-png,image/gif,image/jpeg"
