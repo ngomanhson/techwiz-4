@@ -44,7 +44,14 @@
                                                 <td class="product_thumb"><a href="#"><img src="{{$cart->options->images[0]->path}}" alt=""></a></td>
                                                 <td class="product_name"><a href="#">{{$cart->name}}</a></td>
                                                 <td class="product-price">{{$cart->price}}</td>
-                                                <td class="product_quantity"><label>Quantity</label> <input min="1" max="100" value="{{$cart->qty}}" type="number"></td>
+                                                <td class="product_quantity">
+{{--                                                        <input min="1" max="100" value="{{$cart->qty}}" type="number">--}}
+                                                    <div class="quantity">
+                                                        <div class="pro-qty">
+                                                            <input type="text" value="1">
+                                                        </div>
+                                                    </div>
+                                                </td>
                                                 <td class="product_total">{{$cart->total}}</td>
                                             </tr>
                                     </tbody>

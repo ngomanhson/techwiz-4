@@ -6950,8 +6950,8 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   margin-right: 5px;
 }
 .table_desc .cart_page table tbody tr td.product_quantity input {
-  width: 60px;
-  height: 40px;
+  /*width: 60px;*/
+  /*height: 40px;*/
   padding: 0 5px 0 10px;
   background: none;
   border: 1px solid #e1e1e1;
@@ -10780,4 +10780,32 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     -webkit-line-clamp: var(--line-clamp, 1);
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+/* === qty ===*/
+.pro-qty {
+    height: 30px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    background: #f5f5f5;
+    margin-bottom: 5px;
+}
+
+.pro-qty input {
+    height: 100%;
+    font-size: 16px;
+    color: #6f6f6f;
+    width: 40px;
+    border: none;
+    background: #f5f5f5;
+    text-align: center;
+}
+
+.pro-qty .qtybtn {
+    width: 25px;
+    font-size: 16px;
+    color: #6f6f6f;
+    cursor: pointer;
+    display: inline-block;
 }
