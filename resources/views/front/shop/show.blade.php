@@ -26,69 +26,42 @@
                 <div class="col-lg-3 col-md-12">
                     <!--sidebar widget start-->
                     <aside class="sidebar_widget">
+                        <form action="{{ request()->segment(2) == 'product' ? 'shop' : '' }}">
                         <div class="widget_inner">
-                            <div class="widget_list widget_categories">
-                                <h3>Women</h3>
-                                <ul>
-                                    <li class="widget_sub_categories sub_categories1"><a
-                                            href="javascript:void(0)">Shoes</a>
-                                        <ul class="widget_dropdown_categories dropdown_categories1">
-                                            <li><a href="#">Document</a></li>
-                                            <li><a href="#">Dropcap</a></li>
-                                            <li><a href="#">Dummy Image</a></li>
-                                            <li><a href="#">Dummy Text</a></li>
-                                            <li><a href="#">Fancy Text</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="widget_sub_categories sub_categories2"><a
-                                            href="javascript:void(0)">Bags</a>
-                                        <ul class="widget_dropdown_categories dropdown_categories2">
-                                            <li><a href="#">Flickr</a></li>
-                                            <li><a href="#">Flip Box</a></li>
-                                            <li><a href="#">Cocktail</a></li>
-                                            <li><a href="#">Frame</a></li>
-                                            <li><a href="#">Flickrq</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="widget_sub_categories sub_categories3"><a
-                                            href="javascript:void(0)">Clothing</a>
-                                        <ul class="widget_dropdown_categories dropdown_categories3">
-                                            <li><a href="#">Platform Beds</a></li>
-                                            <li><a href="#">Storage Beds</a></li>
-                                            <li><a href="#">Regular Beds</a></li>
-                                            <li><a href="#">Sleigh Beds</a></li>
-                                            <li><a href="#">Laundry</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="widget_list widget_filter">
-                                <h3>Filter by price</h3>
-                                <form action="#">
-                                    <div id="slider-range"></div>
-                                    <button type="submit">Filter</button>
-                                    <input type="text" name="text" id="amount" />
 
-                                </form>
+                            <div class="card">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
+                                </div>
+                                <div id="collapseThree" class="filter-widget collapse show" data-parent="#accordionExample">
+                                    <div class="filter-range-wrap">
+                                        <div class="range-slider">
+                                            <div class="price-input">
+                                                <input type="text" id="minamount" name="price_min">
+                                                <input type="text" id="maxamount" name="price_max">
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                                            data-min="10" data-max="999"
+                                            data-min-value="{{str_replace('$','',request('price_min'))}}"
+                                            data-max-value="{{str_replace('$','',request('price_max'))}}">
+                                            <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-dark" style="width: 100%; font-weight: 600">Filter</button>
+                                </div>
                             </div>
                             <div class="widget_list widget_color">
-                                <h3>Select By Color</h3>
+                                <h3>Select By Category</h3>
                                 <ul>
+                                    @foreach($category as $ct)
                                     <li>
-                                        <a href="#">Black <span>(6)</span></a>
+                                        <a href="shop/category/{{$ct->name}}">{{$ct->name}} <span>({{count($ct->products)}})</span></a>
                                     </li>
-                                    <li>
-                                        <a href="#"> Blue <span>(8)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Brown <span>(10)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> Green <span>(6)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Pink <span>(4)</span></a>
-                                    </li>
+                                    @endforeach
 
                                 </ul>
                             </div>
@@ -113,127 +86,10 @@
 
                                 </ul>
                             </div>
-                            <div class="widget_list widget_manu">
-                                <h3>Manufacturer</h3>
-                                <ul>
-                                    <li>
-                                        <a href="#">Brake Parts <span>(6)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Accessories <span>(10)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Engine Parts <span>(4)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">hermes <span>(10)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">louis vuitton <span>(8)</span></a>
-                                    </li>
 
-                                </ul>
-                            </div>
-                            <div class="widget_list tags_widget">
-                                <h3>Product tags</h3>
-                                <div class="tag_cloud">
-                                    <a href="#">Men</a>
-                                    <a href="#">Women</a>
-                                    <a href="#">Watches</a>
-                                    <a href="#">Bags</a>
-                                    <a href="#">Dress</a>
-                                    <a href="#">Belt</a>
-                                    <a href="#">Accessories</a>
-                                    <a href="#">Shoes</a>
-                                </div>
-                            </div>
-                            <div class="widget_list">
-                                <h3>Compare</h3>
-                                <div class="shop_sidebar_product">
-                                    <article class="single_product">
-                                        <figure>
-                                            <div class="product_thumb">
-                                                <a class="primary_img" href="{{url('shop/detail/{id}')}}"><img
-                                                        src="front/assets/img/product/product10.jpg" alt=""></a>
-                                                <a class="secondary_img" href="{{url('shop/detail/{id}')}}"><img
-                                                        src="front/assets/img/product/product2.jpg" alt=""></a>
-                                            </div>
-                                            <figcaption class="product_content">
-                                                <h4 class="product_name"><a href="{{url('shop/detail/{id}')}}">Donec Non
-                                                        Est</a></h4>
-                                                <div class="product_rating">
-                                                    <ul>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="price_box">
-                                                    <span class="current_price">$80.00</span>
-                                                    <span class="old_price">$20.00</span>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                    </article>
-                                    <article class="single_product">
-                                        <figure>
-                                            <div class="product_thumb">
-                                                <a class="primary_img" href="{{url('shop/detail/{id}')}}"><img
-                                                        src="front/assets/img/product/product9.jpg" alt=""></a>
-                                                <a class="secondary_img" href="{{url('shop/detail/{id}')}}"><img
-                                                        src="front/assets/img/product/product3.jpg" alt=""></a>
-                                            </div>
-                                            <figcaption class="product_content">
-                                                <h4 class="product_name"><a href="product-details.html">Cas Meque
-                                                        Metus</a></h4>
-                                                <div class="product_rating">
-                                                    <ul>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="price_box">
-                                                    <span class="current_price">$70.00</span>
-                                                    <span class="old_price">$40.00</span>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                    </article>
-                                    <article class="single_product">
-                                        <figure>
-                                            <div class="product_thumb">
-                                                <a class="primary_img" href="{{url('shop/detail/{id}')}}"><img
-                                                        src="front/assets/img/product/product8.jpg" alt=""></a>
-                                                <a class="secondary_img" href="{{url('shop/detail/{id}')}}"><img
-                                                        src="front/assets/img/product/product4.jpg" alt=""></a>
-                                            </div>
-                                            <figcaption class="product_content">
-                                                <h4 class="product_name"><a href="product-details.html"> commodo
-                                                        augue</a></h4>
-                                                <div class="product_rating">
-                                                    <ul>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                        <li><a href="#"><i class="icon-star"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="price_box">
-                                                    <span class="current_price">$80.00</span>
-                                                    <span class="old_price">$20.00</span>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                    </article>
-                                </div>
-                            </div>
+
                         </div>
+                        </form>
                     </aside>
                     <!--sidebar widget end-->
                 </div>
@@ -282,8 +138,7 @@
                                             <ul>
                                                 <li class="add_to_cart"><a href="cart/add/{{$pr->id}}" title="Add to cart"><i
                                                             class="icon-shopping-bag"></i></a></li>
-                                                <li class="compare"><a href="#" title="Add to Compare"><i
-                                                            class="icon-sliders"></i></a></li>
+
                                                 <li class="wishlist"><a href="#!" title="Add to Wishlist"><i
                                                             class="icon-heart"></i></a></li>
                                                 <li class="quick_button"><a href="#" data-bs-toggle="modal"
@@ -341,9 +196,6 @@
                                                             cart</a></li>
                                                     <li class="wishlist"><a href="#" title="Add to Wishlist"><i
                                                                 class="icon-heart"></i></a></li>
-                                                    <li class="compare"><a href="#" title="Add to Compare"><i
-                                                                class="icon-sliders"></i></a></li>
-
                                                 </ul>
                                             </div>
                                         </div>

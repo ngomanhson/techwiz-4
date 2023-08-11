@@ -7,4 +7,5 @@ use App\Repositories\RepositoriesInterface;
 interface ProductRepositoryInterface extends RepositoriesInterface
 {
     public function getProductOnIndex($request);
+    public function getProductByCategory($categoryName,$request);
 }

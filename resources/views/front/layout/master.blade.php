@@ -34,6 +34,11 @@
 
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="front/assets/css/style.css">
+    <link rel="stylesheet" href="front/assets/css/style-price.css">
+    <link rel="stylesheet" href="front/assets/css/nice-select.css">
+
+
+
 
     <!--modernizr min js here-->
     <script src="front/assets/js/vendor/modernizr-3.7.1.min.js"></script>
@@ -832,6 +837,9 @@
 <script src="front/assets/js/slinky.menu.js"></script>
 <!-- Plugins JS -->
 <script src="front/assets/js/plugins.js"></script>
+<script src="front/assets/js/jquery.slicknav.js"></script>
+<script src="front/assets/js/jquery-ui.min.js"></script>
+
 
 <!-- Main JS -->
 <script src="front/assets/js/main.js"></script>

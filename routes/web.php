@@ -22,6 +22,7 @@ Route::get('/',[\App\Http\Controllers\Front\HomeController::class,'index']);
 Route::prefix("/shop")->group(function () {
     Route::get('/',[\App\Http\Controllers\Front\ShopController::class,'index']);
     Route::get('/{id}',[\App\Http\Controllers\Front\ShopController::class,'detail']);
+    Route::get('/category/{categoryName}',[\App\Http\Controllers\Front\ShopController::class,'category']);
     Route::get('/wishlist',[\App\Http\Controllers\Front\ShopController::class,'wishlist']);
 });
 
@@ -45,8 +46,8 @@ Route::prefix("/contact")->group(function () {
          Route::get('create',[\App\Http\Controllers\Admin\ProductCategoryController::class,'create'])->can('category.add');
          Route::post('store',[\App\Http\Controllers\Admin\ProductCategoryController::class,'store'])->can('category.add');
          Route::post('action',[\App\Http\Controllers\Admin\ProductCategoryController::class,'action'])->can('category.view');
-         Route::get('edit/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'edit'])->name('category.edit')->can('category.edit');
-         Route::post('edit/update/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'update'])->name('category.update')->can('category.edit');
+         Route::get('edit/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'edit'])->name('category.edit');
+         Route::post('edit/update/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'update'])->name('category.update');
          Route::get('delete/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'delete'])->name('delete_category')->can('category.delete');
 
      });

@@ -3,6 +3,7 @@
 namespace App\Repositories\Product;
 
 use App\Models\Product;
+use App\Models\ProductCategory;
 use App\Repositories\BaseRepositories;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,14 @@ class ProductRepository extends BaseRepositories implements ProductRepositoryInt
         $product = $this->filter($product, $request);
         $product =$this->sortAndPagination($product,$request);
 
+        return $product;
+    }
+    public function getProductByCategory($categoryName,$request)
+    {
+        $product = ProductCategory::where('name', $categoryName)->first()->products->toQuery();
+        $product = $this->filter($product, $request);
+
+        $product = $this->sortAndPagination($product,$request);
         return $product;
     }
     private function sortAndPagination($product , Request $request)
