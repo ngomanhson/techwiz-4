@@ -1,6 +1,7 @@
 @extends('front.layout.master')
 @section('title','Wishlist')
 @section('body')
+    @if(count($products)>0)
     <!--wishlist area start -->
     <div class="wishlist_area mt-100">
         <div class="container">
@@ -21,41 +22,18 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td class="product_remove"><a href="#">X</a></td>
-                                        <td class="product_thumb"><a href="#"><img
-                                                    src="assets/img/s-product/product.jpg" alt=""></a></td>
-                                        <td class="product_name"><a href="#">Handbag fringilla</a></td>
-                                        <td class="product-price">£65.00</td>
-                                        <td class="product_quantity">In Stock</td>
-                                        <td class="product_total"><a href="#">Add To Cart</a></td>
+                                    @foreach($products as $item)
+                                        <tr>
+                                            <td class="product_remove"><a href="{{url("wishlist/deleteWish", ["product" => $item])}}">X</a></td>
+                                            <td class="product_thumb"><a href="#"><img
+                                                        src="{{$item->productImages[0]->path}}" alt=""></a></td>
+                                            <td class="product_name"><a href="#">{{$item->name}}</a></td>
+                                            <td class="product-price">${{$item->price}}</td>
+                                            <td class="product_quantity">In Stock</td>
+                                            <td class="product_total"><a href="#">Add To Cart</a></td>
 
-
-                                    </tr>
-
-                                    <tr>
-                                        <td class="product_remove"><a href="#">X</a></td>
-                                        <td class="product_thumb"><a href="#"><img
-                                                    src="assets/img/s-product/product2.jpg" alt=""></a></td>
-                                        <td class="product_name"><a href="#">Handbags justo</a></td>
-                                        <td class="product-price">£90.00</td>
-                                        <td class="product_quantity">In Stock</td>
-                                        <td class="product_total"><a href="#">Add To Cart</a></td>
-
-
-                                    </tr>
-                                    <tr>
-                                        <td class="product_remove"><a href="#">X</a></td>
-                                        <td class="product_thumb"><a href="#"><img
-                                                    src="assets/img/s-product/product3.jpg" alt=""></a></td>
-                                        <td class="product_name"><a href="#">Handbag elit</a></td>
-                                        <td class="product-price">£80.00</td>
-                                        <td class="product_quantity">In Stock</td>
-                                        <td class="product_total"><a href="#">Add To Cart</a></td>
-
-
-                                    </tr>
-
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

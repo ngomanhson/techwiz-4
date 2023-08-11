@@ -23,7 +23,6 @@ Route::prefix("/shop")->group(function () {
     Route::get('/',[\App\Http\Controllers\Front\ShopController::class,'index']);
     Route::get('/{id}',[\App\Http\Controllers\Front\ShopController::class,'detail']);
     Route::get('/category/{categoryName}',[\App\Http\Controllers\Front\ShopController::class,'category']);
-    Route::get('/wishlist',[\App\Http\Controllers\Front\ShopController::class,'wishlist']);
 });
 
 Route::prefix("/blog")->group(function () {
@@ -67,7 +66,12 @@ Route::prefix("/contact")->group(function () {
 Route::prefix('/cart')->group(function (){
     Route::get('/',[\App\Http\Controllers\Front\CartController::class,'index']);
     Route::get('add/{id}', [\App\Http\Controllers\Front\CartController::class, 'add']);
-;
+});
+
+Route::prefix('/wishlist')->group(function (){
+    Route::get('/',[\App\Http\Controllers\Front\WishlistController::class,'index']);
+    Route::get('addWish/{product}', [\App\Http\Controllers\Front\WishlistController::class, 'addWislist']);
+    Route::get('deleteWish/{product}', [\App\Http\Controllers\Front\WishlistController::class, 'deleteWislist']);
 });
 
 

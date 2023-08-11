@@ -162,7 +162,7 @@
                                                         <a href="#" title="Add to cart"><i class="icon-shopping-bag"></i></a>
                                                     </li>
                                                     <li class="wishlist">
-                                                        <a href="#" title="Add to Wishlist"><i class="icon-heart"></i></a>
+                                                        <a href="{{url("wishlist/addWish", ["product" => $item])}}" title="Add to Wishlist"><i class="icon-heart"></i></a>
                                                     </li>
                                                     <li class="quick_button">
                                                         <a href="#" title="quick view"> <i class="icon-eye"></i></a>
