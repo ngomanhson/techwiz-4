@@ -83,7 +83,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5rem; }
 
 p {
-  margin-top: 0;
+  margin-top: 8px;
   margin-bottom: 1rem; }
 
 abbr[title],
@@ -195,7 +195,7 @@ th {
 
 label {
   display: inline-block;
-  margin-bottom: 0.5rem; }
+ }
 
 button {
   border-radius: 0; }
@@ -2965,6 +2965,7 @@ input[type="button"].btn-block {
 .nav {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   padding-left: 0;
   margin-bottom: 0;
   list-style: none; }
@@ -8102,7 +8103,8 @@ svg.navbar-brand-img {
   background: #16181b; }
 
 .vertnav .dropdown-toggle::after {
-  color: #adb5bd; }
+  color: #adb5bd;
+}
 
 .custom-select {
   background: #343a40; }
@@ -12044,3 +12046,46 @@ a.uppy-Dashboard-poweredBy {
     font-size: 35px;
     top: -10px;
     right: -35px; } }
+
+/* === ===*/
+.dropdown-toggle::after {
+    border: none;
+}
+
+/* === Custom Checkbox ===*/
+.input-check {
+    position: relative;
+    cursor: pointer;
+    color: #b7b7b7;
+    margin-bottom: 20px;
+}
+
+.input-check input {
+    position: absolute;
+    visibility: hidden;
+}
+
+.input-check .checkmark {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    border: 2px solid #ddd;
+    border-radius: 2px;
+}
+
+.input-check input:checked ~ .checkmark:before {
+    content: "\f00c";
+    position: absolute;
+    top: -3px;
+    left: 1px;
+    font-family: "FontAwesome";
+    font-size: 13px;
+    background: transparent;
+    color: #fff;
+}
+
+.position-relative .input-check input:checked ~ .checkmark:before {
+    top: -6px;
+}
