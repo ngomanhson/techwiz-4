@@ -33,6 +33,8 @@ Route::prefix("/blog")->group(function () {
 
 Route::prefix("/contact")->group(function () {
     Route::get('/',[\App\Http\Controllers\Front\ContactController::class,'index']);
+    Route::post('/save',[\App\Http\Controllers\Front\ContactController::class,'sendContact']);
+
 });
 
  Route::prefix('admin')->group(function (){
