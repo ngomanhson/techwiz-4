@@ -69,25 +69,25 @@
                                 @csrf
                                 <p>
                                     <label> Your Name (required)</label>
-                                    <input name="name" placeholder="Name *" type="text" required>
+                                    <input name="name" placeholder="Name *" type="text" readonly>
                                 </p>
                                 <p>
                                     <label> Your Email (required)</label>
-                                    <input name="email" placeholder="Email *" type="email" required>
+                                    <input name="email" placeholder="Email *" type="email" readonly>
                                 </p>
                                 <p>
                                     <label> Phone</label>
-                                    <input name="phone" placeholder="Phone *" type="text" required>
+                                    <input name="phone" placeholder="Phone *" type="text" readonly>
                                 </p>
                                 <div class="contact_textarea">
                                     <label> Your Message</label>
-                                    <textarea placeholder="Message *" name="message" class="form-control2" required></textarea>
+                                    <textarea placeholder="Message *" name="message" class="form-control2" readonly></textarea>
                                 </div>
                                 @error("message")
                                 <p class="text-danger"><i>{{$message}}</i></p>
                                 @enderror
                                 <p></p>
-                                <button type="submit"> Send</button>
+                                <a class="btn btn-success" href="{{url("/account/login")}}">Send</a>
 
                             </form>
                         @endif
