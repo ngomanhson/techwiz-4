@@ -65,36 +65,22 @@
                 <div class="col-lg-12">
                     <div class="tab-pane" id="reviews" role="tabpanel">
                         <div class="reviews_wrapper">
-                            <div class="row">
-{{--                                <div class="card mb-3" style="max-width: 100%;">--}}
-{{--                                    <div class="row g-0">--}}
-{{--                                        <div class="col-md-4">--}}
-{{--                                            <img src="{{$orderDetail->product->productImages[0]->path}}" class="img-fluid rounded-start" height="100%" width="100" alt="...">--}}
-{{--                                        </div>--}}
-{{--                                        <div class="col-md-8">--}}
-{{--                                            <div class="card-body">--}}
-{{--                                                <h5 class="card-title">{{$orderDetail->product->name}}</h5>--}}
-{{--                                                <p class="card-text">{{$orderDetail->product->content}}</p>--}}
-{{--                                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                            <div class="row mb-5">
                                 <div class="col-lg-2">
                                     <img style="width: 100%; height: 100%" src="{{$orderDetail->product->productImages[0]->path}}" class="img-fluid" alt="...">
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="row">
-                                        <p style="max-width: 100%">{{$orderDetail->product->name}}</p>
+                                        <h4 class="text-dark" style="max-width: 100%">{{$orderDetail->product->name}}</h4>
                                         <p style="max-width: 100%">{{$orderDetail->product->description}}</p>
                                     </div>
 
                                 </div><div class="col-lg-4">
-                                    <p style="float: right">${{$orderDetail->product->price}}</p>
+                                    <p style="float: right; color: #79a206">${{$orderDetail->product->price}}</p>
                                 </div>
                             </div>
                             <div class="comment_title">
                                 <h2>Add a review </h2>
-                                <p>Your email address will not be published. Required fields are marked </p>
                             </div>
                             <form action="{{url('review/store')}}" method="post">
                                 @csrf
