@@ -164,6 +164,34 @@ class CheckoutController extends Controller
 
         if ($order->payment_method == "PayPal") {
             //Payment Method PayPal
+            $provider = new PayPalClient;
+            $provider->setApiCredentials(config('paypal'));
+            $paypalToken = $provider->getAccessToken();
+
+            $response = $provider->createOrder([
+                "intent" => "CAPTURE",
+                "application_context" => [
+                    "return_url" => route('successTransaction', ["order" => $order->id]),
+                    "cancel_url" => route('cancelTransaction', ["order" => $order->id]),
+                ],
+                "purchase_units" => [
+                    0 => [
+                        "amount" => [
+                            "currency_code" => "USD",
+                            "value" => number_format($total, 2, ".", "")
+                        ]
+                    ]
+                ]
+            ]);
+
+            if (isset($response['id']) && $response['id'] != null) {
+                // redirect to approve href
+                foreach ($response['links'] as $links) {
+                    if ($links['rel'] == 'approve') {
+                        return redirect()->away($links['href']);
+                    }
+                }
+            }
         } else if ($order->payment_method == "MoMo") {
             //Payment Method MoMo
         }
@@ -173,10 +201,22 @@ class CheckoutController extends Controller
         return redirect("/checkout/thank-you/")->with("notification","Success! You have successfully paid for your order. Please check your email.");
     }
 
+    //PayPal
+    public function successTransaction(Order $order, Request $request){
+        $order->update(["is_paid" => true, "status" => 1]);
+
+//        $this->sendEmail($request , $order);
+
+        return redirect("/checkout/thank-you/")->with("notification","Success! You have successfully paid for your order. Please check your email.");
+    }
+
+    public function cancelTransaction(){
+        return redirect("/checkout/thank-you/")->with("notification","Failed! Error during checkout");
+    }
+
     public function thankYou(Request $request) {
         $status = $request->input('resultCode');
         $requestId = $request->input('orderId');
-//        $requestId = $request->input('requestId');
         $order = Order::where('order_code', $requestId)->first();
 
         $notification = session("notification");
@@ -189,7 +229,6 @@ class CheckoutController extends Controller
             // Send Email
             $this->sendEmail($request, $order);
         }
-//        dd($request->all());
         return view("front.checkout.thank-you", compact("notification"));
     }
 }

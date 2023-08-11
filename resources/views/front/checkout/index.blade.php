@@ -141,7 +141,7 @@
                                     <label> Shipping Method <span>*</span></label>
 
                                     <div class="panel-default">
-                                        <input id="Express" name="shipping_method" type="radio" data-bs-target="createp_account" checked/>
+                                        <input id="Express" value="Express" name="shipping_method" type="radio" data-bs-target="createp_account" checked/>
                                         <label for="Express" data-bs-toggle="collapse" data-bs-target="#method1" aria-controls="method1">Express shipping method</label>
                                         <div id="method1" class="collapse one" data-parent="#accordion">
                                             <div class="card-body1">
@@ -151,7 +151,7 @@
                                     </div>
 
                                     <div class="panel-default">
-                                        <input id="fast" name="shipping_method" type="radio" data-bs-target="createp_account" />
+                                        <input id="fast" value="Fast" name="shipping_method" type="radio" data-bs-target="createp_account" />
                                         <label for="fast" data-bs-toggle="collapse" data-bs-target="#collapsedefult1" aria-controls="collapsedefult1">Fast</label>
                                         <div id="collapsedefult1" class="collapse one" data-parent="#accordion">
                                             <div class="card-body1">
@@ -198,7 +198,7 @@
                                 </div>
                                 <div class="payment_method">
                                     <div class="panel-default">
-                                        <input id="payment" name="payment_method" type="radio" data-bs-target="createp_account" checked/>
+                                        <input id="payment" value="COD" name="payment_method" type="radio" data-bs-target="createp_account" checked/>
                                         <label for="payment" data-bs-toggle="collapse" data-bs-target="#method" aria-controls="method">COD</label>
                                         <div id="method" class="collapse one" data-parent="#accordion">
                                             <div class="card-body1">
@@ -208,7 +208,7 @@
                                     </div>
 
                                     <div class="panel-default">
-                                        <input id="paypal" name="payment_method" type="radio" data-bs-target="createp_account" />
+                                        <input id="paypal" value="PayPal" name="payment_method" type="radio" data-bs-target="createp_account" />
                                         <label for="paypal" data-bs-toggle="collapse" data-bs-target="#collapsedefult" aria-controls="collapsedefult">PayPal</label>
                                         <div id="collapsedefult" class="collapse one" data-parent="#accordion">
                                             <div class="card-body1">
@@ -219,7 +219,7 @@
 
                                 </div>
                                     <div class="order_button">
-                                        <button type="submit">Proceed to PayPal</button>
+                                        <button type="submit">PLACE ORDER</button>
                                     </div>
                             </div>
                     </form>
