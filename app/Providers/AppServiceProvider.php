@@ -24,6 +24,9 @@ use App\Service\User\UserService;
 use App\Service\User\UserServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
+
+use Illuminate\Support\Facades\View;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -83,6 +86,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $categories = app(ProductCategoryRepositoryInterface::class)->getAll();
+        View::share('categories', $categories);
     }
 }

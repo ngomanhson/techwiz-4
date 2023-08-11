@@ -14,4 +14,10 @@ class ProductCategoryRepository extends BaseRepositories implements ProductCateg
         return ProductCategory::class;
         // TODO: Implement getModel() method.
     }
+
+    public function getAll()
+    {
+        return $this->model->all();
+    }
+
 }
