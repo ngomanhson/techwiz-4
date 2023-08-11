@@ -28,44 +28,18 @@
                     <aside class="sidebar_widget">
                         <form action="{{ request()->segment(2) == 'product' ? 'shop' : '' }}">
                         <div class="widget_inner">
-
-                                <div class="card-heading">
-                                    <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
-                                </div>
-                                <div id="collapseThree" class="filter-widget collapse show" data-parent="#accordionExample">
-                                    <div class="filter-range-wrap">
-                                        <div class="range-slider">
-                                            <div class="price-input">
-                                                <input type="text" id="minamount" name="price_min">
-                                                <input type="text" id="maxamount" name="price_max">
-                                            </div>
-                                        </div>
-                                        <div
-                                            class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                            data-min="10" data-max="999"
-                                            data-min-value="{{str_replace('$','',request('price_min'))}}"
-                                            data-max-value="{{str_replace('$','',request('price_max'))}}">
-                                            <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-                                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-dark" style="width: 100%; font-weight: 600">Filter</button>
-                                </div>
-
                             <div class="widget_list widget_color">
                                 <h3>Select By Category</h3>
                                 <ul>
                                     @foreach($category as $ct)
-                                    <li>
-                                        <a href="shop/category/{{$ct->name}}">{{$ct->name}} <span>({{count($ct->products)}})</span></a>
-                                    </li>
+                                        <li>
+                                            <a href="shop/category/{{$ct->name}}">{{$ct->name}} <span>({{count($ct->products)}})</span></a>
+                                        </li>
                                     @endforeach
-
                                 </ul>
                             </div>
                             <div class="widget_list widget_color">
-                                <h3>Select By SIze</h3>
+                                <h3>Select By Size</h3>
                                 <ul>
                                     <li>
                                         <a href="#">S <span>(6)</span></a>
@@ -86,7 +60,29 @@
                                 </ul>
                             </div>
 
-
+                            <div class="widget_list widget_color">
+                                <h3>Filter Price</h3>
+                                <div id="collapseThree" class="filter-widget collapse show" data-parent="#accordionExample">
+                                    <div class="filter-range-wrap">
+                                        <div class="range-slider">
+                                            <div class="price-input">
+                                                <input type="text" id="minamount" name="price_min">
+                                                <input type="text" id="maxamount" name="price_max">
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                                            data-min="10" data-max="999"
+                                            data-min-value="{{str_replace('$','',request('price_min'))}}"
+                                            data-max-value="{{str_replace('$','',request('price_max'))}}">
+                                            <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-dark" style="width: 100%; font-weight: 600">Filter</button>
+                                </div>
+                            </div>
                         </div>
 
                         </form>
@@ -188,11 +184,11 @@
                                             <span class="current_price">${{$pr->price}}</span>
                                             <span class="old_price">${{$pr->discount}}</span>
                                             <div class="product_desc">
-                                                <p>{{$pr->description}}</p>
+                                                <p class="line-clamp" style="--line-clamp: 5;">{{$pr->description}}</p>
                                             </div>
                                             <div class="action_links list_action_right">
                                                 <ul>
-                                                    <li class="add_to_cart"><a href="cart/add/{{$pr->id}}" title="Add to cart">Add to
+                                                    <li class="add_to_cart"><a href="javascript:addCart({{$pr->id}})" title="Add to cart">Add to
                                                             cart</a></li>
                                                     <li class="wishlist"><a href="#" title="Add to Wishlist"><i
                                                                 class="icon-heart"></i></a></li>
@@ -205,12 +201,8 @@
                         </div>
                         @endforeach
                     </div>
-
-                    <div class="shop_toolbar t_bottom">
-                        <div class="pagination">
-                            {!! $product->appends(app("request")->input())->links("pagination::bootstrap-4") !!}
-
-                        </div>
+                    <div class="t_bottom mb-5">
+                        {!! $product->appends(app("request")->input())->links("pagination::bootstrap-4") !!}
                     </div>
                     <!--shop toolbar end-->
                     <!--shop wrapper end-->
@@ -218,6 +210,5 @@
             </div>
         </div>
     </div>
-
     <!--shop  area end-->
 @endsection

@@ -10744,3 +10744,40 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 /*privacy policy css end*/
 
 /*# sourceMappingURL=style.css.map */
+
+
+
+
+/* === pagination === */
+.pagination {
+    justify-content: flex-end;
+}
+
+.page-item.active .page-link {
+    background-color: #79a206;
+    border-color: #79a206;
+    color: #fff;
+}
+
+.page-item .page-link {
+    color: #333;
+}
+
+.pagination .page-item .page-link:focus,
+.pagination .page-item .page-link:active {
+    outline: none;
+    box-shadow: none;
+}
+
+/* ====== */
+.sorting {
+    border: none;
+}
+
+/* ===== */
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: var(--line-clamp, 1);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
