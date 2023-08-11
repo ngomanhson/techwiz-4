@@ -501,15 +501,8 @@
                                     </li>
 <!--                            End Shop Page-->
 
-                                    <li><a href="#">pages <i class="fa fa-angle-down"></i></a>
-                                        <ul class="sub_menu pages">
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="services.html">services</a></li>
-                                            <li><a href="faq.html">Frequently Questions</a></li>
-                                            <li><a href="{{url('/contact')}}">contact</a></li>
-                                            <li><a href="login.html">login</a></li>
-                                            <li><a href="404.html">Error 404</a></li>
-                                        </ul>
+                                    <li>
+                                        <a href="{{url('/aboutus')}}}">About Us</a>
                                     </li>
                                     <li><a href="{{url('/contact')}}"> Contact Us</a></li>
                                 </ul>
@@ -539,28 +532,6 @@
     <div class="footer_top">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="widgets_container contact_us">
-                        <h3>Opening Time</h3>
-                        <p><span>Mon - Fri:</span> 8AM - 10PM</p>
-                        <p><span>Sat:</span> 9AM-8PM</p>
-                        <p><span>Suns:</span> 14hPM-18hPM</p>
-                        <p><b>We Work All The Holidays</b></p>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6">
-                    <div class="widgets_container widget_menu">
-                        <h3>Information</h3>
-                        <div class="footer_menu">
-                            <ul>
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                                <li><a href="faq.html">Frequently Questions</a></li>
-                                <li><a href="wishlist.html">Wishlist</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-lg-4 col-md-5">
                     <div class="widgets_container widget_app">
                         <div class="footer_logo">
@@ -591,16 +562,38 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-6">
+                    <div class="widgets_container contact_us">
+                        <h3>Opening Time</h3>
+                        <p><span>Mon - Fri:</span> 8AM - 10PM</p>
+                        <p><span>Sat:</span> 9AM-8PM</p>
+                        <p><span>Suns:</span> 14hPM-18hPM</p>
+                        <p><b>We Work All The Holidays</b></p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="widgets_container widget_menu">
+                        <h3>Information</h3>
+                        <div class="footer_menu">
+                            <ul>
+                                <li><a href="{{url("/")}}">Home</a></li>
+                                <li><a href="{{url("/shoop")}}">Shop</a></li>
+                                <li><a href="{{url("/aboutus")}}">About Us</a></li>
+                                <li><a href="{{url("/contact")}}">Contact Us</a></li>
+                                <li><a href="{{url("/wishlist")}}">Wishlist</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6">
                     <div class="widgets_container widget_menu">
                         <h3>My Account</h3>
                         <div class="footer_menu">
                             <ul>
-                                <li><a href="my-account.html">My Account</a></li>
+                                <li><a href="{{url("/account")}}">My Account</a></li>
                                 <li><a href="{{url('/contact')}}">Contact</a></li>
-                                <li><a href="cart.html">Shopping cart</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="#">Order History</a></li>
+                                <li><a href="{{url("/cart")}}">Shopping cart</a></li>
+                                <li><a href="{{url("/checkout")}}">Checkout</a></li>
+                                <li><a href="{{url("/account")}}">Order History</a></li>
                             </ul>
                         </div>
                     </div>
@@ -610,11 +603,9 @@
                         <h3>Customer Service</h3>
                         <div class="footer_menu">
                             <ul>
-                                <li><a href="contact.html">Contact Us</a></li>
                                 <li><a href="#">Terms of use</a></li>
                                 <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="contact.html">Site Map</a></li>
-                                <li><a href="my-account.html">My Account</a></li>
+                                <li><a href="{{url("/contact")}}">Site Map</a></li>
                                 <li><a href="#">Returns</a></li>
                             </ul>
                         </div>
