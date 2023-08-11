@@ -35,14 +35,14 @@
         <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
             <i class="fe fe-menu navbar-toggler-icon"></i>
         </button>
-        @if(Request::is('order')) <!-- Replace 'order' with the correct URL path for the order page -->
+{{--        @if(Request::is('order')) <!-- Replace 'order' with the correct URL path for the order page -->--}}
         <form class="form-inline mr-auto searchform text-muted">
             <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" value="{{ request()->input('search') }}" name="search" type="search" placeholder="Type something..." aria-label="Search">
             <button type="submit" class="btn-shadow btn-hover-shine btn btn-primary">
                 <span>Search</span>
             </button>
         </form>
-        @endif
+{{--        @endif--}}
         <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="light">
@@ -121,7 +121,7 @@
                     </li>
                 </ul>
             @endcanany
-            @canany(['orders.view','orders.edit','orders.edit','orders.delete'])
+{{--            @canany(['orders.view','orders.edit','orders.edit','orders.delete'])--}}
                 <p class="text-muted nav-heading mt-1 mb-1">
                     <span>Orders</span>
                 </p>
@@ -134,7 +134,7 @@
                         </a>
                     </li>
                 </ul>
-            @endcanany
+{{--            @endcanany--}}
 {{--            @canany(['product.view','product.edit','product.edit','product.delete'])--}}
                 <p class="text-muted nav-heading mt-1 mb-1">
                     <span>Products</span>
@@ -161,19 +161,7 @@
                     </li>
                 </ul>
 {{--            @endcanany--}}
-            @canany(['brand.view','brand.edit','brand.edit','brand.delete'])
-                <p class="text-muted nav-heading mt-1 mb-1">
-                    <span>Brand</span>
-                </p>
-                <ul class="navbar-nav flex-fill w-100 mb-2">
-                    <li class="nav-item">
-                        <a href="{{url("/admin/brand")}}" class="nav-link">
-                            <i class="fe fe-shopping-bag fe-16"></i>
-                            <span class="ml-3 item-text">Brand</span>
-                        </a>
-                    </li>
-                </ul>
-            @endcanany
+
 
             <p class="text-muted nav-heading mt-1 mb-1">
                 <span>Decentralization</span>
