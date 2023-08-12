@@ -125,7 +125,7 @@
                             <article class="single_product">
                                 <figure>
                                     <div class="product_thumb">
-                                        <a class="primary_img" href="shop/{{$pr->id}}"><img
+                                        <a class="primary_img" href="shop/{{$pr->slug}}"><img
                                                 src="/{{$pr->productImages[0]->path}}" alt="{{$pr->name}}"></a>
                                         <div class="label_product">
                                             <span class="label_sale">-7%</span>
@@ -161,7 +161,7 @@
                                                     <li><a href="#"><i class="icon-star"></i></a></li>
                                                 </ul>
                                             </div>
-                                            <h4 class="product_name"><a href="{{url("/shop/{$pr->id}")}}">{{$pr->name}}</a></h4>
+                                            <h4 class="product_name"><a href="{{url("/shop/{$pr->slug}")}}">{{$pr->name}}</a></h4>
                                             <div class="price_box">
                                                 <span class="current_price">${{$pr->price}}</span>
                                                 <span class="old_price">${{$pr->discount}}</span>
