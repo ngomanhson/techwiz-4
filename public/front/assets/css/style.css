@@ -6131,7 +6131,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 .product_variant.quantity button {
   border: 0;
   font-size: 16px;
-  margin-left: 20px;
+  /*margin-left: 20px;*/
   background: #79a206;
   height: 42px;
   line-height: 42px;
