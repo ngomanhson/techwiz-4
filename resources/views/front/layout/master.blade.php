@@ -265,15 +265,15 @@
                                             @foreach(Cart::content() as  $cart)
                                                 <div class="cart_item" data-rowId="{{$cart->rowid}}">
                                                     <div class="cart_img">
-                                                        <a href="#"><img src="{{$cart->options->images[0]->path}}" alt=""></a>
+                                                        <a href="shop/{{$cart->id}}"><img src="{{$cart->options->images[0]->path}}" alt=""></a>
                                                     </div>
                                                     <div class="cart_info">
-                                                        <a href="#">{{$cart->name}}</a>
+                                                        <a href="shop/{{$cart->id}}">{{$cart->name}}</a>
                                                         <p>{{$cart->qty}} x <span> {{$cart->price}} </span></p>
                                                     </div>
-                                                    <div class="cart_remove">
-                                                        <a href="#"><i class="icon-x"></i></a>
-                                                    </div>
+{{--                                                    <div class="cart_remove">--}}
+{{--                                                        <a href="#"><i class="icon-x"></i></a>--}}
+{{--                                                    </div>--}}
                                                 </div>
                                             @endforeach
 

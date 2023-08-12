@@ -5,54 +5,51 @@
 @section('body')
 
 {{--    Start Home Page--}}
-    <!--slider area start-->
-    <section class="slider_section">
-        <div class="slider_area owl-carousel">
-            <div class="single_slider d-flex align-items-center" data-bgimg="front/assets/img/slider/slider7.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="slider_content">
-                                <span>AMAZING FROM PlantNest </span>
-                                <h1>BIG SALE <br> NEW ARRIVALS</h1>
-                                <p>Discount 20% Off For PlantNest Members </p>
-                                <a class="button" href="{{url("/shop")}}">Shopping Now </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_slider d-flex align-items-center" data-bgimg="front/assets/img/slider/slider8.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="slider_content">
-                                <span>AMAZING FROM PlantNest </span>
-                                <h1>BIG SALE <br> NEW ARRIVALS</h1>
-                                <p>Discount 20% Off For PlantNest Members </p>
-                                <a class="button" href="{{url("/shop")}}">Shopping Now </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="single_slider d-flex align-items-center" data-bgimg="front/assets/img/slider/slider9.jpg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="slider_content">
-                                <span>AMAZING FROM PlantNest </span>
-                                <h1>BIG SALE <br> NEW ARRIVALS</h1>
-                                <p>Discount 20% Off For PlantNest Members </p>
-                                <a class="button" href="{{url("/shop")}}">Shopping Now </a>
-                            </div>
+<!--slider area start-->
+<section class="slider_section">
+    <div class="slider_area owl-carousel">
+        <div class="single_slider d-flex align-items-center" data-bgimg="front/assets/img/slider/slider7.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="slider_content">
+                            <h1>BIG SALE</h1>
+                            <p>Discount <span>20% Off </span> For Lukani Members </p>
+                            <a class="button" href="{{url("/shop")}}">Discover Now </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!--slider area end-->
+        <div class="single_slider d-flex align-items-center" data-bgimg="front/assets/img/slider/slider8.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="slider_content">
+                            <h1>TOP SALE</h1>
+                            <p>Discount <span>20% Off </span> For Lukani Members </p>
+                            <a class="button" href="{{url("/shop")}}">Discover Now </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="single_slider d-flex align-items-center" data-bgimg="front/assets/img/slider/slider9.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="slider_content">
+                            <h1>Lovely Plants </h1>
+                            <p>Discount <span>20% Off </span> For Lukani Members </p>
+                            <a class="button" href="{{url("/shop")}}">Discover Now </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--slider area end-->
 
     <!--shipping area start-->
     <div class="shipping_area">
@@ -151,7 +148,7 @@
                                 <article class="single_product">
                                     <figure>
                                         <div class="product_thumb">
-                                            <a class="primary_img" href="#"><img
+                                            <a class="primary_img" href="shop/{{$item->id}}"><img
                                                     src="{{$item->productImages[0]->path}}" alt=""></a>
                                             <div class="label_product">
                                                 <span class="label_sale">-7%</span>
@@ -159,13 +156,14 @@
                                             <div class="action_links">
                                                 <ul>
                                                     <li class="add_to_cart">
-                                                        <a href="#" title="Add to cart"><i class="icon-shopping-bag"></i></a>
+                                                        <a href="javascript:addCart({{$item->id}})" title="Add to cart"><i class="icon-shopping-bag"></i></a>
                                                     </li>
                                                     <li class="wishlist">
                                                         <a href="{{url("wishlist/addWish", ["product" => $item])}}" title="Add to Wishlist"><i class="icon-heart"></i></a>
                                                     </li>
                                                     <li class="quick_button">
-                                                        <a href="#" title="quick view"> <i class="icon-eye"></i></a>
+                                                        <a href="#" data-bs-toggle="modal"
+                                                           data-bs-target="#modal_box" title="quick view"> <i class="icon-eye"></i></a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -173,17 +171,25 @@
                                         <figcaption class="product_content">
                                             <div class="product_rating">
                                                 <ul>
-                                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                                    <li><a href="#"><i class="icon-star"></i></a></li>
+                                                    <style>
+                                                        /* Icon mặc định (không active) */
+                                                        .icon-star {
+                                                            color: #ccc;
+                                                        }
+                                                        /* Icon active (có điểm đánh giá) */
+                                                        .icon-star.active {
+                                                            color: #ffca08;
+                                                        }
+                                                    </style>
+                                                    @for ($i = 1; $i <= 5; $i++)
+                                                        <li><a href="#"><i class="icon-star{{ $i <= $item->averageRating ? ' active' : '' }}"></i></a> </li>
+                                                    @endfor
                                                 </ul>
                                             </div>
-                                            <h4 class="product_name"><a href="product-details.html">{{$item->name}}</a></h4>
+                                            <h4 class="product_name"><a href="shop/{{$item->id}}">{{$item->name}}</a></h4>
                                             <div class="price_box">
                                                 <span class="current_price">${{$item->price}}</span>
-                                                <span class="old_price">£74.00</span>
+                                                <span class="old_price">${{$item->discount}}</span>
                                             </div>
                                         </figcaption>
                                     </figure>
@@ -284,90 +290,28 @@
             </div>
             <div class="row">
                 <div class="blog_carousel blog_column3 owl-carousel">
+                    @foreach($blogs as $item)
                     <div class="col-lg-3">
                         <article class="single_blog">
                             <figure>
                                 <div class="blog_thumb">
-                                    <a href="blog-details.html"><img src="front/assets/img/blog/blog1.jpg" alt=""></a>
+                                    <a href="blog/{{$item->id}}"><img src="{{$item->image}}" alt=""></a>
                                 </div>
                                 <figcaption class="blog_content">
-                                    <h4 class="post_title"><a href="blog-details.html">Libero lorem</a></h4>
+                                    <h4 class="post_title"><a href="blog/{{$item->id}}">{{$item->title}}</a></h4>
                                     <div class="articles_date">
-                                        <p>By <span>admin / July 16, 2021</span></p>
+                                        <p>By <span>{$item->user->first_name}} {{$item->user->last_name}} / {{$item->created_at->format('d/m/Y')}}</span></p>
                                     </div>
-                                    <p class="post_desc">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras
-                                        pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus praesent</p>
+                                    <p class="post_desc">{{$item->subtitle}}</p>
                                     <footer class="blog_footer">
-                                        <a href="blog-details.html">Continue Reading</a>
+                                        <a href="blog/{{$item->id}}">Continue Reading</a>
                                         <p><i class="icon-message-circle"></i> <span>0</span></p>
                                     </footer>
                                 </figcaption>
                             </figure>
                         </article>
                     </div>
-                    <div class="col-lg-3">
-                        <article class="single_blog">
-                            <figure>
-                                <div class="blog_thumb">
-                                    <a href="blog-details.html"><img src="front/assets/img/blog/blog2.jpg" alt=""></a>
-                                </div>
-                                <figcaption class="blog_content">
-                                    <h4 class="post_title"><a href="blog-details.html">Blog image post</a></h4>
-                                    <div class="articles_date">
-                                        <p>By <span>admin / July 16, 2021</span></p>
-                                    </div>
-                                    <p class="post_desc">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras
-                                        pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus praesent</p>
-                                    <footer class="blog_footer">
-                                        <a href="blog-details.html">Continue Reading</a>
-                                        <p><i class="icon-message-circle"></i> <span>0</span></p>
-                                    </footer>
-                                </figcaption>
-                            </figure>
-                        </article>
-                    </div>
-                    <div class="col-lg-3">
-                        <article class="single_blog">
-                            <figure>
-                                <div class="blog_thumb">
-                                    <a href="blog-details.html"><img src="front/assets/img/blog/blog3.jpg" alt=""></a>
-                                </div>
-                                <figcaption class="blog_content">
-                                    <h4 class="post_title"><a href="blog-details.html">Post with Gallery</a></h4>
-                                    <div class="articles_date">
-                                        <p>By <span>admin / July 16, 2021</span></p>
-                                    </div>
-                                    <p class="post_desc">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras
-                                        pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus praesent</p>
-                                    <footer class="blog_footer">
-                                        <a href="blog-details.html">Continue Reading</a>
-                                        <p><i class="icon-message-circle"></i> <span>0</span></p>
-                                    </footer>
-                                </figcaption>
-                            </figure>
-                        </article>
-                    </div>
-                    <div class="col-lg-3">
-                        <article class="single_blog">
-                            <figure>
-                                <div class="blog_thumb">
-                                    <a href="blog-details.html"><img src="front/assets/img/blog/blog2.jpg" alt=""></a>
-                                </div>
-                                <figcaption class="blog_content">
-                                    <h4 class="post_title"><a href="blog-details.html">Post with Audio</a></h4>
-                                    <div class="articles_date">
-                                        <p>By <span>admin / July 16, 2021</span></p>
-                                    </div>
-                                    <p class="post_desc">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras
-                                        pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus praesent</p>
-                                    <footer class="blog_footer">
-                                        <a href="blog-details.html">Continue Reading</a>
-                                        <p><i class="icon-message-circle"></i> <span>0</span></p>
-                                    </footer>
-                                </figcaption>
-                            </figure>
-                        </article>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

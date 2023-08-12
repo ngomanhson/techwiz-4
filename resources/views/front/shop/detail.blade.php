@@ -67,10 +67,10 @@
                                     @for ($i = 1; $i <= 5; $i++)
                                         <li><a href="#"><i class="icon-star{{ $i <= $product->averageRating ? ' active' : '' }}"></i></a> </li>
                                     @endfor
-                                        @php
-                                            $averageRatingFormatted = number_format($product->averageRating, 1);
-                                        @endphp
-                                        <span>{{ $averageRatingFormatted }}/5</span>
+                                    @php
+                                        $averageRatingFormatted = number_format($product->averageRating, 1);
+                                    @endphp
+                                    <span>{{ $averageRatingFormatted }}/5</span>
                                     <li class="review" style="padding-left: 20px"><a href="#"> ({{ $product->reviewCount }} customer review) </a></li>
                                 </ul>
                             </div>
