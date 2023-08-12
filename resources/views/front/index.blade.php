@@ -180,9 +180,46 @@
                                                             color: #ffca08;
                                                         }
                                                     </style>
-                                                    @for ($i = 1; $i <= 5; $i++)
-                                                        <li><a href="#"><i class="icon-star{{ $i <= $item->averageRating ? ' active' : '' }}"></i></a> </li>
-                                                    @endfor
+{{--                                                    @for ($i = 1; $i <= 5; $i++)--}}
+{{--                                                        <li><a href="#"><i class="icon-star{{ $i <= $item->averageRating ? ' active' : '' }}"></i></a> </li>--}}
+{{--                                                    @endfor--}}
+                                                    @if($item->rate == 5)
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                    @elseif($item->rate < 5 && $item->rate >= 4)
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star"></i>
+                                                    @elseif($item->rate < 4 && $item->rate >= 3)
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                    @elseif($item->rate < 3 && $item->rate >= 2)
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                    @elseif($item->rate < 2 && $item->rate >= 1)
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                    @else
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                    @endif
                                                 </ul>
                                             </div>
                                             <h4 class="product_name"><a href="shop/{{$item->slug}}">{{$item->name}}</a></h4>
