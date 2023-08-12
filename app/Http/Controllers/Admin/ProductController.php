@@ -8,6 +8,7 @@ use App\Models\ProductImage;
 use App\Service\Product\ProductServiceInterface;
 use App\Service\ProductCategory\ProductCategoryServiceInterface;
 use App\Utilities\Common;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -111,6 +112,7 @@ class ProductController extends Controller
             $data['path'] = "front/assets/img/product/".$data['path'];
             ProductImage::create($data);
         }
+        Toastr::success('Successful product creation.', 'Success!');
         return redirect('admin/product/show/' . $product->id);
     }
     public function edit($id){
@@ -130,7 +132,7 @@ class ProductController extends Controller
 
         // Cập nhật dữ liệu người dùng
         $product->update($data);
-
+        Toastr::success('Successful product updated.', 'Success!');
         return redirect('admin/product/show/' . $product->id);
 
     }
@@ -138,7 +140,8 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
-        return redirect('admin/product')->with('status', 'Deleted member successfully');
+        Toastr::success('Deleted member successfully', 'Success!');
+        return redirect('admin/product');
     }
     public function action(Request $request){
         $list_check =$request->input('list_check');

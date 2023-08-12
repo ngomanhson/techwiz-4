@@ -28,6 +28,7 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="admin/css/app-light.css" id="lightTheme">
     <link rel="stylesheet" href="admin/css/app-dark.css" id="darkTheme" disabled>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 </head>
 <body class="vertical  light  ">
 <div class="wrapper">
@@ -228,6 +229,11 @@
 <script src='admin/js/dropzone.min.js'></script>
 <script src='admin/js/uppy.min.js'></script>
 <script src='admin/js/quill.min.js'></script>
+
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
+
 <script>
     $('.select2').select2(
         {

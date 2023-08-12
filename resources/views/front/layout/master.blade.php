@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="front/assets/css/plugins.css">
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="front/assets/css/style.css">
+
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <!--modernizr min js here-->
     <script src="front/assets/js/vendor/modernizr-3.7.1.min.js"></script>
 
@@ -536,5 +538,8 @@
 <!--Shipping -->
 <script src="front/assets/js/shipping.js"></script>
 
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
 </body>
 </html>
