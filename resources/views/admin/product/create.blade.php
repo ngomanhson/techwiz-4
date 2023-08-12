@@ -22,7 +22,7 @@
 
                         <div class="main-card mb-3 card">
                             <div class="card-body">
-                                <form method="POST" action="{{url('admin/product/store')}}">
+                                <form method="post" action="{{url('admin/product/store')}}" enctype="multipart/form-data">
                                     @csrf
                                     @include('admin.components.notification')
 
@@ -45,6 +45,13 @@
                                         <label for="name" class="col-md-3 text-md-right col-form-label">Name</label>
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="name" id="name" placeholder="Name" type="text"
+                                                   class="form-control" value="">
+                                        </div>
+                                    </div>
+                                    <div class="position-relative row form-group">
+                                        <label for="image" class="col-md-3 text-md-right col-form-label">Image</label>
+                                        <div class="col-md-9 col-xl-8">
+                                            <input required name="image" id="image" placeholder="Image" type="file"
                                                    class="form-control" value="">
                                         </div>
                                     </div>

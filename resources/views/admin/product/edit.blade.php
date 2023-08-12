@@ -37,6 +37,9 @@
                                                         {{$productCategory->name}}
                                                     </option>
                                                 @endforeach
+                                                @error("product_category_id")
+                                                <p class="text-danger"><i>{{$message}}</i></p>
+                                                @enderror
                                             </select>
                                         </div>
                                     </div>
@@ -46,6 +49,9 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="name" id="name" placeholder="Name" type="text"
                                                    class="form-control" value="{{$product->name}}">
+                                            @error("name")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -55,6 +61,21 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="content" id="content"
                                                    placeholder="Content" type="text" class="form-control" value="{{$product->content}}">
+                                            @error("content")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="position-relative row form-group">
+                                        <label for="qty"
+                                               class="col-md-3 text-md-right col-form-label">Price</label>
+                                        <div class="col-md-9 col-xl-8">
+                                            <input required name="qty" id="qty"
+                                                   placeholder="Qty" type="text" class="form-control" value="{{$product->qty}}">
+                                            @error("qty")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -64,6 +85,9 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="price" id="price"
                                                    placeholder="Price" type="text" class="form-control" value="{{$product->price}}">
+                                            @error("price")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -73,6 +97,9 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="discount" id="discount"
                                                    placeholder="Discount" type="text" class="form-control" value="{{$product->discount}}">
+                                            @error("discount")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -82,6 +109,9 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="weight" id="weight"
                                                    placeholder="Weight" type="text" class="form-control" value="{{$product->weight}}">
+                                            @error("weight")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -91,6 +121,9 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="sku" id="sku"
                                                    placeholder="SKU" type="text" class="form-control" value="{{$product->sku}}">
+                                            @error("sku")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -100,6 +133,9 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="species" id="species"
                                                    placeholder="Species" type="text" class="form-control" value="{{$product->species}}">
+                                            @error("species")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
 
