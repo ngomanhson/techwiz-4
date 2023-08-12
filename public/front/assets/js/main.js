@@ -675,6 +675,9 @@
             }
         }
         $button.parent().find('input').val(newVal);
+        //update cart
+        var rowId = $button.parent().find('input').data('rowid');
+        updateCart(rowId,newVal);
     });
 })(jQuery);
 
@@ -773,4 +776,61 @@ function removeCart(rowId){
             // console.log(response);
         },
     });
+}
+$('.quantity-input').on('change', function() {
+    var rowId = $(this).data('rowid');
+    var qty = $(this).val();
+    updateCart(rowId, qty);
+});
+
+$('.quantity-input').on('keydown', function(e) {
+    if (e.keyCode === 13) {
+        e.preventDefault();
+        var rowId = $(this).data('rowid');
+        var qty = $(this).val();
+        updateCart(rowId, qty);
+    }
+});
+function updateCart(rowId , qty){
+
+    $.ajax({
+        type: "GET",
+        url:"cart/update",
+        data:{rowId: rowId, qty: qty },
+        success: function (response){
+            $('.item_count').text(response['count']);
+            $('.cart_total mt-10.price').text(response['$' +'total']);
+            $('.cart_total .price').text(response['$' +'total']);
+
+            var miniCart_cartGallery = $('.mini_cart.cart_gallery');
+            var miniCart_existItem = miniCart_cartGallery.find("div  " + " [data-rowId='"+ rowId +"' ]");
+            if (qty === 0 ){
+                miniCart_existItem.remove();
+            }else {
+                miniCart_existItem.find('.cart_info p').text('$'+response['cart'].price.toFixed(2)+'x'+response['cart'].qty)
+            }
+
+            var cart_tbody = $('.table_desc tbody');
+            var cart_exitstItem = cart_tbody.find("div  " + " [data-rowId='"+ rowId +"' ]");
+            if (qty === 0 ){
+                cart_exitstItem.remove();
+            }else {
+                cart_exitstItem.find('.product_total').text('$'+response['cart'].price.toFixed(2)+'x'+response['cart'].qty)
+            }
+            $('.cart_subtotal p').text('$'+ response['subtotal'])
+
+            alert('remove!\nProduct:'+response['cart'].name)
+            console.log(response);
+
+
+        },
+        error: function(response) {
+            alert('remove faile');
+            console.log(response)
+            // showAlert('Add failed');
+
+            // console.log(response);
+        },
+    });
+
 }

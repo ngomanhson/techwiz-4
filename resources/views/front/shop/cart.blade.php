@@ -43,16 +43,16 @@
                                                 <td class="product_remove"><a href="{{url('/cart')}}"><i onclick="removeCart('{{$cart->rowId}}')" class="fa fa-trash-o"></i></a></td>
                                                 <td class="product_thumb"><a href="#"><img src="{{$cart->options->images[0]->path}}" alt=""></a></td>
                                                 <td class="product_name"><a href="#">{{$cart->name}}</a></td>
-                                                <td class="product-price">${{str_replace(',', '', number_format($cart->price * $cart->qty, 2))}}</td>
+                                                <td class="product-price">{{$cart->price}}</td>
                                                 <td class="product_quantity">
 {{--                                                        <input min="1" max="100" value="{{$cart->qty}}" type="number">--}}
                                                     <div class="quantity">
                                                         <div class="pro-qty">
-                                                            <input type="text" value="1">
+                                                            <input  class="quantity-input" type="text" value="{{$cart->qty}}" data-rowId="{{$cart->rowId}}">
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="product_total">{{$cart->total}}</td>
+                                                <td class="product_total">${{str_replace(',', '', number_format($cart->price * $cart->qty, 2))}}</td>
                                             </tr>
                                     </tbody>
                                         @endforeach
@@ -85,11 +85,6 @@
                                         <p>Subtotal</p>
                                         <p class="cart_amount">{{Cart::subtotal()}}</p>
                                     </div>
-                                    <div class="cart_subtotal ">
-                                        <p>Shipping</p>
-                                        <p class="cart_amount"><span>Flat Rate:</span> £255.00</p>
-                                    </div>
-                                    <a href="#">Calculate shipping</a>
 
                                     <div class="cart_subtotal">
                                         <p>Total</p>
