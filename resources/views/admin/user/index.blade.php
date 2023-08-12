@@ -76,7 +76,7 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <p class="mb-0 text-muted"><strong>{{$user->name}}</strong></p>
+                                                    <p class="mb-0 text-muted"><strong>{{$user->first_name}}  {{$user->last_name}}</strong></p>
                                                     <small class="mb-0 text-muted"></small>
                                                 </td>
                                                 <td>

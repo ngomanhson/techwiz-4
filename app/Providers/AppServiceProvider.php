@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\Blog\BlogRepository;
+use App\Repositories\Blog\BlogRepositoryInterface;
 use App\Repositories\Order\OrderRepository;
 use App\Repositories\Order\OrderRepositoryInterface;
 use App\Repositories\OrderDetail\OrderDetailRepository;
@@ -12,6 +14,8 @@ use App\Repositories\ProductCategory\ProductCategoryRepository;
 use App\Repositories\ProductCategory\ProductCategoryRepositoryInterface;
 use App\Repositories\User\UserRepository;
 use App\Repositories\User\UserRepositoryInterface;
+use App\Service\Blog\BlogService;
+use App\Service\Blog\BlogServiceInterface;
 use App\Service\Order\OrderService;
 use App\Service\Order\OrderServiceInterface;
 use App\Service\OrderDetail\OrderDetailService;
@@ -52,6 +56,15 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(
             OrderServiceInterface::class,
             OrderService::class
+        );
+        //blog
+        $this->app->singleton(
+            BlogRepositoryInterface::class,
+            BlogRepository::class
+        );
+        $this->app->singleton(
+            BlogServiceInterface::class,
+            BlogService::class
         );
         //OrderDetail
         $this->app->singleton(

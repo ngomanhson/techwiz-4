@@ -42,6 +42,7 @@ Route::prefix("/contact")->group(function () {
  Route::prefix('admin')->middleware('CheckAdminLogin')->group(function (){
      Route::get('dashboard',[\App\Http\Controllers\Admin\DashboardController::class,'index']);
      Route::resource('product/{product_id}/image',\App\Http\Controllers\Admin\ProductImageController::class);
+
      Route::resource('product/{product_id}/detail',\App\Http\Controllers\Admin\ProductDetailController::class);
      Route::get('/statistical',[\App\Http\Controllers\Admin\DashboardController::class,'statistical']);
      Route::get('/order7Days',[\App\Http\Controllers\Admin\DashboardController::class,'order7Days']);
@@ -61,6 +62,24 @@ Route::prefix("/contact")->group(function () {
          Route::get('delete/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'delete'])->name('delete_category');
 
      });
+
+     //xử lý blog
+
+     Route::prefix('blog')->group(function (){
+         Route::get('',[\App\Http\Controllers\Admin\BlogController::class,'index']);
+         Route::post('action',[\App\Http\Controllers\Admin\BlogController::class,'action']);
+         Route::get('show/{id}',[\App\Http\Controllers\Admin\BlogController::class,'show'])->name('blog.show');
+         Route::get('delete/{id}',[\App\Http\Controllers\Admin\BlogController::class,'delete'])->name('delete_blog');
+         Route::post('store',[\App\Http\Controllers\Admin\BlogController::class,'store']);
+         Route::get('edit/{id}',[\App\Http\Controllers\Admin\BlogController::class,'edit'])->name('blog.edit');
+         Route::post('edit/update/{id}',[\App\Http\Controllers\Admin\BlogController::class,'update'])->name('blog.update');
+         Route::get('create',[\App\Http\Controllers\Admin\BlogController::class,'create']);
+
+         Route::post('store',[\App\Http\Controllers\Admin\BlogController::class,'store']);
+
+     });
+
+
 
      //xử lý product
      Route::prefix('product')->group(function (){
