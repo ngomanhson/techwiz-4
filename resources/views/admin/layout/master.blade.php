@@ -160,43 +160,21 @@
                     </a>
                 </li>
             </ul>
+            <p class="text-muted nav-heading mt-1 mb-1">
+                <span>Blog</span>
+            </p>
+            <ul class="navbar-nav flex-fill w-100 mb-2">
+                <li class="nav-item">
+                    <a href="{{url("/admin/blog")}}" class="nav-link">
+                        <i class="fe fe-layers fe-16"></i>
+                        <span class="ml-3 item-text">Blog</span>
+                    </a>
+                </li>
+            </ul>
             {{--            @endcanany--}}
 
 
-            <p class="text-muted nav-heading mt-1 mb-1">
-                <span>Decentralization</span>
-            </p>
-            @canany(['role.view','role.edit','role.edit','role.delete'])
-                <ul class="navbar-nav flex-fill w-100 mb-2">
-                    <li class="nav-item dropdown">
-                        <a href="#pages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-                            <i class="fe fe-shield fe-16"></i>
-                            <span class="ml-3 item-text">Decentralization</span>
-                        </a>
-                        <ul class="collapse list-unstyled pl-4 w-100 w-100" id="pages">
-                            <li class="nav-item">
-                                <a class="nav-link pl-3" href="{{route('permission.add')}}">
-                                    <span class="ml-1 item-text">Permission</span>
-                                </a>
-                            </li>
-                            @can('role.view')
-                                <li class="nav-item">
-                                    <a class="nav-link pl-3" href="{{route('role.index')}}">
-                                        <span class="ml-1 item-text">List of roles</span>
-                                    </a>
-                                </li>
-                            @endcan
-                            @can('role.add')
-                                <li class="nav-item">
-                                    <a class="nav-link pl-3" href="{{route('role.add')}}">
-                                        <span class="ml-1 item-text"> More roles</span>
-                                    </a>
-                                </li>
-                            @endcan
-                        </ul>
-                    </li>
-                </ul>
-            @endcanany
+
 
             <ul class="navbar-nav flex-fill w-100 mb-2">
                 <li class="nav-item">
