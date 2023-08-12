@@ -48,8 +48,9 @@
 {{--                                                        <input min="1" max="100" value="{{$cart->qty}}" type="number">--}}
                                                     <div class="quantity">
                                                         <div class="pro-qty">
-                                                            <input  class="quantity-input" type="text" value="{{$cart->qty}}" data-rowId="{{$cart->rowId}}">
+                                                            <input  class="quantity-input"  type="text" value="{{$cart->qty}}" data-rowId="{{$cart->rowId}}">
                                                         </div>
+
                                                     </div>
                                                 </td>
                                                 <td class="product_total">${{str_replace(',', '', number_format($cart->price * $cart->qty, 2))}}</td>

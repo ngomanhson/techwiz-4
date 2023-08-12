@@ -250,7 +250,8 @@
                                 </div>
                                 <div class="header_account-list  mini_cart_wrapper">
                                     <a href="javascript:void(0)"><i class="icon-shopping-bag"></i><span
-                                            class="item_count">{{Cart::count()}}</span></a>
+                                            class="item_count">{{Cart::content()->count()}}</span></a>
+
                                     <!--mini cart-->
                                     <div class="mini_cart">
                                         <div class="cart_gallery">
