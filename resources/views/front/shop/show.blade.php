@@ -117,7 +117,7 @@
                                                 <li class="add_to_cart"><a href="javascript:addCart({{$pr->id}})" title="Add to cart"><i
                                                             class="icon-shopping-bag"></i></a></li>
 
-                                                <li class="wishlist"><a href="#!" title="Add to Wishlist"><i
+                                                <li class="wishlist"><a href="{{url("wishlist/addWish", ["product" => $pr])}}" title="Add to Wishlist"><i
                                                             class="icon-heart"></i></a></li>
                                                 <li class="quick_button"><a href="shop/{{$pr->slug}}"> <i class="icon-eye"></i></a></li>
 
@@ -181,7 +181,7 @@
                                                 <ul>
                                                     <li class="add_to_cart"><a href="javascript:addCart({{$pr->id}})" title="Add to cart">Add to
                                                             cart</a></li>
-                                                    <li class="wishlist"><a href="#" title="Add to Wishlist"><i
+                                                    <li class="wishlist"><a href="{{url("wishlist/addWish", ["product" => $pr])}}" title="Add to Wishlist"><i
                                                                 class="icon-heart"></i></a></li>
                                                 </ul>
                                             </div>

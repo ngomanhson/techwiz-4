@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title','Brand')
+@section('title','Blog')
 @section('body')
     <main role="main" class="main-content">
         <div class="container-fluid">
@@ -22,9 +22,16 @@
 
                         <div class="main-card mb-3 card">
                             <div class="card-body">
-                                <form method="POST" action="{{route('blog.update',$blogs->id)}}">
+                                <form method="POST" action="{{route('blog.update',$blogs->id)}}" enctype="multipart/form-data">
                                     @csrf
                                     @include('admin.components.notification')
+                                    <div class="position-relative row form-group">
+                                        <label for="title" class="col-md-3 text-md-right col-form-label">Title</label>
+                                        <div class="col-md-9 col-xl-8">
+                                            <input name="image" id="image" placeholder="Image" type="file"
+                                                   class="form-control" value="">
+                                        </div>
+                                    </div>
                                     <div class="position-relative row form-group">
                                         <label for="" class="col-md-3 text-md-right col-form-label">Images</label>
                                         <div class="col-md-9 col-xl-8">

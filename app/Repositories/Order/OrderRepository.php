@@ -19,6 +19,6 @@ class OrderRepository extends BaseRepositories implements OrderRepositoryInterfa
     public function getOrderByUserId($userId)
     {
         // TODO: Implement getOrderByUserId() method.
-        return $this->model->where('user_id', $userId)->get();
+        return $this->model->where('user_id', $userId)->orderBy("id", "desc")->get();
     }
 }

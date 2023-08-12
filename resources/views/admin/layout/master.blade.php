@@ -178,7 +178,7 @@
             </p>
             <ul class="navbar-nav flex-fill w-100 mb-2">
                 <li class="nav-item">
-                    <a href="{{url("/admin/blog")}}" class="nav-link">
+                    <a href="{{url("/admin/feedback")}}" class="nav-link">
                         <i class="fe fe-layers fe-16"></i>
                         <span class="ml-3 item-text">Feedback</span>
                     </a>
@@ -189,7 +189,7 @@
             </p>
             <ul class="navbar-nav flex-fill w-100 mb-2">
                 <li class="nav-item">
-                    <a href="{{url("/admin/blog")}}" class="nav-link">
+                    <a href="{{url("/admin/review")}}" class="nav-link">
                         <i class="fe fe-layers fe-16"></i>
                         <span class="ml-3 item-text">Review</span>
                     </a>

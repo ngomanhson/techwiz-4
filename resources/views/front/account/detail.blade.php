@@ -159,7 +159,9 @@
                                                         @case(3)<span class="text text-primary">Shipped</span>
                                                         @break
 
-                                                        @case(4)<span class="text text-success">Completed</span>@break @case(5)<span class="text text-danger">Cancel</span>
+                                                        @case(4)<span class="text text-success">Completed</span>@break
+
+                                                        @case(5)<span class="text text-danger">Cancel</span>
                                                         @break
 
                                                     @endswitch
@@ -259,6 +261,22 @@
                                     >
                                         Subtotal
                                     </th>
+                                    @if($order->status == 4)
+                                        <th
+                                            style="
+                                                            font-size: 12px;
+                                                            font-family: 'Open Sans', sans-serif;
+                                                            color: #1e2b33;
+                                                            font-weight: normal;
+                                                            line-height: 1;
+                                                            vertical-align: top;
+                                                            padding: 0 0 7px;
+                                                        "
+                                            align="right"
+                                        >
+                                            Review
+                                        </th>
+                                    @endif
                                 </tr>
                                 <tr>
                                     <td height="1" style="background: #bebebe" colspan="4"></td>
@@ -269,7 +287,7 @@
                                             style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #ff0000; line-height: 18px; vertical-align: top; padding: 10px 0"
                                             class="article"
                                         >
-                                            <a href="{{ url("/shop/product/".$orderDetail->product->slug) }}" style="color: #ff0000">{{ $orderDetail->product->name }}</a>
+                                            <a href="{{ url("/shop/".$orderDetail->product->slug) }}" style="color: #ff0000">{{ $orderDetail->product->name }}</a>
                                         </td>
                                         <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 18px; vertical-align: top; padding: 10px 0">
                                             <small>{{$orderDetail->product->sku}}</small>
@@ -286,6 +304,17 @@
                                         >
                                             ${{ $orderDetail->total }}
                                         </td>
+                                        @if($order->status == 4 )
+                                            <td
+                                                style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #1e2b33; line-height: 18px; vertical-align: top; padding: 10px 0"
+                                                align="right"
+                                            >
+                                                @if($orderDetail->is_reviewed == false)
+                                                    <a href="{{url("/review", ["orderDetail" => $orderDetail])}}" class="btn-success" style="font-size: 9px; padding: 5px; border-radius: 3px">Review</a>
+                                                @endif
+                                            </td>
+                                        @endif
+
                                     </tr>
                                     <tr>
                                         <td height="1" colspan="4" style="border-bottom: 1px solid #e4e4e4"></td>
@@ -388,8 +417,33 @@
 
                                         <br />Best Regards, <br />Code One Min Team <br />
                                         <br />
-                                        Email: <a href="mailto:codeonemin@gmail.com"></a> codeonemin@gmail.com. <br />
-                                        Website: <a href="http://127.0.0.1:8000/">shoprunner.com</a>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                Email: <a href="mailto:codeonemin@gmail.com"></a> codeonemin@gmail.com. <br />
+                                                Website: <a href="http://127.0.0.1:8000/">shoprunner.com</a>
+                                            </div>
+
+
+                                            <div class="col-lg-6">
+                                                @if($order->status == 0)
+                                                    <form action="{{url("/receive", ["order" => $order->id])}}" method="post">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-success float-end" style="font-size: 12px">Complete</button>
+                                                    </form>
+                                                    <form action="{{url("/cancelOrder", ["order" => $order->id])}}" method="post">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger float-end" style="font-size: 12px">Cancel</button>
+                                                    </form>
+                                                @endif
+                                                @if($order->status == 3)
+                                                        <form action="{{url("/receive", ["order" => $order->id])}}" method="post">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success float-end" style="font-size: 12px">Received</button>
+                                                        </form>
+                                                    @endif
+                                            </div>
+                                        </div>
+
                                     </td>
                                 </tr>
                                 </tbody>

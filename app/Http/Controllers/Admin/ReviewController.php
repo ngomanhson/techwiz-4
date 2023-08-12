@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ReviewController extends Controller
 {
     public function index() {
-        $review = ProductReview::orderBy("id", "desc")->paginate(12);
-        return view('admin.user.show',['review' => $review]);
+        $reviews = ProductReview::orderBy("id", "desc")->paginate(12);
+        return view('admin.review.index',['reviews' => $reviews]);
     }
 }

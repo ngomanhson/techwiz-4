@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class FeedbackController extends Controller
 {
     public function index() {
-        $feedback = ContactUsQuery::orderBy("id", "desc")->paginate(12);
-        return view('admin.user.show',['review' => $feedback]);
+        $feedbacks = ContactUsQuery::orderBy("id", "desc")->paginate(12);
+        return view('admin.feedback.index',['feedbacks' => $feedbacks]);
     }
 }

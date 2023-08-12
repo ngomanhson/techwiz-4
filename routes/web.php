@@ -175,3 +175,6 @@ Route::prefix('/review')->group(function (){
 Route::prefix('/about-us')->group(function (){
     Route::get('/',[\App\Http\Controllers\Front\AboutUsController::class,'index']);
 });
+
+Route::post('/cancelOrder/{order}',[\App\Http\Controllers\Front\AccountController::class,'cancelOrder']);
+Route::post('/receive/{order}',[\App\Http\Controllers\Front\AccountController::class,'receiveOrder']);

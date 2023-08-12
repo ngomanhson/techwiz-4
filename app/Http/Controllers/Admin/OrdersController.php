@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
 use App\Service\Order\OrderServiceInterface;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class OrdersController extends Controller
@@ -131,8 +132,8 @@ class OrdersController extends Controller
 
         // Gọi phương thức sác nhận đơn hàng từ OrderService
         $this->orderService->confirmOrderPayment($orderId);
-
-        return redirect('admin/orders')->with('status', 'Order payment confirmed successfully');
+        Toastr::success('Status update successful.', 'Success!');
+        return redirect('admin/orders');
     }
     public function cancelOrder(Request $request, $orderId)
     {
@@ -142,7 +143,7 @@ class OrdersController extends Controller
             $order->status = 5; // Chuyển trạng thái sang 5 (CANCELLED)
             $order->save();
         }
-
+        Toastr::success('Order payment cancel successfully.', 'Success!');
         // Redirect hoặc trả về phản hồi tương ứng
         return redirect('admin/orders')->with('status', 'Order payment confirmed successfully'); // Ví dụ: Chuyển hướng trở lại trang trước đó
     }
@@ -154,9 +155,9 @@ class OrdersController extends Controller
             $order->status = 2; // Chuyển trạng thái sang 5 (CANCELLED)
             $order->save();
         }
-
+        Toastr::success('Order payment shipping successfully.', 'Success!');
         // Redirect hoặc trả về phản hồi tương ứng
-        return redirect('admin/orders')->with('status', 'Order payment confirmed successfully'); // Ví dụ: Chuyển hướng trở lại trang trước đó
+        return redirect('admin/orders'); // Ví dụ: Chuyển hướng trở lại trang trước đó
     }
     public function shippedOrder(Request $request, $orderId)
     {
@@ -166,21 +167,22 @@ class OrdersController extends Controller
             $order->status = 3; // Chuyển trạng thái sang 5 (CANCELLED)
             $order->save();
         }
-
+        Toastr::success('Order payment shipped successfully.', 'Success!');
         // Redirect hoặc trả về phản hồi tương ứng
-        return redirect('admin/orders')->with('status', 'Order payment shipped successfully'); // Ví dụ: Chuyển hướng trở lại trang trước đó
+        return redirect('admin/orders'); // Ví dụ: Chuyển hướng trở lại trang trước đó
     }
     public function completedOrder(Request $request, $orderId)
     {
         // Kiểm tra và cập nhật trạng thái của đơn hàng
         $order = Order::find($orderId);
         if ($order) {
+            $order->is_paid = true;
             $order->status = 4; // Chuyển trạng thái sang 5 (CANCELLED)
             $order->save();
         }
-
+        Toastr::success('Order payment complete successfully.', 'Success!');
         // Redirect hoặc trả về phản hồi tương ứng
-        return redirect('admin/orders')->with('status', 'Order payment shipped successfully'); // Ví dụ: Chuyển hướng trở lại trang trước đó
+        return redirect('admin/orders'); // Ví dụ: Chuyển hướng trở lại trang trước đó
     }
 
 }

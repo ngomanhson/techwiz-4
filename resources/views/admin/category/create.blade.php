@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title','Brand')
+@section('title','Catrgory')
 @section('body')
     <main role="main" class="main-content">
         <div class="container-fluid">

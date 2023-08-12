@@ -13,7 +13,7 @@
                                     <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
                                 </div>
                                 <div class="col">
-                                    <h2 class="h3 mb-0 page-title">Product Create</h2>
+                                    <h2 class="h3 mb-0 page-title">Blog Create</h2>
                                 </div>
                             </div>
                         </div>
@@ -29,15 +29,23 @@
                                     <div class="position-relative row form-group">
                                         <label for="image" class="col-md-3 text-md-right col-form-label">Image</label>
                                         <div class="col-md-9 col-xl-8">
-                                            <input type="file" name="image" id="image" class="form-control-file" onchange="previewImage(this);">
+                                            <input required type="file" name="image" id="image" class="form-control-file" onchange="previewImage(this);">
                                             <img id="image-preview" src="#" alt="Image Preview" style="max-width: 100%; display: none;">
+                                            @error("image")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
+
                                     </div>
                                     <div class="position-relative row form-group">
                                         <label for="user_id" class="col-md-3 text-md-right col-form-label">User Id</label>
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="user_id" id="user_id" placeholder="Name" type="text" class="form-control" value="{{ $loggedInUserName }}" disabled>
+                                            @error("product_category_id")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
+
                                     </div>
 
                                     <div class="position-relative row form-group">
@@ -46,7 +54,11 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="title" id="title"
                                                    placeholder="Title" type="text" class="form-control" value="">
+                                            @error("title")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
+
                                     </div>
                                     <div class="position-relative row form-group">
                                         <label for="category"
@@ -54,7 +66,11 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="category" id="category"
                                                    placeholder="Category" type="text" class="form-control" value="">
+                                            @error("category")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
+
                                     </div>
                                     <div class="position-relative row form-group">
                                         <label for="subtitle"
@@ -62,6 +78,9 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="subtitle" id="subtitle"
                                                    placeholder="subtitle" type="text" class="form-control" value="">
+                                            @error("subtitle")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -71,7 +90,11 @@
                                                class="col-md-3 text-md-right col-form-label">Description</label>
                                         <div class="col-md-9 col-xl-8">
                                             <textarea class="form-control" name="content" id="description" placeholder="Description"></textarea>
+                                            @error("content")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
+
                                     </div>
 
                                     <div class="position-relative row form-group mb-1">

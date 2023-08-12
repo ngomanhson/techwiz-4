@@ -78,10 +78,12 @@ class ProductController extends Controller
         $existingProduct = Product::where('name', $name)->first();
         $existingProduct1 = Product::where('sku', $sku)->first();
         if ($existingProduct) {
-            return back()->with('notification', 'ERROR: Category name already exists');
+            Toastr::error('Name already exists.', 'ERROR!');
+            return back();
         }
         if ($existingProduct1) {
-            return back()->with('notification', 'ERROR: Category name already exists');
+            Toastr::error('Suk already exists.', 'ERROR!');
+            return back();
         }
 //        $data =$request->all();
 //        $data['qty']= 0;

@@ -8,6 +8,7 @@ use App\Models\ProductImage;
 use App\Service\Blog\BlogServiceInterface;
 use App\Service\ProductCategory\ProductCategoryServiceInterface;
 use App\Utilities\Common;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -53,7 +54,11 @@ class BlogController
     }
     public function store(Request $request){
         $request->validate([
-           'image' => 'required'
+           'image' => 'required',
+           'title' => 'required',
+           'category' => 'required',
+           'content' => 'required',
+           'subtitle' => 'required'
         ]);
         $name = $request->get("title");
 
@@ -81,14 +86,15 @@ class BlogController
         $blog->image = $image;
         $blog->save();
 
-
+        Toastr::success('Successful product creation.', 'Success!');
         return redirect('admin/blog/show/' . $blog->id);
     }
     public function delete($id)
     {
         $blogs = Blog::find($id);
         $blogs->delete();
-        return redirect('admin/blog')->with('status', 'Deleted member successfully');
+        Toastr::success('Deleted member successfully', 'Success!');
+        return redirect('admin/blog');
     }
     public function show($id){
         $blogs =Blog::find($id);
@@ -102,16 +108,55 @@ class BlogController
     }
     public function update(Request $request, $id)
     {
+        $request->validate([
+//            'image' => 'required',
+            'title' => 'required',
+            'category' => 'required',
+            'content' => 'required',
+            'subtitle' => 'required'
+        ]);
 
-        $data = $request->all();
+        $name = $request->get("title");
+
+        // Kiểm tra xem tên danh mục đã tồn tại hay chưa
+        $existingBlog = Blog::where('title', $name)->first();
+        if ($existingBlog) {
+            Toastr::error('Name already exists.', 'ERROR!');
+            return back();
+        }
 
         // Lấy thông tin người dùng cần cập nhật
         $blogs = Blog::findOrFail($id);
 
+        $image = null;
+        if($request->hasFile("image")){
+            $file = $request->file("image");
+            $fileName = time().$file->getClientOriginalName();
+            $path = public_path("front/assets/img/blog");
+            $file->move($path,$fileName);
+            $image = "front/assets/img/blog/".$fileName;
 
-        // Cập nhật dữ liệu người dùng
-        $blogs->update($data);
+            Blog::where("id", $id)
+                ->update([
+                    "title" => $request->input("title"),
+                    "slug"=>Str::slug($request->input("title")),
+                    "image"=>$image,
+                    "category" => $request->get("category"),
+                    "content" => $request->get("content"),
+                    "subtitle" => $request->get("subtitle"),
+                ]);
+        } else {
+            Blog::where("id", $id)
+                ->update([
+                    "title" => $request->input("title"),
+                    "slug"=>Str::slug($request->input("title")),
+                    "category" => $request->get("category"),
+                    "content" => $request->get("content"),
+                    "subtitle" => $request->get("subtitle"),
+                ]);
+        }
 
+        Toastr::success('Successful product updated.', 'Success!');
         return redirect('admin/blog/show/' . $blogs->id);
 
     }

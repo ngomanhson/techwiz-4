@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title','Product')
+@section('title','Blog')
 @section('body')
     <!-- Main -->
     <main role="main" class="main-content">

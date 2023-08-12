@@ -1,5 +1,5 @@
 @extends('admin.layout.master')
-@section('title','Brand')
+@section('title','Product')
 @section('body')
     <main role="main" class="main-content">
         <div class="container-fluid">
@@ -46,6 +46,9 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="name" id="name" placeholder="Name" type="text"
                                                    class="form-control" value="">
+                                            @error("name")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="position-relative row form-group">
@@ -62,6 +65,9 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="content" id="content"
                                                    placeholder="Content" type="text" class="form-control" value="">
+                                            @error("content")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="position-relative row form-group">
@@ -70,6 +76,9 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="qty" id="qty"
                                                    placeholder="qty" type="text" class="form-control" value="">
+                                            @error("qty")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -79,6 +88,9 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="price" id="price"
                                                    placeholder="Price" type="text" class="form-control" value="">
+                                            @error("price")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -88,6 +100,9 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="discount" id="discount"
                                                    placeholder="Discount" type="text" class="form-control" value="">
+                                            @error("discount")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -97,6 +112,9 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input name="weight" id="weight"
                                                    placeholder="Weight" type="text" class="form-control" value="">
+                                            @error("weight")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -106,6 +124,9 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="sku" id="sku"
                                                    placeholder="SKU" type="text" class="form-control" value="">
+                                            @error("sku")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -115,6 +136,9 @@
                                         <div class="col-md-9 col-xl-8">
                                             <input required name="species" id="species"
                                                    placeholder="Species" type="text" class="form-control" value="">
+                                            @error("species")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
 
@@ -139,6 +163,9 @@
                                                class="col-md-3 text-md-right col-form-label">Description</label>
                                         <div class="col-md-9 col-xl-8">
                                             <textarea class="form-control" name="description" id="description" placeholder="Description"></textarea>
+                                            @error("description")
+                                            <p class="text-danger"><i>{{$message}}</i></p>
+                                            @enderror
                                         </div>
                                     </div>
 

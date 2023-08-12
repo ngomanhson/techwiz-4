@@ -132,7 +132,7 @@
                             <div class="hover_category">
                                 <select class="select_option" name="select" id="categori2">
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                        <option href="shop/category/.{{$category->name}}" value="{{ $category->name }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -235,7 +235,7 @@
                                     <div class="hover_category">
                                         <select class="select_option" name="select" id="categori1">
                                             @foreach ($categories as $category)
-                                                <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                                <option href="/shop/category/{{$category->name}}" value="{{ $category->name }}">{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -272,7 +272,7 @@
                                                     </div>
                                                     <div class="cart_info">
                                                         <a href="#">{{$cart->name}}</a>
-                                                        <p>{{$cart->qty}} x <span> {{$cart->price}} </span></p>
+                                                        <p>{{$cart->qty}} x <span> ${{$cart->price}} </span></p>
                                                     </div>
                                                     <div class="cart_remove">
                                                         <a href="{{url('/cart')}}"><i onclick="removeCart('{{$cart->rowId}}')" class="icon-x"></i></a>
@@ -285,11 +285,11 @@
                                                 <div class="cart_table_border">
                                                     <div class="cart_total">
                                                         <span>Sub total:</span>
-                                                        <span class="price">{{Cart::subtotal()}}</span>
+                                                        <span class="price">${{Cart::subtotal()}}</span>
                                                     </div>
                                                     <div class="cart_total mt-10">
                                                         <span>total:</span>
-                                                        <span class="price">{{Cart::subtotal()}}</span>
+                                                        <span class="price">${{Cart::subtotal()}}</span>
                                                     </div>
                                                 </div>
                                             </div>

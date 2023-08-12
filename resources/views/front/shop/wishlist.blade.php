@@ -47,7 +47,14 @@
                                                         src="{{$item->productImages[0]->path}}" alt=""></a></td>
                                             <td class="product_name"><a href="shop/{{$item->slug}}">{{$item->name}}</a></td>
                                             <td class="product-price">${{$item->price}}</td>
-                                            <td class="product_quantity">In Stock</td>
+                                            <td class="product_quantity">
+                                                @if($item->qty > 0)
+                                                    In Stock
+                                                @else
+                                                    Out Stock
+                                                @endif
+
+                                            </td>
                                             <td class="product_total"><a href="javascript:addCart({{$item->id}})">Add To Cart</a></td>
 
                                         </tr>

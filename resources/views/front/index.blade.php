@@ -295,16 +295,16 @@
                         <article class="single_blog">
                             <figure>
                                 <div class="blog_thumb">
-                                    <a href="blog/{{$item->id}}"><img src="{{$item->image}}" alt=""></a>
+                                    <a href="blog/{{$item->slug}}"><img src="{{$item->image}}" alt=""></a>
                                 </div>
                                 <figcaption class="blog_content">
-                                    <h4 class="post_title"><a href="blog/{{$item->id}}">{{$item->title}}</a></h4>
+                                    <h4 class="post_title"><a href="blog/{{$item->slug}}">{{$item->title}}</a></h4>
                                     <div class="articles_date">
                                         <p>By <span>{{$item->user->first_name}} {{$item->user->last_name}} / {{$item->created_at->format('d/m/Y')}}</span></p>
                                     </div>
                                     <p class="post_desc">{{$item->subtitle}}</p>
                                     <footer class="blog_footer">
-                                        <a href="blog/{{$item->id}}">Continue Reading</a>
+                                        <a href="blog/{{$item->slug}}">Continue Reading</a>
                                         <p><i class="icon-message-circle"></i> <span>0</span></p>
                                     </footer>
                                 </figcaption>
