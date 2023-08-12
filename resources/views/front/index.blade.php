@@ -151,7 +151,10 @@
                                             <a class="primary_img" href="shop/{{$item->slug}}"><img
                                                     src="{{$item->productImages[0]->path}}" alt="{{$item->name}}"></a>
                                             <div class="label_product">
-                                                <span class="label_sale">-7%</span>
+                                                @php
+                                                    $discountPercentage = (($item->price - $item->discount) / $item->price) * 100;
+                                                @endphp
+                                                <span class="label_sale">{{ number_format($discountPercentage, 0) }}%</span>
                                             </div>
                                             <div class="action_links">
                                                 <ul>
