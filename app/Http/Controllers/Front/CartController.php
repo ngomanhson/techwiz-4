@@ -52,4 +52,15 @@ class CartController extends Controller
 //        dd(Cart::content());
         return back();
     }
+    public function delete(Request $request){
+        if ($request->ajax()){
+            $response['cart'] = Cart::remove($request->rowId);
+
+            $response['count'] = Cart::count();
+            $response['total'] = Cart::total();
+            $response['subtotal'] = Cart::subtotal();
+            return $response;
+        }
+        return back();
+    }
 }

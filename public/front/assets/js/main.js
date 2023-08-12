@@ -740,3 +740,37 @@ function addCart(productId) {
         },
     });
 }
+function removeCart(rowId){
+
+    $.ajax({
+        type: "GET",
+        url:"cart/delete",
+        data:{rowId: rowId},
+        success: function (response){
+            $('.item_count').text(response['count']);
+            $('.cart_total mt-10.price').text(response['$' +'total']);
+            $('.cart_total .price').text(response['$' +'total']);
+
+            var miniCart_cartGallery = $('.mini_cart.cart_gallery');
+            var miniCart_existItem = miniCart_cartGallery.find("div  " + " [data-rowId='"+ rowId +"' ]");
+            miniCart_existItem.remove()
+
+            var cart_tbody = $('.table_desc tbody');
+            var cart_exitstItem = cart_tbody.find("div  " + " [data-rowId='"+ rowId +"' ]");
+            cart_exitstItem.remove()
+
+
+            alert('remove!\nProduct:'+response['cart'].name)
+            console.log(response);
+
+
+        },
+        error: function(response) {
+            alert('remove faile');
+            console.log(response)
+            // showAlert('Add failed');
+
+            // console.log(response);
+        },
+    });
+}
