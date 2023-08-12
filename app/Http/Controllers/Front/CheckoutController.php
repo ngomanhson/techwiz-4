@@ -197,7 +197,7 @@ class CheckoutController extends Controller
             }
         } elseif ($order->payment_method == "VnPay") {
             $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-            $vnp_Returnurl = "http://127.0.0.1:8000/checkout/nhan-ket-qua/".$order->id;
+            $vnp_Returnurl = "http://sixidiots-techwiz4-hn.azurewebsites.net/checkout/nhan-ket-qua/".$order->id;
             $vnp_TmnCode = "YNSXI5ZN";//Mã website tại VNPA
             $vnp_HashSecret = "GKSNDWHVYQOWDPQQLHTQJCPQQVGUMIQL"; //Chuỗi bí mật
 
