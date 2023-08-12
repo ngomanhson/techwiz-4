@@ -48,7 +48,7 @@
 {{--                                                        <input min="1" max="100" value="{{$cart->qty}}" type="number">--}}
                                                     <div class="quantity">
                                                         <div class="pro-qty">
-                                                            <input type="text" value="1">
+                                                            <input type="text" value="{{$cart->qty}}">
                                                         </div>
                                                     </div>
                                                 </td>
@@ -85,11 +85,6 @@
                                         <p>Subtotal</p>
                                         <p class="cart_amount">{{Cart::subtotal()}}</p>
                                     </div>
-                                    <div class="cart_subtotal ">
-                                        <p>Shipping</p>
-                                        <p class="cart_amount"><span>Flat Rate:</span> £255.00</p>
-                                    </div>
-                                    <a href="#">Calculate shipping</a>
 
                                     <div class="cart_subtotal">
                                         <p>Total</p>
