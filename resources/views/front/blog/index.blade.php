@@ -30,10 +30,10 @@
                      <article class="single_blog">
                          <figure>
                              <div class="blog_thumb">
-                                 <a><img src="{{$item->image}}" alt="" style="height: 250px; width: 500px;object-fit: cover"></a>
+                                 <a><img href="blog/{{$item->slug}}" src="{{$item->image}}" alt="" style="height: 250px; width: 500px;object-fit: cover"></a>
                              </div>
                              <figcaption class="blog_content">
-                                 <h4 class="post_title"><a href="blog/{{$item->id}}"><i class="fa fa-paper-plane"></i>
+                                 <h4 class="post_title"><a href="blog/{{$item->slug}}"><i class="fa fa-paper-plane"></i>
                                          {{$item->title}}</a></h4>
                                  <div class="blog_meta">
                                      <p>By <a>{{$item->user->first_name}} {{$item->user->last_name}}</a> / Date <a>{{$item->created_at->format('d/m/Y')}}</a>  / Category: <a>
@@ -41,7 +41,7 @@
                                  </div>
                                  <p class="post_desc">{{$item->subtitle}}</p>
                                  <footer class="btn_more">
-                                     <a href="blog/{{$item->id}}"> Read more</a>
+                                     <a href="blog/{{$item->slug}}"> Read more</a>
                                  </footer>
                              </figcaption>
                          </figure>
