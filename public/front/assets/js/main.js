@@ -729,17 +729,11 @@ function addCart(productId) {
 
                 miniCart_cartGallery.append(newItem);
             }
-            alert('add successful!\nProduct:'+response['cart'].name)
-            console.log(response);
 
 
         },
         error: function(response) {
-            alert('add faile');
-            console.log(response)
-            // showAlert('Add failed');
 
-            // console.log(response);
         },
     });
 }
@@ -763,17 +757,10 @@ function removeCart(rowId){
             cart_exitstItem.remove()
 
 
-            alert('remove!\nProduct:'+response['cart'].name)
-            console.log(response);
-
 
         },
         error: function(response) {
-            alert('remove faile');
-            console.log(response)
-            // showAlert('Add failed');
 
-            // console.log(response);
         },
     });
 }
@@ -819,17 +806,11 @@ function updateCart(rowId , qty){
             }
             $('.cart_subtotal p').text('$'+ response['subtotal'])
 
-            alert('remove!\nProduct:'+response['cart'].name)
-            console.log(response);
 
 
         },
         error: function(response) {
-            alert('remove faile');
-            console.log(response)
-            // showAlert('Add failed');
 
-            // console.log(response);
         },
     });
 
