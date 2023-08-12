@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Service\Product\ProductServiceInterface;
 use App\Service\ProductCategory\ProductCategoryServiceInterface;
+use App\Utilities\Common;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -53,9 +55,10 @@ class ProductController extends Controller
         return view('admin.product.create',compact('productCategories'));
     }
     public function store(Request $request){
-//        $request->validate([
-//                'name'=>'required|string|max:255',
-//               'tag'=>'required',
+//        dd($request->hasFile("image"));
+        $request->validate([
+                'image'=>'required',
+//                'tag'=>'required',
 //                'sku'=>'required',
 //                'weight'=>'required',
 //                'country'=>'required',
@@ -64,14 +67,50 @@ class ProductController extends Controller
 //                'product_category_id'=>'required',
 //                'brand_id'=>'required',
 //                'description'=>'required'
-//            ]
-//        );
-        $data =$request->all();
+            ]
+        );
+        $featured = $request->has('featured') ? 1 : 0;
+        $name = $request->get("name");
+        $sku = $request->get("sku");
+
+        // Kiểm tra xem tên danh mục đã tồn tại hay chưa
+        $existingProduct = Product::where('name', $name)->first();
+        $existingProduct1 = Product::where('sku', $sku)->first();
+        if ($existingProduct) {
+            return back()->with('notification', 'ERROR: Category name already exists');
+        }
+        if ($existingProduct1) {
+            return back()->with('notification', 'ERROR: Category name already exists');
+        }
+//        $data =$request->all();
 //        $data['qty']= 0;
-        $data['slug'] = Str::slug($data['name']);
-        $data['featured'] = 0;
-        $data['rate'] = 0;
-        $product=$this->productService->create($data);
+//        $data['slug'] = Str::slug($data['name']);
+//        $data['featured'] = 0;
+//        $data['rate'] = 0;
+//        $product=$this->productService->create($data);
+        $product = new Product();
+            $product->name = $request->get("name");
+            $product->slug = Str::slug($request->get("name"));
+            $product->sku = $request->get("sku");
+            $product->weight = $request->get("weight");
+            $product->price = $request->get("price");
+            $product->discount = $request->get("discount");
+            $product->qty = $request->get("qty");
+            $product->content = $request->get("content");
+            $product->product_category_id = $request->get("product_category_id");
+            $product->species = $request->get("species");
+            $product->description = $request->get("description");
+            $product->rate = 0;
+            $product->featured = $featured;
+            $product->save();
+
+        if ($request->hasFile('image')){
+            $data['product_id'] = $product->id;
+            $data['path']= Common::uploadFile($request->file('image'), 'front/assets/img/product/');
+            unset($data['image']);
+            $data['path'] = "front/assets/img/product/".$data['path'];
+            ProductImage::create($data);
+        }
         return redirect('admin/product/show/' . $product->id);
     }
     public function edit($id){

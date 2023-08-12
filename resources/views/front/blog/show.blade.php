@@ -74,12 +74,12 @@
                                         <article class="single_related">
                                             <figure>
                                                 <div class="related_thumb">
-                                                    <a href="blog/{{$relatedBlog->id}}">
-                                                        <img src="{{ $relatedBlog->image }}" alt="">
+                                                    <a href="blog/{{$relatedBlog->slug}}">
+                                                        <img href="blog/{{$relatedBlog->slug}}" src="{{ $relatedBlog->image }}" alt="">
                                                     </a>
                                                 </div>
                                                 <figcaption class="related_content">
-                                                    <h4><a href="blog/{{$relatedBlog->id}}">{{ $relatedBlog->title }}</a></h4>
+                                                    <h4><a href="blog/{{$relatedBlog->slug}}">{{ $relatedBlog->title }}</a></h4>
                                                     <div class="blog_meta">
                                                         <span class="author">By : <a href="#">{{ $relatedBlog->user->first_name }} {{ $relatedBlog->user->last_name }}</a> / </span>
                                                         <span class="meta_date">{{ $relatedBlog->created_at->format('F d, Y') }}</span>

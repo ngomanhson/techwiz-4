@@ -41,5 +41,22 @@ class Product extends Model
         return $this->hasMany(ProductReview::class);
     }
 
+    public function productReviews()
+    {
+        return $this->hasMany(ProductReview::class, 'product_id');
+    }
+
+    public function calculateAverageRating()
+    {
+        $totalScore = $this->reviews()->sum('score');
+        $totalReviews = $this->reviews()->count();
+
+        if ($totalReviews > 0) {
+            return $totalScore / $totalReviews;
+        }
+
+        return 0;
+    }
+
 
 }

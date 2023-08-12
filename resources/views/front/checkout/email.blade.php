@@ -420,15 +420,15 @@
                             </tr>
                             <tr>
                                 <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align: right">VAT 10%</td>
-{{--                                <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align: right">${{number_format($vatAmount, 2, '.', '') }}</td>--}}
+                                <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align: right">${{number_format($vatAmount, 2, '.', '') }}</td>
                             </tr>
                             <tr>
                                 <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align: right">Shipping</td>
-{{--                                <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align: right">${{number_format($shippingFee, 2, '.', '') }}</td>--}}
+                                <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align: right">${{number_format($shippingFee, 2, '.', '') }}</td>
                             </tr>
                             <tr>
                                 <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align: right">Total</td>
-{{--                                <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align: right">${{number_format($total, 2, '.', '') }}</td>--}}
+                                <td style="font-size: 12px; font-family: 'Open Sans', sans-serif; color: #646a6e; line-height: 22px; vertical-align: top; text-align: right">${{number_format($total, 2, '.', '') }}</td>
                             </tr>
                             </tbody>
                         </table>

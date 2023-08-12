@@ -14,10 +14,10 @@
     @foreach($recentPosts as $recentPost)
     <div class="post_wrapper">
             <div class="post_thumb">
-                <a href="blog/{{$recentPost->id}}"><img src="{{$recentPost->image}}" alt=""></a>
+                <a href="blog/{{$recentPost->slug}}"><img src="{{$recentPost->image}}" alt=""></a>
             </div>
             <div class="post_info">
-                <h4><a href="blog/{{$recentPost->id}}">{{ $recentPost->title }}</a></h4>
+                <h4><a href="blog/{{$recentPost->slug}}">{{ $recentPost->title }}</a></h4>
                 <span>{{ $recentPost->created_at->format('F d, Y') }}</span>
             </div>
     </div>

@@ -33,12 +33,11 @@ class CartController extends Controller
 //        die("aa");
         if ($request->ajax()){
             $product = $this->productService->find($request->productId);
-
-            $respone['cart']=Cart::add([
+            $response['cart']=Cart::add([
                 'id' => $product->id,
                 'name' => $product->name,
                 'qty' => 1,
-                'price' => $product->discount  ?? $product->price,
+                'price' => $product->price,
                 'weight' => $product->weight ?? 0,
                 'options' => [
                     'images' => $product->productImages,
@@ -46,7 +45,8 @@ class CartController extends Controller
             ]);
             $response['count'] = Cart::count();
             $response['total'] = Cart::total();
-            return $respone;
+            $response['content'] = Cart::content()->count();
+            return $response;
         }
 
 //        dd(Cart::content());

@@ -689,7 +689,7 @@ function addCart(productId) {
         url:"cart/add",
         data:{productId: productId,},
         success: function (response){
-            $('.item_count').text(response['count']);
+            // $('.item_count').text(response['content']);
             $('.cart_total mt-10.price').text(response['$' +'total']);
             $('.cart_total .price').text(response['$' +'total']);
 
@@ -709,7 +709,7 @@ function addCart(productId) {
                     '                                                    <p>{{$cart->qty}} x <span>$'+ response['cart'].price.toFixed(2)+' </span></p>\n' +
                     '                                                </div>\n' +
                     '                                                <div class="cart_remove">\n' +
-                    '                                                    <a href="#"><i class="icon-x"></i></a>\n' +
+                    '                                                    <a href="#"><i  onclick="removeCart(\''+ response['cart'] +'\')" class="icon-x"></i></a>\n' +
                     '                                                </div>\n' +
                     '                                            </div>\n' +
                     '\n' +
@@ -729,13 +729,15 @@ function addCart(productId) {
 
                 miniCart_cartGallery.append(newItem);
             }
-
-
+            // console.log(response['content']);
+            $('.item_count').text(response['content']);
+            location.reload()
         },
         error: function(response) {
 
         },
     });
+
 }
 function removeCart(rowId){
 
@@ -806,7 +808,7 @@ function updateCart(rowId , qty){
             }
             $('.cart_subtotal p').text('$'+ response['subtotal'])
 
-
+                location.reload()
 
         },
         error: function(response) {

@@ -29,6 +29,8 @@ class CheckoutController extends Controller
     public function updateTotal(Request $request)
     {
         $shippingFee = $request->input('shipping_fee');
+
+        $request->session()->put('shipping_fee', $shippingFee);
         $subtotal = str_replace(',', '', Cart::subtotal());
         $vatRate = 0.1;
         $vatAmount = $subtotal * $vatRate;
@@ -197,7 +199,7 @@ class CheckoutController extends Controller
             }
         } elseif ($order->payment_method == "VnPay") {
             $vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-            $vnp_Returnurl = "http://127.0.0.1:8000/checkout/nhan-ket-qua/".$order->id;
+            $vnp_Returnurl = "http://sixidiots-techwiz4-hn.azurewebsites.net/checkout/nhan-ket-qua/".$order->id;
             $vnp_TmnCode = "YNSXI5ZN";//Mã website tại VNPA
             $vnp_HashSecret = "GKSNDWHVYQOWDPQQLHTQJCPQQVGUMIQL"; //Chuỗi bí mật
 
@@ -303,16 +305,16 @@ class CheckoutController extends Controller
 //        dd($carts);
 
         $subtotal = $request->session()->get('subtotal', 0);
-//        $vatAmount = $request->session()->get('vatAmount', 0);
-//        $shippingFee = $request->session()->get('shipping_fee', 0);
+        $vatAmount = $request->session()->get('vatAmount', 0);
+        $shippingFee = $request->session()->get('shipping_fee', 0);
         $total = $request->session()->get('total', 0);
 
         $request->session()->put('subtotal');
-//        $request->session()->put('vatAmount');
+        $request->session()->put('vatAmount');
         $request->session()->put('total');
 
-        Mail::send("front.checkout.email", compact("order", "carts", "subtotal", "total"),
-            function ($message) use ($email_to, $order) {
+        Mail::send("front.checkout.email", compact("order", "carts", "subtotal", "total", "vatAmount", "shippingFee"),
+            function ($message) use ($email_to, $order, $shippingFee) {
                 $message->from('sonnmth2205010@fpt.edu.vn', 'Plant Nest');
                 $message->to($email_to, $email_to);
                 $message->subject('Order Notification - #' . $order->order_code);
