@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\User;
 use App\Service\User\UserServiceInterface;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -83,19 +84,20 @@ class UsersController extends Controller
         // Kiểm tra số điện thoại đã tồn tại trong bảng người dùng chưa
         $phoneExists = User::where('phone', $request->input('phone'))->exists();
         if ($phoneExists) {
-            return back()->with('notification', 'ERROR: Phone number already exists');
+            Toastr::error('Phone number already exists.', 'ERROR!');
+            return back();
         }
 
         //KIEM TRA PASSWORD
         if ($request->get('password') != $request ->get('password_confirmation')){
-            return back()
-                ->with('notification','ERROR: Confirm password does not match');
+            Toastr::error('Confirm password does not match.', 'ERROR!');
+            return back();
 
         }
         $data =$request->all();
         $data['password'] = bcrypt($request->get('password'));
         $users =$this->userService->create($data);
-
+        Toastr::success('You have successfully added.', 'Success!');
         return redirect('admin/user/show/' . $users->id);
     }
     public function delete($id)
@@ -104,9 +106,11 @@ class UsersController extends Controller
         if (Auth::id() != $id) {
             $user = User::find($id);
             $user->delete();
-            return redirect('admin/user/')->with('status', 'Deleted member successfully');
+            Toastr::success('Deleted member successfully.', 'Success!');
+            return redirect('admin/user/');
         }else{
-            return redirect('admin/user/')->with('status', 'You cannot remove yourself from the system');
+            Toastr::error('You cannot remove yourself from the system.', 'Error!');
+            return redirect('admin/user/');
         }
 
     }
@@ -156,7 +160,8 @@ class UsersController extends Controller
             ->where('id', '!=', $user->id)
             ->first();
         if ($existingUser) {
-            return back()->with('notification', 'ERROR: Phone number is already taken');
+            Toastr::error('Phone number is already taken.', 'ERROR!');
+            return back();
         }
 
         // Xử lý mật khẩu
@@ -164,7 +169,8 @@ class UsersController extends Controller
         $passwordConfirmation = $request->input('password_confirmation');
         if (!empty($password)) {
             if ($password != $passwordConfirmation) {
-                return back()->with('notification', 'ERROR: Confirm password does not match');
+                Toastr::error('Confirm password does not match.', 'ERROR!');
+                return back();
             }
             $data['password'] = bcrypt($password);
         } else {
@@ -175,6 +181,7 @@ class UsersController extends Controller
 
         $user->update($data);
         $user->roles()->sync($request->input('roles'));
+        Toastr::success('Success update.', 'success!');
         return redirect('admin/user/show/' . $user->id);
 
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\ProductCategory;
 use App\Service\ProductCategory\ProductCategoryServiceInterface;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class ProductCategoryController extends Controller
@@ -57,11 +58,13 @@ class ProductCategoryController extends Controller
         // Kiểm tra xem tên danh mục đã tồn tại hay chưa
         $existingCategory = ProductCategory::where('name', $name)->first();
         if ($existingCategory) {
-            return back()->with('notification', 'ERROR: Category name already exists');
+            Toastr::error('Category name already exists.', 'ERROR!');
+            return back();
         }
         $data =$request->all();
         $this->productCategoryService->create($data);
-        return redirect('admin/category')->with('status','You have successfully added');
+        Toastr::success('You have successfully added.', 'Success!');
+        return redirect('admin/category');
     }
 
     public function action(Request $request){
@@ -110,11 +113,13 @@ class ProductCategoryController extends Controller
         // Kiểm tra xem tên danh mục đã tồn tại hay chưa
         $existingCategory = ProductCategory::where('name', $name)->first();
         if ($existingCategory) {
+            Toastr::error('Category name already exists.', 'ERROR!');
             return back()->with('notification', 'ERROR: Category name already exists');
         }
         $data =$request->all();
         $this->productCategoryService->update($data,$id);
-        return redirect('admin/category')->with('status','You have successfully fixed');
+        Toastr::success('You have successfully updated.', 'Success!');
+        return redirect('admin/category');
     }
 
     public function delete($id){
@@ -122,10 +127,12 @@ class ProductCategoryController extends Controller
 
         if ($productCategory->products()->count() > 0) {
             // Có sản phẩm liên quan đến danh mục, không thể xóa
-            return redirect('admin/category')->with('warning', 'Cannot delete category. There are products associated with it.');
+            Toastr::error('Cannot delete category. There are products associated with it..', 'ERROR!');
+            return redirect('admin/category');
         }
 
         $productCategory->delete();
-        return redirect('admin/category')->with('status', 'Deleted category successfully');
+        Toastr::success('Deleted category successfully.', 'Success!');
+        return redirect('admin/category');
     }
 }

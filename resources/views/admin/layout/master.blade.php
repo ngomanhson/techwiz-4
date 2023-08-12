@@ -172,6 +172,29 @@
                     </a>
                 </li>
             </ul>
+
+            <p class="text-muted nav-heading mt-1 mb-1">
+                <span>Feed Back</span>
+            </p>
+            <ul class="navbar-nav flex-fill w-100 mb-2">
+                <li class="nav-item">
+                    <a href="{{url("/admin/blog")}}" class="nav-link">
+                        <i class="fe fe-layers fe-16"></i>
+                        <span class="ml-3 item-text">Feedback</span>
+                    </a>
+                </li>
+            </ul>
+            <p class="text-muted nav-heading mt-1 mb-1">
+                <span>Review</span>
+            </p>
+            <ul class="navbar-nav flex-fill w-100 mb-2">
+                <li class="nav-item">
+                    <a href="{{url("/admin/blog")}}" class="nav-link">
+                        <i class="fe fe-layers fe-16"></i>
+                        <span class="ml-3 item-text">Review</span>
+                    </a>
+                </li>
+            </ul>
             {{--            @endcanany--}}
 
 
@@ -193,6 +216,8 @@
     @yield('body')
 
 </div> <!-- .wrapper -->
+
+
 <script src="admin/js/jquery.min.js"></script>
 <script src="admin/js/popper.min.js"></script>
 <script src="admin/js/moment.min.js"></script>
@@ -229,6 +254,7 @@
 <script src='admin/js/dropzone.min.js'></script>
 <script src='admin/js/uppy.min.js'></script>
 <script src='admin/js/quill.min.js'></script>
+
 
 <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>

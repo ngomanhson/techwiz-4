@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ProductImage;
 use App\Service\Product\ProductServiceInterface;
 use App\Utilities\Common;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class ProductImageController extends Controller
@@ -54,6 +55,7 @@ class ProductImageController extends Controller
             $data['path'] = "front/assets/img/product/".$data['path'];
             ProductImage::create($data);
         }
+        Toastr::success('You have successfully added.', 'Success!');
         return redirect('admin/product/' . $product_id . '/image');
 
     }
@@ -108,6 +110,7 @@ class ProductImageController extends Controller
 
         //xoa db
         ProductImage::find($product_image_id)->delete();
+        Toastr::success('You have successfully deleted.', 'Success!');
         return  redirect('admin/product/' . $product_id . '/image');
     }
 }

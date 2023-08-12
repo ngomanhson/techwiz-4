@@ -146,5 +146,41 @@ class OrdersController extends Controller
         // Redirect hoặc trả về phản hồi tương ứng
         return redirect('admin/orders')->with('status', 'Order payment confirmed successfully'); // Ví dụ: Chuyển hướng trở lại trang trước đó
     }
+    public function shippingOrder(Request $request, $orderId)
+    {
+        // Kiểm tra và cập nhật trạng thái của đơn hàng
+        $order = Order::find($orderId);
+        if ($order) {
+            $order->status = 2; // Chuyển trạng thái sang 5 (CANCELLED)
+            $order->save();
+        }
+
+        // Redirect hoặc trả về phản hồi tương ứng
+        return redirect('admin/orders')->with('status', 'Order payment confirmed successfully'); // Ví dụ: Chuyển hướng trở lại trang trước đó
+    }
+    public function shippedOrder(Request $request, $orderId)
+    {
+        // Kiểm tra và cập nhật trạng thái của đơn hàng
+        $order = Order::find($orderId);
+        if ($order) {
+            $order->status = 3; // Chuyển trạng thái sang 5 (CANCELLED)
+            $order->save();
+        }
+
+        // Redirect hoặc trả về phản hồi tương ứng
+        return redirect('admin/orders')->with('status', 'Order payment shipped successfully'); // Ví dụ: Chuyển hướng trở lại trang trước đó
+    }
+    public function completedOrder(Request $request, $orderId)
+    {
+        // Kiểm tra và cập nhật trạng thái của đơn hàng
+        $order = Order::find($orderId);
+        if ($order) {
+            $order->status = 4; // Chuyển trạng thái sang 5 (CANCELLED)
+            $order->save();
+        }
+
+        // Redirect hoặc trả về phản hồi tương ứng
+        return redirect('admin/orders')->with('status', 'Order payment shipped successfully'); // Ví dụ: Chuyển hướng trở lại trang trước đó
+    }
 
 }

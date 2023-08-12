@@ -15,10 +15,32 @@
                                     <div class="d-flex" style="gap: 10px">
                                         <button type="button" class="btn btn-hover-shine btn-outline-secondary border-0 btn-sm" onclick="window.print()">Print</button>
                                         @if ($order->status == 0)
-                                            <button type="button" class="btn btn-hover-shine btn-outline-primary border-0 btn-sm" onclick="confirmPayment({{ $orderId }})">Confirm</button>
+                                            <button type="button" class="btn btn-hover-shine btn-outline-primary border-0 btn-sm" onclick="confirmPayment({{ $orderId }})">Confirmed</button>
                                             <form action="admin/orders/{{ $orderId }}/cancel" method="POST">
                                                 @csrf
                                                 <button type="submit" class="btn btn-hover-shine btn-outline-danger border-0 btn-sm">Cancel</button>
+                                            </form>
+                                        @endif
+                                        @if ($order->status == 1)
+                                            <form action="admin/orders/{{ $orderId }}/shipping" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">Shipping</button>
+                                            </form>
+                                            <form action="admin/orders/{{ $orderId }}/cancel" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-hover-shine btn-outline-danger border-0 btn-sm">Cancel</button>
+                                            </form>
+                                        @endif
+                                        @if ($order->status == 2)
+                                            <form action="admin/orders/{{ $orderId }}/shipped" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-hover-shine btn-outline-danger border-0 btn-sm">Shipped</button>
+                                            </form>
+                                        @endif
+                                        @if ($order->status == 3)
+                                            <form action="admin/orders/{{ $orderId }}/compeleted" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-hover-shine btn-outline-danger border-0 btn-sm">Complete</button>
                                             </form>
                                         @endif
                                     </div>

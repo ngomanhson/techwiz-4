@@ -28,7 +28,7 @@ Route::prefix("/shop")->group(function () {
 Route::prefix("/blog")->group(function () {
     Route::get('/',[\App\Http\Controllers\Front\BlogController::class,'index']);
     Route::get('/search-blog',[\App\Http\Controllers\Front\BlogController::class,'searchBlog']);
-    Route::get('/{blog}',[\App\Http\Controllers\Front\BlogController::class,'show']);
+    Route::get('/{blog:slug}',[\App\Http\Controllers\Front\BlogController::class,'show']);
     Route::post('/{blog}/add-comment', [\App\Http\Controllers\Front\BlogController::class, 'addComment'])->name('blog.add_comment');
     Route::get('/blog/delete-comment/{comment}', [\App\Http\Controllers\Front\BlogController::class, 'deleteComment'])->name('blog.delete_comment');
 });
@@ -50,6 +50,10 @@ Route::prefix("/contact")->group(function () {
      Route::get('orders',[\App\Http\Controllers\Admin\OrdersController::class,'index']);
      Route::post('/confirm-payment', [\App\Http\Controllers\Admin\OrdersController::class, 'confirmPayment'])->name('confirm.payment');
      Route::post('/orders/{orderId}/cancel', [\App\Http\Controllers\Admin\OrdersController::class,'cancelOrder']);
+     Route::post('/orders/{orderId}/shipping', [\App\Http\Controllers\Admin\OrdersController::class,'shippingOrder']);
+     Route::post('/orders/{orderId}/shipped', [\App\Http\Controllers\Admin\OrdersController::class,'shippedOrder']);
+     Route::post('/orders/{orderId}/compeleted', [\App\Http\Controllers\Admin\OrdersController::class,'completedOrder']);
+
      Route::get('orders/show/{id}',[\App\Http\Controllers\Admin\OrdersController::class,'show'])->name('order.show');
 
      Route::prefix('category')->group(function (){
@@ -105,6 +109,14 @@ Route::prefix("/contact")->group(function () {
          Route::get('edit/{id}',[\App\Http\Controllers\Admin\UsersController::class,'edit'])->name('user.edit');
          Route::post('edit/update/{id}',[\App\Http\Controllers\Admin\UsersController::class,'update'])->name('user.update');
          Route::get('delete/{id}',[\App\Http\Controllers\Admin\UsersController::class,'delete'])->name('delete_user');
+     });
+
+     Route::prefix('feedback')->group(function (){
+         Route::get('',[\App\Http\Controllers\Admin\FeedbackController::class,'index']);
+     });
+
+     Route::prefix('review')->group(function (){
+         Route::get('',[\App\Http\Controllers\Admin\ReviewController::class,'index']);
      });
 
 

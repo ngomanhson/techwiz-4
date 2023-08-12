@@ -169,7 +169,6 @@ class ProductController extends Controller
 
             return redirect('admin/product')->with('status', 'You need to choose an action to perform');
         }
-
         return redirect('admin/product')->with('status', 'No items selected');
     }
 

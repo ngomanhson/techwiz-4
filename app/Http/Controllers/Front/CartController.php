@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Service\Product\ProductServiceInterface;
+use Brian2694\Toastr\Facades\Toastr;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
@@ -50,6 +51,7 @@ class CartController extends Controller
         }
 
 //        dd(Cart::content());
+        Toastr::success('Add to cart successfully.', 'Success!');
         return back();
     }
     public function delete(Request $request){
@@ -61,6 +63,7 @@ class CartController extends Controller
             $response['subtotal'] = Cart::subtotal();
             return $response;
         }
+        Toastr::success('Add to cart successfully.', 'Success!');
         return back();
     }
     public function update(Request $request)
@@ -71,7 +74,7 @@ class CartController extends Controller
             $response['count'] = Cart::count();
             $response['total'] = number_format(floatval(str_replace(',', '', Cart::total())), 2, '.', '');
             $response['subtotal'] = number_format(floatval(str_replace(',', '', Cart::subtotal())), 2, '.', '');
-
+            Toastr::success('Add to cart successfully.', 'Success!');
             return $response;
         }
     }
