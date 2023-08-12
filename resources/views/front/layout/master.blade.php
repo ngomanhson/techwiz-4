@@ -36,8 +36,6 @@
     <link rel="stylesheet" href="front/assets/css/plugins.css">
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="front/assets/css/style.css">
-
-    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <!--modernizr min js here-->
     <script src="front/assets/js/vendor/modernizr-3.7.1.min.js"></script>
 
@@ -152,7 +150,7 @@
                                 <a href="{{url("/")}}">Home</a>
                             </li>
 
-{{--                            Shop Page--}}
+                            {{--                            Shop Page--}}
                             <li class="menu-item-has-children">
                                 <a href="{{url("/shop")}}">Shop</a>
                             </li>
@@ -251,8 +249,9 @@
                                     <a href="{{url('/wishlist')}}"><i class="icon-heart"></i></a>
                                 </div>
                                 <div class="header_account-list  mini_cart_wrapper">
-                                    <a href="javascript:void(0)"><i class="icon-shopping-bag"></i><span
-                                            class="item_count">{{Cart::content()->count()}}</span></a>
+                                    <a href="javascript:void(0)"><i class="icon-shopping-bag"></i>
+                                        <span class="item_count">{{Cart::content()->count()}}</span>
+                                    </a>
 
                                     <!--mini cart-->
                                     <div class="mini_cart">
@@ -279,31 +278,50 @@
                                                     </div>
                                                 </div>
                                             @endforeach
-
                                         </div>
-                                        <div class="mini_cart_table">
-                                            <div class="cart_table_border">
-                                                <div class="cart_total">
-                                                    <span>Sub total:</span>
-                                                    <span class="price">{{Cart::subtotal()}}</span>
+                                        @if(Cart::count()>0)
+                                            <div class="mini_cart_table">
+                                                <div class="cart_table_border">
+                                                    <div class="cart_total">
+                                                        <span>Sub total:</span>
+                                                        <span class="price">{{Cart::subtotal()}}</span>
+                                                    </div>
+                                                    <div class="cart_total mt-10">
+                                                        <span>total:</span>
+                                                        <span class="price">{{Cart::subtotal()}}</span>
+                                                    </div>
                                                 </div>
-                                                <div class="cart_total mt-10">
-                                                    <span>total:</span>
-                                                    <span class="price">{{Cart::subtotal()}}</span>
+                                            </div>
+                                            <div class="mini_cart_footer">
+                                                <div class="cart_button">
+                                                    <a href="{{url('cart/')}}"><i class="fa fa-shopping-cart"></i> View
+                                                        cart</a>
+                                                </div>
+                                                <div class="cart_button">
+                                                    <a class="active" href="{{url('checkout')}}"><i class="fa fa-sign-in"></i>
+                                                        Checkout</a>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="mini_cart_footer">
-                                            <div class="cart_button">
-                                                <a href="{{url('cart/')}}"><i class="fa fa-shopping-cart"></i> View
-                                                    cart</a>
+                                        @else
+                                            <div class="shopping_cart_area mt-100">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-12 mx-auto">
+                                                            <div class="row">
+                                                                <div class="col-md-12 text-center">
+                                                                    <a href="{{url("/shop")}}" title="Shopping now!"><img src="front/assets/img/empty-cart.png" width="200" alt="There are no products in the cart. Shopping now!"></a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12 text-center">
+                                                                    <p>There are no products in the cart. Shopping now!</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="cart_button">
-                                                <a class="active" href="{{url('checkout')}}"><i class="fa fa-sign-in"></i>
-                                                    Checkout</a>
-                                            </div>
-
-                                        </div>
+                                        @endif
                                     </div>
                                     <!--mini cart end-->
                                 </div>
@@ -351,24 +369,24 @@
                         <div class="main_menu menu_position">
                             <nav>
                                 <ul>
-{{--                                    Start Home Page--}}
+                                    {{--                                    Start Home Page--}}
                                     <li>
                                         <a href="{{url("/")}}">home</a>
                                     </li>
-{{--                                    End Home Page--}}
+                                    {{--                                    End Home Page--}}
 
-{{--                               Star Shop Page--}}
+                                    {{--                               Star Shop Page--}}
                                     <li class="mega_items">
                                         <a href="{{url("/shop")}}">shop</a>
                                     </li>
-{{--                                    End Shop Page--}}
+                                    {{--                                    End Shop Page--}}
 
-<!-- {{--                               Star Blog Page--}} -->
+                                    <!-- {{--                               Star Blog Page--}} -->
 
                                     <li>
                                         <a href="{{url("/blog")}}">blog</a>
                                     </li>
-<!--                            End Shop Page-->
+                                    <!--                            End Shop Page-->
 
                                     <li>
                                         <a href="{{url('/about-us')}}">About Us</a>
@@ -538,8 +556,5 @@
 <!--Shipping -->
 <script src="front/assets/js/shipping.js"></script>
 
-<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
-{!! Toastr::message() !!}
 </body>
 </html>
