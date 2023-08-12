@@ -178,7 +178,7 @@
                                                 <li><a href="#"><i class="icon-star"></i></a></li>
                                             </ul>
                                         </div>
-                                        <h4 class="product_name"><a href="{{url("/shop/{$pr->id}")}}">{{$pr->name}}</a>
+                                        <h4 class="product_name"><a href="{{url("/shop/{$pr->slug}")}}">{{$pr->name}}</a>
                                         </h4>
                                         <div class="price_box">
                                             <span class="current_price">${{$pr->price}}</span>
