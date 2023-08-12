@@ -195,7 +195,7 @@
                         <article class="single_product">
                             <figure>
                                 <div class="product_thumb">
-                                    <a class="primary_img" href="{{url("/shop/{$product->id}")}}"><img
+                                    <a class="primary_img" href="{{url("/shop/{$product->slug}")}}"><img
                                             src="{{$product->productImages[0]->path}}" alt=""></a>
                                     <div class="label_product">
                                         @php
@@ -213,7 +213,7 @@
                                     </div>
                                 </div>
                                 <figcaption class="product_content">
-                                    <h4 class="product_name"><a href="{{url("/shop/{$product->id}")}}">{{$product->name}}</a></h4>
+                                    <h4 class="product_name"><a href="{{url("/shop/{$product->slug}")}}">{{$product->name}}</a></h4>
                                     <div class="price_box">
                                         <span class="current_price">${{$product->price}}</span>
                                         <span class="old_price">${{$product->discount}}</span>

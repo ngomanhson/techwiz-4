@@ -177,4 +177,30 @@ class AccountController extends Controller
         return view("front.account.detail", compact('order', 'subtotal', 'vatAmount', 'total', 'shippingFee'));
     }
 
+    public function cancelOrder(Order $order) {
+        if (!Auth::check()) {
+            return redirect()->to(abort(404));
+        }
+        if ($order->status == 0) {
+            $order->status = 5;
+            $order->save();
+            return redirect('/account/order/'.$order->order_code);
+        } else {
+            return redirect()->to(abort(404));
+        }
+    }
+    public function receiveOrder(Order $order) {
+        if (!Auth::check()) {
+            return redirect()->to(abort(404));
+        }
+        if ($order->status == 3) {
+            $order->status = 4;
+            $order->is_paid = true;
+            $order->save();
+            return redirect('/account/order/'.$order->order_code);
+        } else {
+            return redirect()->to(abort(404));
+        }
+    }
+
 }

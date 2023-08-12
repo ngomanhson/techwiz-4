@@ -21,7 +21,7 @@ Route::get('/',[\App\Http\Controllers\Front\HomeController::class,'index']);
 
 Route::prefix("/shop")->group(function () {
     Route::get('/',[\App\Http\Controllers\Front\ShopController::class,'index']);
-    Route::get('/{slug}',[\App\Http\Controllers\Front\ShopController::class,'detail']);
+    Route::get('/{product:slug}',[\App\Http\Controllers\Front\ShopController::class,'detail']);
     Route::get('/category/{categoryName}',[\App\Http\Controllers\Front\ShopController::class,'category']);
 });
 
