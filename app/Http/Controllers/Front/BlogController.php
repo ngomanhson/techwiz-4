@@ -19,7 +19,7 @@ class BlogController extends Controller
 
     public function index()
     {
-        $blogs = Blog::paginate(8);
+        $blogs = Blog::paginate(5);
         $recentPosts = $this->getRecentPosts();
         return view('front.blog.index',[
             "blogs"=>$blogs,

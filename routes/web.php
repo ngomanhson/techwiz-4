@@ -76,17 +76,6 @@ Route::prefix("/contact")->group(function () {
 
      });
 
-     Route::prefix('blog')->group(function (){
-         Route::get('',[\App\Http\Controllers\Admin\ProductCategoryController::class,'index']);
-         Route::get('create',[\App\Http\Controllers\Admin\ProductCategoryController::class,'create']);
-         Route::post('store',[\App\Http\Controllers\Admin\ProductCategoryController::class,'store']);
-         Route::post('action',[\App\Http\Controllers\Admin\ProductCategoryController::class,'action']);
-         Route::get('edit/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'edit']);
-         Route::post('edit/update/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'update'])->name('blog.update');
-         Route::get('delete/{id}',[\App\Http\Controllers\Admin\ProductCategoryController::class,'delete'])->name('delete_blog');
-
-     });
-
      //xử lý route user
      Route::prefix('user')->group(function (){
          Route::get('',[\App\Http\Controllers\Admin\UsersController::class,'index']);
