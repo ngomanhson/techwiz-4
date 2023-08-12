@@ -33,7 +33,7 @@ class ProductRepository extends BaseRepositories implements ProductRepositoryInt
     }
     private function sortAndPagination($product , Request $request)
     {
-        $perPage=$request->show ?? 3;
+        $perPage=$request->show ?? 10;
         $sortBy =$request->sort_by ?? 'latest';
 
         switch ($sortBy){

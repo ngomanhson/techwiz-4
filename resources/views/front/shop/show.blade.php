@@ -38,27 +38,6 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            <div class="widget_list widget_color">
-                                <h3>Select By Size</h3>
-                                <ul>
-                                    <li>
-                                        <a href="#">S <span>(6)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> M <span>(8)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">L <span>(10)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> XL <span>(6)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">XLL <span>(4)</span></a>
-                                    </li>
-
-                                </ul>
-                            </div>
 
                             <div class="widget_list widget_color">
                                 <h3>Filter Price</h3>
