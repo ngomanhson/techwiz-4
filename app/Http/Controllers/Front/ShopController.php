@@ -23,6 +23,9 @@ class ShopController extends Controller
     {
         $category = $this->productCategoryService->all();
         $product = $this->productService->getProductOnIndex($request);
+        foreach ($product as $products) {
+            $products->rate = $products->calculateAverageRating();
+        }
         return view('front.shop.show',compact('category','product'));
     }
     public function category($categoryName,Request $request)
@@ -38,6 +41,7 @@ class ShopController extends Controller
         $productQty = $product->qty;
         $pro = $this ->productService->getRelatedProducts($product);
         $title = $product->name;
+        $product->load('productReviews.user');
 
         return view('front.shop.detail', compact('product', 'pro', 'title','productQty'));
     }

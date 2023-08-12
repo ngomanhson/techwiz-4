@@ -65,13 +65,13 @@
                                         }
                                     </style>
                                     @for ($i = 1; $i <= 5; $i++)
-                                        <li><a href="#"><i class="icon-star{{ $i <= $product->averageRating ? ' active' : '' }}"></i></a> </li>
+                                        <li><a><i class="icon-star{{ $i <= $product->averageRating ? ' active' : '' }}"></i></a> </li>
                                     @endfor
                                     @php
                                         $averageRatingFormatted = number_format($product->averageRating, 1);
                                     @endphp
                                     <span>{{ $averageRatingFormatted }}/5</span>
-                                    <li class="review" style="padding-left: 20px"><a href="#"> ({{ $product->reviewCount }} customer review) </a></li>
+                                    <li class="review" style="padding-left: 20px"><a> ({{ $product->reviewCount }} customer review) </a></li>
                                 </ul>
                             </div>
 
@@ -85,12 +85,6 @@
                             </div>
 
                             <div class="product_variant quantity">
-                                <label>Quantity</label>
-                                @if($productQty > 0)
-                                    <input id="quantityInput" name="qty" value="" type="number" min="1" max="{{ $productQty }}">
-                                @else
-                                    <input disabled value="Out of stock">
-                                @endif
                                 <button type="submit" class="button" onclick="addCart({{ $product->id }})">Add to Cart</button>
                             </div>
                         </form>
@@ -137,10 +131,6 @@
                                     <a class="active" data-bs-toggle="tab" href="#info" role="tab" aria-controls="info"
                                        aria-selected="false">Description</a>
                                 </li>
-{{--                                <li>--}}
-{{--                                    <a data-bs-toggle="tab" href="#sheet" role="tab" aria-controls="sheet"--}}
-{{--                                       aria-selected="false">Specification</a>--}}
-{{--                                </li>--}}
                                 <li><a data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews ({{ $product->reviewCount }})</a></li>
                             </ul>
                         </div>
@@ -150,37 +140,6 @@
                                     <p>{{$product->description}}</p>
                                 </div>
                             </div>
-{{--                            <div class="tab-pane fade" id="sheet" role="tabpanel">--}}
-{{--                                <div class="product_d_table">--}}
-{{--                                    <form action="#">--}}
-{{--                                        <table>--}}
-{{--                                            <tbody>--}}
-{{--                                            <tr>--}}
-{{--                                                <td class="first_child">Compositions</td>--}}
-{{--                                                <td>Polyester</td>--}}
-{{--                                            </tr>--}}
-{{--                                            <tr>--}}
-{{--                                                <td class="first_child">Styles</td>--}}
-{{--                                                <td>Girly</td>--}}
-{{--                                            </tr>--}}
-{{--                                            <tr>--}}
-{{--                                                <td class="first_child">Properties</td>--}}
-{{--                                                <td>Short Dress</td>--}}
-{{--                                            </tr>--}}
-{{--                                            </tbody>--}}
-{{--                                        </table>--}}
-{{--                                    </form>--}}
-{{--                                </div>--}}
-{{--                                <div class="product_info_content">--}}
-{{--                                    <p>Fashion has been creating well-designed collections since 2010. The brand offers--}}
-{{--                                        feminine designs delivering stylish separates and statement dresses which have--}}
-{{--                                        since evolved into a full ready-to-wear collection in which every item is a--}}
-{{--                                        vital part of a woman's wardrobe. The result? Cool, easy, chic looks with--}}
-{{--                                        youthful elegance and unmistakable signature style. All the beautiful pieces are--}}
-{{--                                        made in Italy and manufactured with the greatest attention. Now Fashion extends--}}
-{{--                                        to a range of accessories including shoes, hats, belts and more!</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
 
                             <div class="tab-pane fade" id="reviews" role="tabpanel">
                                 <div class="reviews_wrapper">
@@ -199,7 +158,7 @@
                                                             @endfor
                                                         </ul>
                                                     </div>
-                                                    <p><strong>{{ $productReviews->user_id }} </strong>- {{ $productReviews->created_at->format('F j, Y') }}</p>
+                                                    <p><strong>{{ $productReviews->user->first_name }} {{ $productReviews->user->last_name }}</strong> - {{ $productReviews->created_at->format('F j, Y') }}</p>
                                                     <span>{{ $productReviews->message }}</span>
                                                 </div>
                                             </div>
@@ -236,7 +195,10 @@
                                     <a class="primary_img" href="{{url("/shop/{$product->id}")}}"><img
                                             src="{{$product->productImages[0]->path}}" alt=""></a>
                                     <div class="label_product">
-                                        <span class="label_sale">-7%</span>
+                                        @php
+                                            $discountPercentage = - (($product->discount - $product->price) / $product->discount) * 100;
+                                        @endphp
+                                        <span class="label_sale">{{ number_format($discountPercentage, 0) }}%</span>
                                     </div>
                                     <div class="action_links">
                                         <ul>
