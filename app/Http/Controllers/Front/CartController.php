@@ -34,7 +34,7 @@ class CartController extends Controller
         if ($request->ajax()){
             $product = $this->productService->find($request->productId);
 
-            $respone['cart']=Cart::add([
+            $response['cart']=Cart::add([
                 'id' => $product->id,
                 'name' => $product->name,
                 'qty' => 1,
@@ -46,7 +46,8 @@ class CartController extends Controller
             ]);
             $response['count'] = Cart::count();
             $response['total'] = Cart::total();
-            return $respone;
+            $response['content'] = Cart::content()->count();
+            return $response;
         }
 
 //        dd(Cart::content());

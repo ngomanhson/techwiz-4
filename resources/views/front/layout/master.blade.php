@@ -250,7 +250,8 @@
                                 </div>
                                 <div class="header_account-list  mini_cart_wrapper">
                                     <a href="javascript:void(0)"><i class="icon-shopping-bag"></i><span
-                                            class="item_count">{{Cart::count()}}</span></a>
+                                            class="item_count">{{Cart::content()->count()}}</span></a>
+
                                     <!--mini cart-->
                                     <div class="mini_cart">
                                         <div class="cart_gallery">
@@ -272,7 +273,7 @@
                                                         <p>{{$cart->qty}} x <span> {{$cart->price}} </span></p>
                                                     </div>
                                                     <div class="cart_remove">
-                                                        <a href="#"><i class="icon-x"></i></a>
+                                                        <a href="#"><i onclick="removeCart('{{$cart->rowId}}')" class="icon-x"></i></a>
                                                     </div>
                                                 </div>
                                             @endforeach
