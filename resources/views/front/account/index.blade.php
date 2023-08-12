@@ -53,19 +53,20 @@
                                 @endif
                             </div>
                             <div class="tab-pane fade" id="orders">
-                                <h3>Orders</h3>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                        <tr>
-                                            <th>Order code</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th>Total</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
+                                @if(count($orders) > 0)
+                                    <h3>Orders</h3>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>Order code</th>
+                                                <th>Date</th>
+                                                <th>Status</th>
+                                                <th>Total</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
                                             @foreach($orders as $order)
                                                 <tr>
                                                     <td>{{$order->order_code}}</td>
@@ -99,9 +100,27 @@
                                                     <td><a href="account/order/{{$order->order_code}}">view</a></td>
                                                 </tr>
                                             @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                @else
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-12 mx-auto">
+                                                <div class="row">
+                                                    <div class="col-md-12 text-center">
+                                                        <a href="{{url("/shop")}}" title="Try again!"><img src="front/assets/img/my-order.png" width="200" alt="No results were found."></a>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12 text-center">
+                                                        <p>No products were found for your search.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                             <div class="tab-pane" id="address">
                                 <p>The following addresses will be used on the checkout page by default.</p>
