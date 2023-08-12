@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\ProductDetail;
 use App\Service\Product\ProductServiceInterface;
 use App\Service\ProductCategory\ProductCategoryServiceInterface;
@@ -36,8 +37,8 @@ class ShopController extends Controller
         return view('front.shop.show', compact('category','product'));
     }
 
-    public function detail($id) {
-        $product = $this->productService->find($id);
+    public function detail(Product $product) {
+//        $product = $this->productService->find($id);
         $productQty = $product->qty;
         $pro = $this ->productService->getRelatedProducts($product);
         $title = $product->name;
