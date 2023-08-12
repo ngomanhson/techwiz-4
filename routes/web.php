@@ -120,6 +120,7 @@ Route::prefix('/checkout')->group(function (){
     Route::post("/update-total",[\App\Http\Controllers\Front\CheckoutController::class,"updateTotal"]);
     Route::get("/thank-you/",[\App\Http\Controllers\Front\CheckoutController::class,"thankYou"]);
     Route::get('/success-transaction/{order}', [\App\Http\Controllers\Front\CheckoutController::class, 'successTransaction'])->name('successTransaction');
+    Route::get('/nhan-ket-qua/{order}', [\App\Http\Controllers\Front\CheckoutController::class, 'nhanKetQua']);
     Route::get('/cancel-transaction/{order}', [\App\Http\Controllers\Front\CheckoutController::class, 'cancelTransaction'])->name('cancelTransaction');
 });
 

@@ -222,6 +222,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="panel-default">
+                                        <input id="vnpay" value="VnPay" name="payment_method" type="radio" data-bs-target="createp_account" />
+                                        <label for="vnpay" data-bs-toggle="collapse" data-bs-target="#collapsedefult" aria-controls="collapsedefult">VnPay</label>
+                                        <div id="collapsedefult" class="collapse one" data-parent="#accordion">
+                                            <div class="card-body1">
+                                                <p>This method you can pay your shopping bills all over the world right at the website.</p>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
                                     <div class="order_button">

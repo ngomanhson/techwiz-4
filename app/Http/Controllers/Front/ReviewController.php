@@ -13,7 +13,7 @@ class ReviewController extends Controller
 {
     public function index (OrderDetail $orderDetail){
         $order = Order::find($orderDetail->order_id);
-        if ($orderDetail->is_review == false && $order->status == 4) {
+        if ($orderDetail->is_reviewed == false && $order->status == 4) {
             return view("front.review.index", [
                 "orderDetail" => $orderDetail
             ]);
@@ -43,7 +43,7 @@ class ReviewController extends Controller
         $product_review->message = $message;
         $product_review->save();
 
-        $orderdetail->is_review = true;
+        $orderdetail->is_reviewed = true;
         $orderdetail->save();
 
         // save rate
@@ -58,6 +58,6 @@ class ReviewController extends Controller
 
         $product->rate = $rate;
         $product->save();
-        return redirect()->to('/car-list');
+        return redirect()->to('/account/order/'.$orderdetail->order->order_code);
     }
 }

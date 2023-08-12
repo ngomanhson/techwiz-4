@@ -4,7 +4,7 @@
     <main role="main" class="main-content">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-10 col-lg-8 col-xl-6">
+                <div class="col-10 col-lg-8 col-xl-5">
                     <div class="row align-items-center mb-4">
                         <div class="col">
                             <div class="d-flex justify-content-between">
@@ -27,95 +27,103 @@
                         </div>
 
                     </div>
+
                     <div class="card shadow">
                         <div class="card-body p-5">
-                            <div style="">
-                                <div class="row mb-6">
-                                    <div class="col-md-5 mb-2">
-                                        <img src="front/img/logo.png" class="navbar-brand-img mx-auto mb-4" alt="Shop Runner" width="150">
-                                    </div>
-                                    <div class="col-md-7 mb-2" style="text-align: right">
-                                        <h2 class="mb-0" style="color: #f00; font-size: 21px">Invoice</h2>
-                                        <p class="text-secondary mb-2" style="font-size: 12px">Order Code: <a href="" style="color: #f00">#{{$order->order_code}}</a></p>
-                                        <p class="text-secondary mb-2" style="font-size: 12px">Order Date: <span>{{$order->created_at}}</span></p>
-                                    </div>
+                            <div class="row mb-main-content5">
+                                <div class="col-12 text-center mb-4">
+                                    <img src="./front/assets/img/logo/logo.png" width="150" class="navbar-brand-img mx-auto" alt="Plant Nest">
+                                    <p class="text-muted"> Invoice
+                                    <br />Status:
+                                        @switch($order->status)
+                                            @case(0)<span class="text text-secondary">Pending</span>@break
+                                            @case(1)<span class="text text-success">Confirmed</span>@break
+                                            @case(2)<span class="text text-primary">Shipping</span>@break
+                                            @case(3)<span class="text text-primary">Shipped</span>@break
+                                            @case(4)<span class="text text-success">Completed</span>@break
+                                            @case(5)<span class="text text-danger">Cancel</span>@break
+                                        @endswitch
+                                    </p>
                                 </div>
-                                <div class="row mb-6">
-                                    <div class="col-md-6">
-                                        <p class="small text-muted text-uppercase mb-2">Invoice from</p>
-                                        <p class="mb-4">
-                                            <strong> Shop Runner</strong><br />
-                                            8 Tôn Thất Thuyết, Mỹ Đình, <br />
-                                            Nam Từ Liêm, Hà Nội, Việt Nam.<br />
-                                            Phone: 099 999 9999.
-                                        </p>
-                                    </div>
-                                    <div class="col-md-6" style="text-align: right">
-                                        <p class="small text-muted text-uppercase mb-2">Invoice to</p>
-                                        <p class="mb-4">
-                                            <strong>{{$order->first_name . ' ' . $order->last_name}}</strong> <br />
-                                            Phone: {{ $order->phone }}.<br />
-                                            Company name: {{ $order->company_name }}.<br />
-                                            Street address: {{ $order->street_address }}.<br />
-                                            Town/City: {{ $order->town_city }}.<br />
-                                            Country: {{ $order->country }}.<br />
-                                            Postcode / ZIP: {{ $order->postcode_zip }}.<br />
-                                        </p>
-                                    </div>
+                                <div class="col-md-7">
+                                    <p class="small text-muted text-uppercase mb-2">Invoice from</p>
+                                    <p class="mb-4">
+                                        <strong>Plant Nest</strong><br />
+                                        8 Ton That Thuyet, <br />
+                                        My Đinh, Nam Tu Liem, <br />
+                                        Ha Noi, Viet Nam.<br />
+                                        Phone: 0999999999.
+                                    </p>
+                                    <p>
+                                        <span class="small text-muted text-uppercase">Invoice #</span><br />
+                                        <strong>{{$order->order_code}}</strong>
+                                    </p>
                                 </div>
-                            </div>
+                                <div class="col-md-5 text-right">
+                                    <p class="small text-muted text-uppercase mb-2">Invoice to</p>
+                                    <p class="mb-4">
+                                        <strong>{{$order->first_name . ' ' . $order->last_name}}</strong> <br />
+                                        {{ $order->street_address }},<br />
+                                        {{ $order->town_city }}, {{ $order->postcode_zip }},
+                                        {{ $order->country }},<br />
+                                        Company name: {{ $order->company_name }}.<br />
+                                        Phone: {{ $order->phone }}.<br />
+                                    </p>
+                                    <p>
+                                        <small class="small text-muted text-uppercase">Order date</small><br />
+                                        <strong>{{$order->created_at->format('d-m-Y')}}</strong>
+                                    </p>
+                                </div>
+                            </div> <!-- /.row -->
                             <table class="table table-borderless table-striped">
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Products</th>
-                                    <th scope="col" class="text-right">SubTotal</th>
+                                    <th scope="col">Product</th>
+                                    <th scope="col" class="text-right">Price</th>
                                     <th scope="col" class="text-right">Qty</th>
                                     <th scope="col" class="text-right">Total</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($order->orderDetails as $orderDetail)
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td> {{$orderDetail->product->name}}<br />
+                                    @foreach($order->orderDetails as $orderDetail)
+                                        <tr>
+                                            <th>{{$order->order_code}}</th>
+                                            <td> {{$orderDetail->product->name}}<br />
 
-                                        </td>
-                                        <td class="text-right">${{$orderDetail->amount}}</td>
-                                        <td class="text-right">{{$orderDetail->qty}}</td>
-                                        <td class="text-right">${{$orderDetail->total}}</td>
-                                    </tr>
-                                @endforeach
+                                            </td>
+                                            <td class="text-right">${{$orderDetail->amount}}</td>
+                                            <td class="text-right">{{$orderDetail->qty}}</td>
+                                            <td class="text-right">${{$orderDetail->total}}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
-
-                            <div class="col-md-5" style="margin-left: auto">
-                                <div class="text-right mr-2">
-                                    <p class="mb-2">Subtotal:
-                                        <span style="font-size: 14px">${{number_format($subtotal, 2, '.', '') }}</span>
-                                    </p>
-                                    <p class="mb-2">VAT (10%):
-                                        <span style="font-size: 14px">${{number_format($vatAmount, 2, '.', '') }}</span>
-                                    </p>
-                                    <p class="mb-2">Shipping:
-                                        <span style="font-size: 14px">${{number_format($shippingFee, 2, '.', '') }}</span>
-                                    </p>
-                                    <p class="mb-2">Total:
-                                        <span  style="font-size: 14px"> ${{number_format($total, 2, '.', '') }}</span>
-                                    </p>
+                            <div class="row mt-5">
+                                <div class="col-2 text-center">
+                                    <img src="./admin/assets/images/qrcode.svg" class="navbar-brand-img brand-sm mx-auto my-4" alt="...">
                                 </div>
-                            </div>
-
-                            <div class="row mt-2">
-                                <div class="col-12 text-center">
-                                    <img src="./dashboard/assets/images/qrcode.svg" class="navbar-brand-img brand-sm mx-auto my-4" alt="QR Code">
+                                <div class="col-md-5">
+                                    <p class="text-muted small">
+                                        <strong>Note: </strong>Delivery times may vary due to location and other factors. Thank you, we hope you understand.</p>
                                 </div>
-                                <div class="col-12 md-5">
-                                    <p style="color: red; font-size: 14px; font-weight: 600; text-align: center">
-                                        <strong>NOTE: </strong>Delivery times may vary due to location and other factors. Thank you, we hope you understand.</p>
+                                <div class="col-md-5">
+                                    <div class="text-right mr-2">
+                                        <p class="mb-2">Subtotal:
+                                            <span style="font-size: 14px">${{number_format($subtotal, 2, '.', '') }}</span>
+                                        </p>
+                                        <p class="mb-2">VAT (10%):
+                                            <span style="font-size: 14px">${{number_format($vatAmount, 2, '.', '') }}</span>
+                                        </p>
+                                        <p class="mb-2">Shipping:
+                                            <span style="font-size: 14px">${{number_format($shippingFee, 2, '.', '') }}</span>
+                                        </p>
+                                        <p class="mb-2">Total:
+                                            <span  style="font-size: 14px"> ${{number_format($total, 2, '.', '') }}</span>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-
+                            </div> <!-- /.row -->
                         </div> <!-- /.card-body -->
                     </div> <!-- /.card -->
                 </div> <!-- /.col-12 -->
