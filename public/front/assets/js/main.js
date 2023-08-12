@@ -709,7 +709,7 @@ function addCart(productId) {
                     '                                                    <p>{{$cart->qty}} x <span>$'+ response['cart'].price.toFixed(2)+' </span></p>\n' +
                     '                                                </div>\n' +
                     '                                                <div class="cart_remove">\n' +
-                    '                                                    <a href="#"><i class="icon-x"></i></a>\n' +
+                    '                                                    <a href="#"><i  onclick="removeCart(\''+ response['cart'] +'\')" class="icon-x"></i></a>\n' +
                     '                                                </div>\n' +
                     '                                            </div>\n' +
                     '\n' +

@@ -273,7 +273,7 @@
                                                         <p>{{$cart->qty}} x <span> {{$cart->price}} </span></p>
                                                     </div>
                                                     <div class="cart_remove">
-                                                        <a href="#"><i class="icon-x"></i></a>
+                                                        <a href="#"><i onclick="removeCart('{{$cart->rowId}}')" class="icon-x"></i></a>
                                                     </div>
                                                 </div>
                                             @endforeach
