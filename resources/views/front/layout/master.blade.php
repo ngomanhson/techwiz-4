@@ -286,7 +286,7 @@
                                                 </div>
                                                 <div class="cart_total mt-10">
                                                     <span>total:</span>
-                                                    <span class="price">{{Cart::total()}}</span>
+                                                    <span class="price">{{Cart::subtotal()}}</span>
                                                 </div>
                                             </div>
                                         </div>
