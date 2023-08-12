@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\Product;
+use App\Service\Product\ProductServiceInterface;
+use App\Service\ProductCategory\ProductCategoryServiceInterface;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {

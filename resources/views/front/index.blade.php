@@ -162,8 +162,7 @@
                                                         <a href="{{url("wishlist/addWish", ["product" => $item])}}" title="Add to Wishlist"><i class="icon-heart"></i></a>
                                                     </li>
                                                     <li class="quick_button">
-                                                        <a href="#" data-bs-toggle="modal"
-                                                           data-bs-target="#modal_box" title="quick view"> <i class="icon-eye"></i></a>
+                                                        <a href="shop/{{$item->slug}}"> <i class="icon-eye"></i></a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -317,7 +316,6 @@
         </div>
     </section>
     <!--blog area end-->
-
 {{--    End Home Page--}}
 @endsection
 

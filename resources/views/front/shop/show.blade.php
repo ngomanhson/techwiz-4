@@ -137,16 +137,13 @@
 
                                                 <li class="wishlist"><a href="#!" title="Add to Wishlist"><i
                                                             class="icon-heart"></i></a></li>
-                                                <li class="quick_button"><a href="#" data-bs-toggle="modal"
-                                                                            data-bs-target="#modal_box" title="quick view"> <i
-                                                            class="icon-eye"></i></a></li>
+                                                <li class="quick_button"><a href="shop/{{$pr->slug}}"> <i class="icon-eye"></i></a></li>
+
                                             </ul>
                                         </div>
                                         <div class="action_links list_action">
                                             <ul>
-                                                <li class="quick_button"><a href="#" data-bs-toggle="modal"
-                                                                            data-bs-target="#modal_box" title="quick view"> <i
-                                                            class="icon-eye"></i></a></li>
+                                                <li class="quick_button"><a href="shop/{{$pr->slug}}"> <i class="icon-eye"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
