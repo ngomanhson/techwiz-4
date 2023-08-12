@@ -67,7 +67,7 @@ class ProductController extends Controller
 //            ]
 //        );
         $data =$request->all();
-        $data['qty']= 0;
+//        $data['qty']= 0;
         $data['slug'] = Str::slug($data['name']);
         $data['featured'] = 0;
         $data['rate'] = 0;
