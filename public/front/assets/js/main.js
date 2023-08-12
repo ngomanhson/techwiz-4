@@ -731,6 +731,7 @@ function addCart(productId) {
             }
             // console.log(response['content']);
             $('.item_count').text(response['content']);
+            location.reload()
         },
         error: function(response) {
 

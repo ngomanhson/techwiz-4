@@ -33,7 +33,6 @@ class CartController extends Controller
 //        die("aa");
         if ($request->ajax()){
             $product = $this->productService->find($request->productId);
-
             $response['cart']=Cart::add([
                 'id' => $product->id,
                 'name' => $product->name,
