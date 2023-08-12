@@ -26,6 +26,7 @@
                     <div class="col-12">
                         <div class="table_desc">
                             <div class="cart_page table-responsive">
+                                @if(count($carts) > 0)
                                 <table>
                                     <thead>
                                         <tr>
@@ -43,7 +44,7 @@
                                                 <td class="product_remove"><a href="{{url('/cart')}}"><i onclick="removeCart('{{$cart->rowId}}')" class="fa fa-trash-o"></i></a></td>
                                                 <td class="product_thumb"><a href="#"><img src="{{$cart->options->images[0]->path}}" alt=""></a></td>
                                                 <td class="product_name"><a href="#">{{$cart->name}}</a></td>
-                                                <td class="product-price">{{$cart->price}}</td>
+                                                <td class="product-price">${{$cart->price}}</td>
                                                 <td class="product_quantity">
 {{--                                                        <input min="1" max="100" value="{{$cart->qty}}" type="number">--}}
                                                     <div class="quantity">
@@ -62,6 +63,12 @@
                             <div class="cart_submit">
                                 <button type="submit">update cart</button>
                             </div>
+                            @else
+                                <div class="empty_cart_message">
+                                 <a href="{{url('/shop')}}">   <img src="front/assets/img/empty-cart.png.jpg" width="30%" alt="There are no products in the cart. Shopping now!"></a>
+                                    <p>There are no products in the cart. Shopping now!</p>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -84,12 +91,12 @@
                                 <div class="coupon_inner">
                                     <div class="cart_subtotal">
                                         <p>Subtotal</p>
-                                        <p class="cart_amount">{{Cart::subtotal()}}</p>
+                                        <p class="cart_amount">${{Cart::subtotal()}}</p>
                                     </div>
 
                                     <div class="cart_subtotal">
                                         <p>Total</p>
-                                        <p class="cart_amount">{{Cart::subtotal()}}</p>
+                                        <p class="cart_amount">${{Cart::subtotal()}}</p>
                                     </div>
                                     <div class="checkout_btn">
                                         <a href="{{url('/checkout/')}}">Proceed to Checkout</a>
