@@ -87,7 +87,7 @@
                             <div class="product_variant quantity">
                                 <label>Quantity</label>
                                 @if($productQty > 0)
-                                    <input id="quantityInput" value="1" type="number" min="1" max="{{ $productQty }}">
+                                    <input id="quantityInput" name="qty" value="" type="number" min="1" max="{{ $productQty }}">
                                 @else
                                     <input disabled value="Out of stock">
                                 @endif
