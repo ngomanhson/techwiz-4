@@ -29,6 +29,8 @@ class CheckoutController extends Controller
     public function updateTotal(Request $request)
     {
         $shippingFee = $request->input('shipping_fee');
+
+        $request->session()->put('shipping_fee', $shippingFee);
         $subtotal = str_replace(',', '', Cart::subtotal());
         $vatRate = 0.1;
         $vatAmount = $subtotal * $vatRate;
@@ -303,16 +305,16 @@ class CheckoutController extends Controller
 //        dd($carts);
 
         $subtotal = $request->session()->get('subtotal', 0);
-//        $vatAmount = $request->session()->get('vatAmount', 0);
-//        $shippingFee = $request->session()->get('shipping_fee', 0);
+        $vatAmount = $request->session()->get('vatAmount', 0);
+        $shippingFee = $request->session()->get('shipping_fee', 0);
         $total = $request->session()->get('total', 0);
 
         $request->session()->put('subtotal');
-//        $request->session()->put('vatAmount');
+        $request->session()->put('vatAmount');
         $request->session()->put('total');
 
-        Mail::send("front.checkout.email", compact("order", "carts", "subtotal", "total"),
-            function ($message) use ($email_to, $order) {
+        Mail::send("front.checkout.email", compact("order", "carts", "subtotal", "total", "vatAmount", "shippingFee"),
+            function ($message) use ($email_to, $order, $shippingFee) {
                 $message->from('sonnmth2205010@fpt.edu.vn', 'Plant Nest');
                 $message->to($email_to, $email_to);
                 $message->subject('Order Notification - #' . $order->order_code);
