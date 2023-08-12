@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'six-idiots'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_ED4B9B8A1BFB4CCA8DA40CF44FDD6076 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E1A0591619D84C7E94BECBA7E37EFB68 }}
           package: .
