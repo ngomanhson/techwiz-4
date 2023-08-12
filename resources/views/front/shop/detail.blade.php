@@ -84,21 +84,24 @@
                                 <p>{{$product->content}}</p>
                             </div>
 
+                            <div class=" product_d_action">
+                                <ul>
+                                    <li class="wishlist">
+                                        <a href="{{url("wishlist/addWish", ["product" => $product])}}" title="Add to Wishlist"><i class="icon-heart"></i> Add to Wishlist</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="product_d_meta">
+                                <span>SKU: {{$product->sku}}</span>
+                                <span>Category: <a href="shop/category/{{$product->productCategory->name}}">{{$product->productCategory->name}}</a></span>
+                                <span>Number of products available: {{$product->qty}}</span>
+                            </div>
+
                             <div class="product_variant quantity">
                                 <button type="submit" class="button" onclick="addCart({{ $product->id }})">Add to Cart</button>
                             </div>
                         </form>
-
-                        <div class=" product_d_action">
-                            <ul>
-                                <li><a href="{{url("wishlist/addWish", ["product" => $product])}}" title="Add to wishlist">+ Add to Wishlist</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="product_d_meta">
-                            <span>SKU: {{$product->sku}}</span>
-                            <span>Category: <a href="#">{{$product->productCategory->name}}</a></span>
-                        </div>
                         <div class="priduct_social">
                             <?php
                             $productUrl = 'https://your-product-url.com'; // Đường dẫn đến sản phẩm thực tế của bạn

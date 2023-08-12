@@ -10,7 +10,7 @@
                     <div class="breadcrumb_content">
                         <h3>Wishlist</h3>
                         <ul>
-                            <li><a href="index.html">home</a></li>
+                            <li><a href="/">home</a></li>
                             <li>Wishlist</li>
                         </ul>
                     </div>
@@ -43,12 +43,12 @@
                                     @foreach($products as $item)
                                         <tr>
                                             <td class="product_remove"><a href="{{url("wishlist/deleteWish", ["product" => $item])}}">X</a></td>
-                                            <td class="product_thumb"><a href="#"><img
+                                            <td class="product_thumb"><a href="shop/{{$item->slug}}"><img
                                                         src="{{$item->productImages[0]->path}}" alt=""></a></td>
-                                            <td class="product_name"><a href="#">{{$item->name}}</a></td>
+                                            <td class="product_name"><a href="shop/{{$item->slug}}">{{$item->name}}</a></td>
                                             <td class="product-price">${{$item->price}}</td>
                                             <td class="product_quantity">In Stock</td>
-                                            <td class="product_total"><a href="#">Add To Cart</a></td>
+                                            <td class="product_total"><a href="javascript:addCart({{$item->id}})">Add To Cart</a></td>
 
                                         </tr>
                                     @endforeach
