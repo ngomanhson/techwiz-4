@@ -148,8 +148,8 @@
                                 <article class="single_product">
                                     <figure>
                                         <div class="product_thumb">
-                                            <a class="primary_img" href="shop/{{$item->id}}"><img
-                                                    src="{{$item->productImages[0]->path}}" alt=""></a>
+                                            <a class="primary_img" href="shop/{{$item->slug}}"><img
+                                                    src="{{$item->productImages[0]->path}}" alt="{{$item->name}}"></a>
                                             <div class="label_product">
                                                 <span class="label_sale">-7%</span>
                                             </div>
@@ -186,7 +186,7 @@
                                                     @endfor
                                                 </ul>
                                             </div>
-                                            <h4 class="product_name"><a href="shop/{{$item->id}}">{{$item->name}}</a></h4>
+                                            <h4 class="product_name"><a href="shop/{{$item->slug}}">{{$item->name}}</a></h4>
                                             <div class="price_box">
                                                 <span class="current_price">${{$item->price}}</span>
                                                 <span class="old_price">${{$item->discount}}</span>
@@ -300,7 +300,7 @@
                                 <figcaption class="blog_content">
                                     <h4 class="post_title"><a href="blog/{{$item->id}}">{{$item->title}}</a></h4>
                                     <div class="articles_date">
-                                        <p>By <span>{$item->user->first_name}} {{$item->user->last_name}} / {{$item->created_at->format('d/m/Y')}}</span></p>
+                                        <p>By <span>{{$item->user->first_name}} {{$item->user->last_name}} / {{$item->created_at->format('d/m/Y')}}</span></p>
                                     </div>
                                     <p class="post_desc">{{$item->subtitle}}</p>
                                     <footer class="blog_footer">

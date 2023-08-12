@@ -105,4 +105,9 @@ class ProductRepository extends BaseRepositories implements ProductRepositoryInt
             ->get();
     }
 
+    public function findBySlug($slug)
+    {
+        return Product::where('slug', $slug)->first();
+    }
+
 }
