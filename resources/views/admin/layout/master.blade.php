@@ -35,14 +35,14 @@
         <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
             <i class="fe fe-menu navbar-toggler-icon"></i>
         </button>
-{{--        @if(Request::is('order')) <!-- Replace 'order' with the correct URL path for the order page -->--}}
+        {{--        @if(Request::is('order')) <!-- Replace 'order' with the correct URL path for the order page -->--}}
         <form class="form-inline mr-auto searchform text-muted">
             <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" value="{{ request()->input('search') }}" name="search" type="search" placeholder="Type something..." aria-label="Search">
             <button type="submit" class="btn-shadow btn-hover-shine btn btn-primary">
                 <span>Search</span>
             </button>
         </form>
-{{--        @endif--}}
+        {{--        @endif--}}
         <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="light">
@@ -108,59 +108,59 @@
                     </a>
                 </li>
             </ul>
-{{--            @canany(['user.view','user.edit','user.edit','user.delete'])--}}
-                <p class="text-muted nav-heading mt-1 mb-1">
-                    <span>Components</span>
-                </p>
-                <ul class="navbar-nav flex-fill w-100 mb-2">
-                    <li class="nav-item w-100">
-                        <a class="nav-link" href="{{url("/admin/user")}}">
-                            <i class="fe fe-user fe-16"></i>
-                            <span class="ml-3 item-text">User</span>
-                        </a>
-                    </li>
-                </ul>
-{{--            @endcanany--}}
-{{--            @canany(['orders.view','orders.edit','orders.edit','orders.delete'])--}}
-                <p class="text-muted nav-heading mt-1 mb-1">
-                    <span>Orders</span>
-                </p>
-                <ul class="navbar-nav flex-fill w-100 mb-2">
-                    <li class="nav-item">
-                        <a href="{{url("/admin/orders")}}" class="nav-link">
-                            <i class="fe fe-box fe-16"></i>
-                            <span class="ml-3 item-text">Orders</span>
-                            <span class="badge badge-pill badge-primary">New</span>
-                        </a>
-                    </li>
-                </ul>
-{{--            @endcanany--}}
-{{--            @canany(['product.view','product.edit','product.edit','product.delete'])--}}
-                <p class="text-muted nav-heading mt-1 mb-1">
-                    <span>Products</span>
-                </p>
-                <ul class="navbar-nav flex-fill w-100 mb-2">
-                    <li class="nav-item">
-                        <a href="{{url("/admin/product")}}" class="nav-link">
-                            <i class="fe fe-grid fe-16"></i>
-                            <span class="ml-3 item-text">Product</span>
-                        </a>
-                    </li>
-                </ul>
-{{--            @endcanany--}}
-{{--            @canany(['category.view','category.edit','category.edit','category.delete'])--}}
-                <p class="text-muted nav-heading mt-1 mb-1">
-                    <span>Category</span>
-                </p>
-                <ul class="navbar-nav flex-fill w-100 mb-2">
-                    <li class="nav-item">
-                        <a href="{{url("/admin/category")}}" class="nav-link">
-                            <i class="fe fe-layers fe-16"></i>
-                            <span class="ml-3 item-text">Category</span>
-                        </a>
-                    </li>
-                </ul>
-{{--            @endcanany--}}
+            {{--            @canany(['user.view','user.edit','user.edit','user.delete'])--}}
+            <p class="text-muted nav-heading mt-1 mb-1">
+                <span>Components</span>
+            </p>
+            <ul class="navbar-nav flex-fill w-100 mb-2">
+                <li class="nav-item w-100">
+                    <a class="nav-link" href="{{url("/admin/user")}}">
+                        <i class="fe fe-user fe-16"></i>
+                        <span class="ml-3 item-text">User</span>
+                    </a>
+                </li>
+            </ul>
+            {{--            @endcanany--}}
+            {{--            @canany(['orders.view','orders.edit','orders.edit','orders.delete'])--}}
+            <p class="text-muted nav-heading mt-1 mb-1">
+                <span>Orders</span>
+            </p>
+            <ul class="navbar-nav flex-fill w-100 mb-2">
+                <li class="nav-item">
+                    <a href="{{url("/admin/orders")}}" class="nav-link">
+                        <i class="fe fe-box fe-16"></i>
+                        <span class="ml-3 item-text">Orders</span>
+                        <span class="badge badge-pill badge-primary">New</span>
+                    </a>
+                </li>
+            </ul>
+            {{--            @endcanany--}}
+            {{--            @canany(['product.view','product.edit','product.edit','product.delete'])--}}
+            <p class="text-muted nav-heading mt-1 mb-1">
+                <span>Products</span>
+            </p>
+            <ul class="navbar-nav flex-fill w-100 mb-2">
+                <li class="nav-item">
+                    <a href="{{url("/admin/product")}}" class="nav-link">
+                        <i class="fe fe-grid fe-16"></i>
+                        <span class="ml-3 item-text">Product</span>
+                    </a>
+                </li>
+            </ul>
+            {{--            @endcanany--}}
+            {{--            @canany(['category.view','category.edit','category.edit','category.delete'])--}}
+            <p class="text-muted nav-heading mt-1 mb-1">
+                <span>Category</span>
+            </p>
+            <ul class="navbar-nav flex-fill w-100 mb-2">
+                <li class="nav-item">
+                    <a href="{{url("/admin/category")}}" class="nav-link">
+                        <i class="fe fe-layers fe-16"></i>
+                        <span class="ml-3 item-text">Category</span>
+                    </a>
+                </li>
+            </ul>
+            {{--            @endcanany--}}
 
 
             <p class="text-muted nav-heading mt-1 mb-1">

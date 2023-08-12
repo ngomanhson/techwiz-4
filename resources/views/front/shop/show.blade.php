@@ -38,27 +38,6 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            <div class="widget_list widget_color">
-                                <h3>Select By Size</h3>
-                                <ul>
-                                    <li>
-                                        <a href="#">S <span>(6)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> M <span>(8)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">L <span>(10)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"> XL <span>(6)</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#">XLL <span>(4)</span></a>
-                                    </li>
-
-                                </ul>
-                            </div>
 
                             <div class="widget_list widget_color">
                                 <h3>Filter Price</h3>
@@ -128,7 +107,10 @@
                                         <a class="primary_img" href="shop/{{$pr->slug}}"><img
                                                 src="/{{$pr->productImages[0]->path}}" alt="{{$pr->name}}"></a>
                                         <div class="label_product">
-                                            <span class="label_sale">-7%</span>
+                                            @php
+                                                $discountPercentage = (($pr->price - $pr->discount) / $pr->price) * 100;
+                                            @endphp
+                                            <span class="label_sale">{{ number_format($discountPercentage, 0) }}%</span>
                                         </div>
                                         <div class="action_links">
                                             <ul>
@@ -137,16 +119,13 @@
 
                                                 <li class="wishlist"><a href="#!" title="Add to Wishlist"><i
                                                             class="icon-heart"></i></a></li>
-                                                <li class="quick_button"><a href="#" data-bs-toggle="modal"
-                                                                            data-bs-target="#modal_box" title="quick view"> <i
-                                                            class="icon-eye"></i></a></li>
+                                                <li class="quick_button"><a href="shop/{{$pr->slug}}"> <i class="icon-eye"></i></a></li>
+
                                             </ul>
                                         </div>
                                         <div class="action_links list_action">
                                             <ul>
-                                                <li class="quick_button"><a href="#" data-bs-toggle="modal"
-                                                                            data-bs-target="#modal_box" title="quick view"> <i
-                                                            class="icon-eye"></i></a></li>
+                                                <li class="quick_button"><a href="shop/{{$pr->slug}}"> <i class="icon-eye"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -154,11 +133,56 @@
                                         <div class="product_price_rating">
                                             <div class="product_rating">
                                                 <ul>
-                                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                                    <li><a href="#"><i class="icon-star"></i></a></li>
-                                                    <li><a href="#"><i class="icon-star"></i></a></li>
+                                                    <style>
+                                                        /* Icon mặc định (không active) */
+                                                        .icon-star {
+                                                            color: #ccc;
+                                                        }
+                                                        /* Icon active (có điểm đánh giá) */
+                                                        .icon-star.active {
+                                                            color: #ffca08;
+                                                        }
+                                                    </style>
+                                                    {{--                                                    @for ($i = 1; $i <= 5; $i++)--}}
+                                                    {{--                                                        <li><a href="#"><i class="icon-star{{ $i <= $item->averageRating ? ' active' : '' }}"></i></a> </li>--}}
+                                                    {{--                                                    @endfor--}}
+                                                    @if($pr->rate == 5)
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                    @elseif($pr->rate < 5 && $pr->rate >= 4)
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star"></i>
+                                                    @elseif($pr->rate < 4 && $pr->rate >= 3)
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                    @elseif($pr->rate < 3 && $pr->rate >= 2)
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                    @elseif($pr->rate < 2 && $pr->rate >= 1)
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                    @else
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                    @endif
                                                 </ul>
                                             </div>
                                             <h4 class="product_name"><a href="{{url("/shop/{$pr->slug}")}}">{{$pr->name}}</a></h4>
@@ -171,11 +195,56 @@
                                     <div class="product_content list_content">
                                         <div class="product_rating">
                                             <ul>
-                                                <li><a href="#"><i class="icon-star"></i></a></li>
-                                                <li><a href="#"><i class="icon-star"></i></a></li>
-                                                <li><a href="#"><i class="icon-star"></i></a></li>
-                                                <li><a href="#"><i class="icon-star"></i></a></li>
-                                                <li><a href="#"><i class="icon-star"></i></a></li>
+                                                <style>
+                                                    /* Icon mặc định (không active) */
+                                                    .icon-star {
+                                                        color: #ccc;
+                                                    }
+                                                    /* Icon active (có điểm đánh giá) */
+                                                    .icon-star.active {
+                                                        color: #ffca08;
+                                                    }
+                                                </style>
+                                                {{--                                                    @for ($i = 1; $i <= 5; $i++)--}}
+                                                {{--                                                        <li><a href="#"><i class="icon-star{{ $i <= $item->averageRating ? ' active' : '' }}"></i></a> </li>--}}
+                                                {{--                                                    @endfor--}}
+                                                @if($pr->rate == 5)
+                                                    <i class="icon-star active"></i>
+                                                    <i class="icon-star active"></i>
+                                                    <i class="icon-star active"></i>
+                                                    <i class="icon-star active"></i>
+                                                    <i class="icon-star active"></i>
+                                                @elseif($pr->rate < 5 && $pr->rate >= 4)
+                                                    <i class="icon-star active"></i>
+                                                    <i class="icon-star active"></i>
+                                                    <i class="icon-star active"></i>
+                                                    <i class="icon-star active"></i>
+                                                    <i class="icon-star"></i>
+                                                @elseif($pr->rate < 4 && $pr->rate >= 3)
+                                                    <i class="icon-star active"></i>
+                                                    <i class="icon-star active"></i>
+                                                    <i class="icon-star active"></i>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                @elseif($pr->rate < 3 && $pr->rate >= 2)
+                                                    <i class="icon-star active"></i>
+                                                    <i class="icon-star active"></i>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                @elseif($pr->rate < 2 && $pr->rate >= 1)
+                                                    <i class="icon-star active"></i>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                @else
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                    <i class="icon-star"></i>
+                                                @endif
                                             </ul>
                                         </div>
                                         <h4 class="product_name"><a href="{{url("/shop/{$pr->slug}")}}">{{$pr->name}}</a>

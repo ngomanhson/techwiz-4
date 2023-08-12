@@ -35,16 +35,11 @@ class ShopController extends Controller
 
     public function detail($id) {
         $product = $this->productService->find($id);
-        $products_detail = ProductDetail::where('product_id', $product->id)->get();
+        $productQty = $product->qty;
         $pro = $this ->productService->getRelatedProducts($product);
         $title = $product->name;
-        if (empty($product->productDetails)) {
-            $defaultSize = null;
-        } else {
-            $defaultSize = $product->productDetails[0]->size ?? null;
-        }
 
-        return view('front.shop.detail', compact('product', 'pro', 'defaultSize', 'title', 'products_detail'));
+        return view('front.shop.detail', compact('product', 'pro', 'title','productQty'));
     }
 
     public function wishlist() {

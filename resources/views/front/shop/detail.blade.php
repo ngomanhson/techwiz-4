@@ -84,70 +84,15 @@
                                 <p>{{$product->content}}</p>
                             </div>
 
-                            <div class="product_variant color">
-                                <h3>Options</h3>
-                            </div>
-
-                            <div class="product_variant size">
-                                <label>Size</label>
-                                @if($product->productDetails->isEmpty())
-                                    <input disabled value="Out of stock">
-                                @else
-                                    <select onchange="updateInput(); updateMaxQuantity();" class="select_option" id="select_option" name="product_size">
-                                        @foreach ($product->productDetails->pluck('size')->unique() as $size)
-                                            <option value="{{ $size }}" @if($loop->first) selected @endif>{{ $size }}</option>
-                                        @endforeach
-                                    </select>
-                                @endif
-                                <label style="padding-left: 20px">Having: <input id="sizeCount" style="border: none; outline: none"/></label>
-                            </div>
-
                             <div class="product_variant quantity">
                                 <label>Quantity</label>
-                                @php
-                                    $defaultSize = $product->productDetails->isEmpty() ? null : $product->productDetails->first()->size;
-                                    $maxQuantity = $product->productDetails->where('size', $defaultSize)->first()->qty ?? 0;
-                                @endphp
-                                @if($maxQuantity > 0)
-                                    <input id="quantityInput" value="1" type="number" min="1" max="{{ $maxQuantity }}">
+                                @if($productQty > 0)
+                                    <input id="quantityInput" value="1" type="number" min="1" max="{{ $productQty }}">
                                 @else
                                     <input disabled value="Out of stock">
                                 @endif
                                 <button type="submit" class="button" onclick="addCart({{ $product->id }})">Add to Cart</button>
                             </div>
-
-                            <script>
-                                var rentalMethodData = {
-                                    @foreach ($products_detail as $rentalMethod)
-                                    "{{ $rentalMethod->size }}": "{{ $rentalMethod->qty }}",
-                                    @endforeach
-                                };
-
-                                function updateInput() {
-                                    var select = document.getElementById("select_option");
-                                    var label = document.getElementById("sizeCount");
-                                    var selectedId = select.value;
-
-                                    label.value = rentalMethodData[selectedId];
-                                }
-
-                                function updateMaxQuantity() {
-                                    var select = document.getElementById("select_option");
-                                    var quantityInput = document.getElementById("quantityInput");
-                                    var selectedId = select.value;
-
-                                    var maxQuantity = rentalMethodData[selectedId];
-                                    quantityInput.max = maxQuantity;
-                                    quantityInput.value = 1; // Reset the quantity to 1 when changing size
-                                }
-
-                                // Call the updateInput and updateMaxQuantity functions on page load
-                                window.addEventListener("load", function () {
-                                    updateInput();
-                                    updateMaxQuantity();
-                                });
-                            </script>
-
                         </form>
 
                         <div class=" product_d_action">

@@ -151,7 +151,10 @@
                                             <a class="primary_img" href="shop/{{$item->slug}}"><img
                                                     src="{{$item->productImages[0]->path}}" alt="{{$item->name}}"></a>
                                             <div class="label_product">
-                                                <span class="label_sale">-7%</span>
+                                                @php
+                                                    $discountPercentage = (($item->price - $item->discount) / $item->price) * 100;
+                                                @endphp
+                                                <span class="label_sale">{{ number_format($discountPercentage, 0) }}%</span>
                                             </div>
                                             <div class="action_links">
                                                 <ul>
@@ -162,8 +165,7 @@
                                                         <a href="{{url("wishlist/addWish", ["product" => $item])}}" title="Add to Wishlist"><i class="icon-heart"></i></a>
                                                     </li>
                                                     <li class="quick_button">
-                                                        <a href="#" data-bs-toggle="modal"
-                                                           data-bs-target="#modal_box" title="quick view"> <i class="icon-eye"></i></a>
+                                                        <a href="shop/{{$item->slug}}"> <i class="icon-eye"></i></a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -181,9 +183,46 @@
                                                             color: #ffca08;
                                                         }
                                                     </style>
-                                                    @for ($i = 1; $i <= 5; $i++)
-                                                        <li><a href="#"><i class="icon-star{{ $i <= $item->averageRating ? ' active' : '' }}"></i></a> </li>
-                                                    @endfor
+{{--                                                    @for ($i = 1; $i <= 5; $i++)--}}
+{{--                                                        <li><a href="#"><i class="icon-star{{ $i <= $item->averageRating ? ' active' : '' }}"></i></a> </li>--}}
+{{--                                                    @endfor--}}
+                                                    @if($item->rate == 5)
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                    @elseif($item->rate < 5 && $item->rate >= 4)
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star"></i>
+                                                    @elseif($item->rate < 4 && $item->rate >= 3)
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                    @elseif($item->rate < 3 && $item->rate >= 2)
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                    @elseif($item->rate < 2 && $item->rate >= 1)
+                                                        <i class="icon-star active"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                    @else
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                        <i class="icon-star"></i>
+                                                    @endif
                                                 </ul>
                                             </div>
                                             <h4 class="product_name"><a href="shop/{{$item->slug}}">{{$item->name}}</a></h4>
@@ -317,7 +356,6 @@
         </div>
     </section>
     <!--blog area end-->
-
 {{--    End Home Page--}}
 @endsection
 
