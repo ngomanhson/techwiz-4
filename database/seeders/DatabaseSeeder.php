@@ -346,7 +346,193 @@ class DatabaseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-
+            [
+                'product_category_id' => 6,
+                'name' => 'Propagation Starter Set',
+                'slug' => Str::slug('Propagation Starter Set'),
+                'description' => 'Propagate with style and confidence with thoughtfully designed propagation vases and helpful rooting hormone. Ideal for any plant parent looking to grow their plant collection by propagation, our Propagation Starter Set will help you expand your plant family and make watching your cuttings grow easier than ever.',
+                'content' => null,
+                'price' => 270.00,
+                'qty' => 13,
+                'discount' => 288.17,
+                'weight' => null,
+                'sku' => Str::random(8),
+                'featured' => true,
+                'species' => "demo",
+                'rate' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_category_id' => 6,
+                'name' => 'Tough Stuff Collection',
+                'slug' => Str::slug('Tough Stuff Collection'),
+                'description' => 'Propagate with style and confidence with thoughtfully designed propagation vases and helpful rooting hormone. Ideal for any plant parent looking to grow their plant collection by propagation, our Propagation Starter Set will help you expand your plant family and make watching your cuttings grow easier than ever.',
+                'content' => null,
+                'price' => 370.00,
+                'qty' => 9,
+                'discount' => 420.40,
+                'weight' => null,
+                'sku' => Str::random(8),
+                'featured' => true,
+                'species' => "demo",
+                'rate' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_category_id' => 3,
+                'name' => 'Fiddle Leaf Fig Tree',
+                'slug' => Str::slug('Fiddle Leaf Fig Tree'),
+                'description' => 'Stunning, larger-than-life, bold, and tropical are all things that come to mind when one thinks of the classic Fiddle Leaf Fig. This ficus is known for its large glossy violin-shaped leaves displaying bold, intricate veins supported by a sturdy trunk that breathe life into any space. Known for being fussy, all this plant really needs is a permanent warm spot with plenty of filtered light, and you can watch it thrive for generations to come.',
+                'content' => null,
+                'price' => 600.00,
+                'qty' => 12,
+                'discount' => 830.40,
+                'weight' => null,
+                'sku' => Str::random(8),
+                'featured' => true,
+                'species' => "demo",
+                'rate' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_category_id' => 1,
+                'name' => 'Statement Bundle',
+                'slug' => Str::slug('Statement Bundle'),
+                'description' => 'The bold and energetic Statement Bundle is ready to make its mark in your home or office. This dynamic duo includes the Bromeliad Aechmea Pink and Bromeliad Pineapple. The Bromeliad Aechmea features a long-lasting pink bloom and broad green leaves sprinkled with a silver coating. The Bromeliad Pineapple sprouts a fun ornamental pineapple from a whorl of long green leaves. Despite their unique appearances, these bromeliads are easy to care for.',
+                'content' => null,
+                'price' => 229.00,
+                'qty' => 8,
+                'discount' => 258.40,
+                'weight' => null,
+                'sku' => Str::random(8),
+                'featured' => true,
+                'species' => "demo",
+                'rate' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_category_id' => 2,
+                'name' => 'Low Light Duo',
+                'slug' => Str::slug('Low Light Duo'),
+                'description' => 'The Whalefin Sansevieria and ZZ Plant are two of the most laidback plants in our collection, each bringing their own unique style to the table. The Whalefin Sanseviera makes a statement with one sturdy leaf blade brushed with green spots. The ZZ Plant’s broad shiny green leaves arch from thick stems. These plants can handle neglect and live in various lighting, making them perfect for offices and plant parents on the go.',
+                'content' => null,
+                'price' => 352.00,
+                'qty' => 8,
+                'discount' => 428.40,
+                'weight' => null,
+                'sku' => Str::random(8),
+                'featured' => true,
+                'species' => "demo",
+                'rate' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_category_id' => 6,
+                'name' => 'Plant Care Set',
+                'slug' => Str::slug('Plant Care Set'),
+                'description' => 'The Plant Care Set includes everything you need to enhance your plant care regimen. The Mister helps to boost the humidity around your tropical plants and can help prevent dry, crispy leaves. The Microfiber Dusting Gloves help clean your dusty houseplants, allowing for sunlight to be absorbed more easily for optimal plant health. Neem oil is a versatile must-have for any plant owner wanting to treat and prevent common pests and diseases.',
+                'content' => null,
+                'price' => 65.00,
+                'qty' => 8,
+                'discount' => 80.40,
+                'weight' => null,
+                'sku' => Str::random(8),
+                'featured' => true,
+                'species' => "demo",
+                'rate' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_category_id' => 3,
+                'name' => 'Red Prayer Plant',
+                'slug' => Str::slug('Red Prayer Plant'),
+                'description' => 'The Maranta Red Prayer Plant has soft dark green leaves with feathered, painterly-like centers of light green and red veins. The colorful foliage and slow growth make this a perfect plant for window sills, mantles, or shelves in need of a splash of color.',
+                'content' => null,
+                'price' => 249.00,
+                'qty' => 8,
+                'discount' => 310.40,
+                'weight' => null,
+                'sku' => Str::random(8),
+                'featured' => true,
+                'species' => "demo",
+                'rate' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_category_id' => 6,
+                'name' => 'Repotting Kit (6” Pot)',
+                'slug' => Str::slug('Repotting Kit (6” Pot)'),
+                'description' => 'Is your plant showing signs of being root-bound and needing a larger pot? Repot your foliage friend with our Repotting Kit. This kit comes with one 6” round Ecopot and one 8-quart bag of our premium potting soil. It’s perfect for plants that have outgrown a 4” pot.',
+                'content' => null,
+                'price' => 49.00,
+                'qty' => 8,
+                'discount' => 80.40,
+                'weight' => null,
+                'sku' => Str::random(8),
+                'featured' => true,
+                'species' => "demo",
+                'rate' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_category_id' => 6,
+                'name' => 'Time Release ClassiCote Fertilizer',
+                'slug' => Str::slug('Time Release ClassiCote Fertilizer'),
+                'description' => 'With controlled release nutrients including phosphorus and magnesium, Jack’s ClassiCote Fertilizer with Crystal Green’s® crystalline compounds provides continuous nutrition for over four months, supporting stronger roots and vital green growth.',
+                'content' => null,
+                'price' => 35.00,
+                'qty' => 8,
+                'discount' => 50.40,
+                'weight' => null,
+                'sku' => Str::random(8),
+                'featured' => true,
+                'species' => "demo",
+                'rate' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_category_id' => 5,
+                'name' => 'Prickly Pear Cactus',
+                'slug' => Str::slug('Prickly Pear Cactus'),
+                'description' => 'An intriguing cactus with bright green pads, the Prickly Pear Cactus is a plant that’s fun to watch grow over time. Its pads actually grow atop of one another, giving it a stacked appearance. And, you can even propagate this cactus! Once your Prickly Pear grows pads that are at least 6 months old, you can remove them and replant them in the same pot.',
+                'content' => null,
+                'price' => 879.00,
+                'qty' => 8,
+                'discount' => 950.40,
+                'weight' => null,
+                'sku' => Str::random(8),
+                'featured' => true,
+                'species' => "demo",
+                'rate' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_category_id' => 4,
+                'name' => 'Olive Tree',
+                'slug' => Str::slug('Olive Tree'),
+                'description' => 'The olive tree (also known as the common olive tree) is an evergreen tree native to the Mediterranean. Being called “the next big thing” in the interior design world — the olive tree is ready to add a unique touch to your tabletops, patios, or sunny living rooms. While slow-growing, bright light and proper watering aid in this plant’s growth rate and overall health. ',
+                'content' => null,
+                'price' => 479.00,
+                'qty' => 8,
+                'discount' => 500.40,
+                'weight' => null,
+                'sku' => Str::random(8),
+                'featured' => true,
+                'species' => "demo",
+                'rate' => 0,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
 
         DB::table('product_detail')->insert([
@@ -773,7 +959,282 @@ class DatabaseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'product_id' => 18,
+                'path' => 'front/assets/img/product/product-18.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
 
+                'product_id' => 18,
+                'path' => 'front/assets/img/product/product-18.2.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_id' => 18,
+                'path' => 'front/assets/img/product/product-18.3.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 18,
+                'path' => 'front/assets/img/product/product-18.4.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_id' => 19,
+                'path' => 'front/assets/img/product/product-19.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 19,
+                'path' => 'front/assets/img/product/product-19.2.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'product_id' => 19,
+                'path' => 'front/assets/img/product/product-19.3.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 19,
+                'path' => 'front/assets/img/product/product-19.4.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 20,
+                'path' => 'front/assets/img/product/product-20.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 20,
+                'path' => 'front/assets/img/product/product-20.2.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 20,
+                'path' => 'front/assets/img/product/product-20.3.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 20,
+                'path' => 'front/assets/img/product/product-20.4.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 21,
+                'path' => 'front/assets/img/product/product-21.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 21,
+                'path' => 'front/assets/img/product/product-21.2.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 21,
+                'path' => 'front/assets/img/product/product-21.3.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 21,
+                'path' => 'front/assets/img/product/product-21.4.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 22,
+                'path' => 'front/assets/img/product/product-22.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 22,
+                'path' => 'front/assets/img/product/product-22.2.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 22,
+                'path' => 'front/assets/img/product/product-22.3.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 22,
+                'path' => 'front/assets/img/product/product-22.4.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 23,
+                'path' => 'front/assets/img/product/product-23.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 23,
+                'path' => 'front/assets/img/product/product-23.2.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 23,
+                'path' => 'front/assets/img/product/product-23.3.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 23,
+                'path' => 'front/assets/img/product/product-23.4.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 24,
+                'path' => 'front/assets/img/product/product-24.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 24,
+                'path' => 'front/assets/img/product/product-24.2.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 24,
+                'path' => 'front/assets/img/product/product-24.3.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 24,
+                'path' => 'front/assets/img/product/product-24.4.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 25,
+                'path' => 'front/assets/img/product/product-25.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 25,
+                'path' => 'front/assets/img/product/product-25.2.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 25,
+                'path' => 'front/assets/img/product/product-25.3.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 25,
+                'path' => 'front/assets/img/product/product-25.4.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 26,
+                'path' => 'front/assets/img/product/product-26.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 26,
+                'path' => 'front/assets/img/product/product-26.2.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 26,
+                'path' => 'front/assets/img/product/product-26.3.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 26,
+                'path' => 'front/assets/img/product/product-26.4.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 27,
+                'path' => 'front/assets/img/product/product-27.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 27,
+                'path' => 'front/assets/img/product/product-27.2.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 27,
+                'path' => 'front/assets/img/product/product-27.3.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+
+                'product_id' => 27,
+                'path' => 'front/assets/img/product/product-27.4.png',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
 
         DB::table('users')->insert([
