@@ -426,10 +426,6 @@
 
                                             <div class="col-lg-6">
                                                 @if($order->status == 0)
-                                                    <form action="{{url("/receive", ["order" => $order->id])}}" method="post">
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-success float-end" style="font-size: 12px">Complete</button>
-                                                    </form>
                                                     <form action="{{url("/cancelOrder", ["order" => $order->id])}}" method="post">
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger float-end" style="font-size: 12px">Cancel</button>
